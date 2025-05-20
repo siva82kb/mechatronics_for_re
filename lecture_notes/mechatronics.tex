@@ -2,23 +2,47 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%% preamble %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[11pt,twoside]{book}
+\documentclass[12pt,twoside]{book}
 
-% \usepackage[mono=false]{libertine} % new linux font, ignore mono
+% \usepackage[mono=true]{libertine} % new linux font, ignore mono
+% \usepackage{fourier}
+% \usepackage{newpxtext}
+% \usepackage{newpxmath}
+% \usepackage{kpfonts}
+% \usepackage{mathpazo}
+% \usepackage{charter}
+% \usepackage{libertine}
+\usepackage{cmbright}
+% \usepackage{libertinus}
+% \usepackage{libertinust1math}
+% \usepackage{helvet}
+% \usepackage{avant}
+% \usepackage{fouriernc}
+% \usepackage{arev}
+% \usepackage{berasans}
+% \usepackage{gfsartemisia}
+% \usepackage{librebaskerville}
+% \usepackage{quattrocento}
+% tgadventor	qag
+% \usepackage[T1]{fontenc}
+% \usepackage{lmodern}
 
 \usepackage{luatex85}
 
-\renewcommand{\baselinestretch}{1.05}
+\renewcommand{\baselinestretch}{1.15}
 \usepackage{amsmath,amsthm,amssymb,mathrsfs,amsfonts,dsfont}
 \usepackage{epsfig,graphicx}
+\usepackage{wrapfig} % for wrapping figures
 \usepackage{tikz}
 \usepackage{tikz-3dplot} % Required for 3D plots
 \usepackage{tabularx}
+\usepackage{multirow}
 \usepackage{blkarray}
 \usepackage{slashed}
 \usepackage{color}
 \usepackage{listings}
 \usepackage{caption}
+\usepackage[inline]{enumitem}
 % \usepackage{fullpage}
 \usepackage{lipsum} % provides dummy text for testing
 \usepackage[toc,title,titletoc,header]{appendix}
@@ -42,39 +66,49 @@
 \usepackage{enumitem}
 \usepackage{mathtools}
 \usepackage{physics}
-\usepackage[linesnumbered,ruled,vlined,algosection]{algorithm2e}
+\usepackage{soul}
+\usepackage[linesnumbered,ruled,vlined,algochapter]{algorithm2e}
+
 \SetCommentSty{textsf}
 \usepackage{epigraph}
 \epigraphwidth=1.0\linewidth
 \epigraphrule=0pt
 
+\usetikzlibrary{decorations.pathmorphing,patterns}
+\usepackage[american,cuteinductors]{circuitikz}
+\usetikzlibrary{shapes,arrows,circuits,calc,babel}
+% Definition of blocks:
+\tikzset{%
+  block/.style    = {draw, thick, rectangle, minimum height = 3em,
+    minimum width = 3em},
+  sum/.style      = {draw, circle, node distance = 2cm}, % Adder
+  input/.style    = {coordinate}, % Input
+  output/.style   = {coordinate} % Output
+}
+% Defining string as labels of certain blocks.
+\newcommand{\suma}{\Large$+$}
+\newcommand{\inte}{$\displaystyle \int$}
+\newcommand{\derv}{\huge$\frac{d}{dt}$}
+
 % adjust margin
 \usepackage[margin=2.3cm]{geometry}
-\headheight13.6pt
+% \headheight13.6pt
+% Set up mirrored margins for book-like layout
+\geometry{
+  bindingoffset=10mm, % Space for binding
+  inner=25mm, % Inner margin (next to the binding)
+  outer=15mm, % Outer margin
+  top=20mm,
+  bottom=20mm,
+  twoside % Enable different margins for odd and even pages
+}
 
-%%%%%%%%%%%%%%%% thmtools %%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%% thmtools %%%%%%%%%%%%%%%%%%%%%
+\usepackage{mdframed}
 \usepackage{thmtools}
-\declaretheorem[numberwithin=chapter]{theorem}
-\declaretheorem[numberwithin=chapter]{axiom}
-\declaretheorem[numberwithin=chapter]{lemma}
-\declaretheorem[numberwithin=chapter]{proposition}
-\declaretheorem[numberwithin=chapter]{claim}
-\declaretheorem[numberwithin=chapter]{conjecture}
-\declaretheorem[sibling=theorem]{corollary}
-\declaretheorem[numberwithin=chapter, style=definition]{definition}
-\declaretheorem[numberwithin=chapter, style=definition]{problem}
-\declaretheorem[numberwithin=chapter, style=definition]{example}
-\declaretheorem[numberwithin=chapter, style=definition]{exercise}
-\declaretheorem[numberwithin=chapter, style=definition]{observation}
-\declaretheorem[numberwithin=chapter, style=definition]{fact}
-\declaretheorem[numberwithin=chapter, style=definition]{construction}
-\declaretheorem[numberwithin=chapter, style=definition]{remark}
-\declaretheorem[numberwithin=chapter, style=remark]{question}
-%%%%%%%%%%%%%%%% thmtools %%%%%%%%%%%%%%%%%%%%%
-\usepackage{changepage}
-\newenvironment{solution}
-    {\renewcommand\qedsymbol{$\square$}\color{blue}\begin{adjustwidth}{0em}{2em}\begin{proof}[\textit Solution.~]}
-    {\end{proof}\end{adjustwidth}}
+\usepackage{tcolorbox} % For advanced boxed environments
+\usepackage{capt-of}
+\input{./thmdef.tex}
 
 %%%%%%%%%%%%%%%% index %%%%%%%%%%%%%%%%%%%%%
 \begin{filecontents}{index.ist}
@@ -171,34 +205,7 @@ delim_0 "\\nobreak\\dotfill"
 %%%%%%%%%%%%%%%%%%%%% glossaries-extra %%%%%%%%%%%%%%%%%
 
 \input{./macros.tex}
-
-%%%%%%%%%%%%%%%%%%%%% Custom-Defintions %%%%%%%%%%%%%%%%%
-\def\mf{\ensuremath\mathbf}
-\def\mb{\ensuremath\mathbb}
-\def\mc{\ensuremath\mathcal}
-\def\lp{\ensuremath\left(}
-\def\rp{\ensuremath\right)}
-\def\lv{\ensuremath\left\lvert}
-\def\rv{\ensuremath\right\rvert}
-\def\lV{\ensuremath\left\lVert}
-\def\rV{\ensuremath\right\rVert}
-\def\lc{\ensuremath\left\{}
-\def\rc{\ensuremath\right\}}
-\def\ls{\ensuremath\left[}
-\def\rs{\ensuremath\right]}
-\def\bmx{\ensuremath\begin{bmatrix*}[r]}
-\def\emx{\ensuremath\end{bmatrix*}}
-\def\bmxc{\ensuremath\begin{bmatrix*}[c]}
-
-\newcommand{\demoex}[2]{\onslide<#1->\begin{color}{black!60} #2 \end{color}}
-\newcommand{\demoexc}[3]{\onslide<#1->\begin{color}{#2} #3 \end{color}}
-\newcommand{\anim}[3]{\onslide<#1->{\begin{color}{#2!60} #3 \end{color}}}
-\newcommand{\ct}[1]{\lp #1\rp}
-\newcommand{\dt}[1]{\ls #1\rs}
-\newcommand{\cols}[2]{\begin{columns}[#1] #2 \end{columns}}
-\newcommand{\col}[2]{\begin{column}{#1} #2 \end{column}}
-\newcommand{\eqnwl}[1]{\begin{equation} #1 \end{equation}}
-\newcommand{\eqnwol}[1]{\begin{equation*} #1 \end{equation*}}
+\input{./customdef.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%% begin of document %%%%%%%%%%%%%%%
@@ -206,9 +213,12 @@ delim_0 "\\nobreak\\dotfill"
 
 \begin{document}
 
-\title{\bf \huge Mechatronics for Rehabilitation Enginbeering: Course Notes}
+\title{\bf \huge Mechatronics for Rehabilitation Engineering: Course Notes}
 \author{Sivakumar Balasubramanian \\ CMC Vellore}
 \date{Update on \today}
+% \title{\bf \huge Applied Linear Algebra in Data Analysis: Course Notes}
+% \author{Sivakumar Balasubramanian \\ CMC Vellore}
+% \date{Update on \today}
 \maketitle
 \setcounter{tocdepth}{2}
 \setcounter{minitocdepth}{1} 
@@ -220,35 +230,55 @@ delim_0 "\\nobreak\\dotfill"
     \label{toc-contents}
 \end{multicols}
 
-% 	\listoffigures
-% 	% \listoftables
+\listoffigures
+% \listoftables
 % \begin{multicols}{2}
 % 	\listoftheorems[ignoreall,show={theorem}]
 % \end{multicols}
-
-% 	\renewcommand{\listtheoremname}{List of Definitions}
+% \renewcommand{\listtheoremname}{List of Definitions}
 % \begin{multicols}{2}
 % 	\listoftheorems[ignoreall,show={definition}]
 % \end{multicols}
 
-	% \printglossaries
-	% \printglossary[type=\acronymtype]
-	% \printglossary
-	% \printglossary[title=List of terms, toctitle=List of terms]
+% \printglossaries
+% \printglossary[type=\acronymtype]
+\printglossary
+% \printglossary[title=List of terms, toctitle=List of terms]
 
-	% bib2gls
-	% \printunsrtglossaries % print all types
-	% \printunsrtglossary[type={abbreviations},title=List of Abbreviations,style=listgroup]
-	% \printunsrtglossary[type={abbreviations},title=List of Abbreviations,style=listhypergroup] % doesn't work
-	% \printunsrtglossary[type={symbols},title=List of Symbols,style=listgroup]
-	% \printunsrtglossary % main entry
+% bib2gls
+% \printunsrtglossaries % print all types
+% \printunsrtglossary[type={abbreviations},title=List of Abbreviations,style=listgroup]
+% \printunsrtglossary[type={abbreviations},title=List of Abbreviations,style=listhypergroup] % doesn't work
+% \printunsrtglossary[type={symbols},title=List of Symbols,style=listgroup]
+% \printunsrtglossary % main entry
 
 %%%%%%%%%%%%%%%Content%%%%%%%%%%%%%%%
 % \mainmatter % separat the number of toc and mainmatter
 % \input{./chapter/preface.tex}
 
 % \part{Linear Algebra}
-\input{./chapter/basic_electrical_circuits.tex}
+\input{./chapter/00summary.tex}
+\input{./chapter/01basic_electronics.tex}
+
+
+% \input{./chapter/01-matrices.tex}
+% \input{./chapter/01-lineartransf.tex}
+% \input{./chapter/01-lineqsolve.tex}
+% \input{./chapter/01-orthogonality.tex}
+% \input{./chapter/01-matrixinverses.tex}
+% 05 matrix inverses
+% 06 eigenvalues and eigenvectors
+% 07 positive definite matrices
+% 08 singular value decomposition
+
+% \part{Optimization}
+% % 09 mathe
+% \part{Probability and Statistics}
+% \input{./chapter/03-02statsest.tex}
+% % \part{Least Squares}
+
+% \part{Linear Programming}
+% \input{./chapter/04-01linearprogramming.tex}
 
 % \part{Computer Science}
 % % \input{./chapter/complexity.tex}

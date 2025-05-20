@@ -1,0 +1,29 @@
+% File: basic_elements.tex
+\documentclass{standalone}
+\usepackage[american]{circuitikz}
+
+\ctikzset{bipoles/resistor/height=0.2}
+\ctikzset{bipoles/resistor/width=0.5}
+
+\begin{document}
+\begin{circuitikz}[american]
+    \draw (2, 2) node[ocirc] (A) {};
+    \draw (A) node[yshift=3mm] {$n_A$};
+    \draw (4, 2) node[ocirc] (B) {};
+    \draw (B) node[yshift=3mm] {$n_B$};
+    \draw (4, 0.) node[ocirc] (C) {};
+    \draw (C) node[right, yshift=-3mm] {$n_C$};
+    \draw (2, 0.) node[ocirc] (D) {};
+    \draw (D) node[yshift=-3mm] {$n_D$};
+    \draw (0, 0) node[ocirc] (E) {};
+    \draw (E) node[left] {$n_E$};
+    % Circuit
+    \draw (E) to[V, l=$V_s$, invert] (0, 2);
+    \draw (0, 2) to[R, l=$R_1$] (A);
+    \draw (A) to[R, l=$R_2$] (D);
+    \draw (A) to[R, l=$R_3$] (B) to[R, l=$R_4$] (C) to[R, l=$R_5$] (D) to[R, l=$R_6$] (E) to ++(0, 0.5);
+    \draw (B) to ++(1, 0) to[R, l=$R_8$] ++(0, -2) to (C);
+    \draw (C) to ++(0, -1.25) to[I, l=$I_s$] ++(-2, 0) to[R, l=$R_7$] ++(-2, 0) to (E);
+\end{circuitikz}
+
+\end{document}
