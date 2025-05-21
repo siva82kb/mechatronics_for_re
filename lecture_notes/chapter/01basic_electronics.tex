@@ -215,7 +215,12 @@ For the circuit in Figure~\ref{fig:02-03}, perform the following calculation and
 \subsection{Practical Voltage and Current Sources}
 The independent voltage and current sources we have discussed so far are ``ideal'' sources. Practical or real sources do not behave like them - a battery cannot provide any amount of current for a load without any changes to the voltage across its terminals.
 
-A good model of practical voltage source is an ideal voltage source $V_s$ in series with a \textit{internal}, \textit{source} or \textit{output} resistor $R_s$. And for a practical current source, it is an ideal current source $I_s$ in parallel with a resistor $R_s$. The voltage across the terminal of a voltage source as function of the current draw from it is depicted for an ideal and practical voltage source in Figure~\ref{fig:02-04}.
+A good model of practical voltage source is an ideal voltage source $V_s$ in series with a \textit{internal}, \textit{source} or \textit{output} resistor $R_s$. And for a practical current source, it is an ideal current source $I_s$ in parallel with a resistor $R_s$. The voltage across the terminal of a voltage source as function of the current draw from it is depicted for an ideal and practical voltage source in Figure~\ref{fig:02-04}. For the ideal source (Figure~\ref{fig:02-04a}), the voltage $v_L$ is independent of the current $i_L$ drawn from it. For the practical voltage source (Figure~\ref{fig:02-04b}), the voltage across the terminals is a function of the current drawn from it,
+\begin{equation}
+    v_L = V_s - R_s \, i_L
+    \label{eq:02-22}
+\end{equation}
+When $R_L = \infty$ ($i_L = 0$), the voltage across the terminals is equal to the voltage of the source $V_s$. This is maximum voltage the practical source can provide. This is also know as the \textit{open circuit voltage} $v_{oc}$ of the source. When $R_L = 0$ ($v_L = 0$), the current drawn from the source $i_L = \frac{V_s}{R_s}$. This is the maximum current the voltage source can provide. This is also known as the \textit{short circuit current} $i_{sc}$ of the source.
 
 \begin{figure}[t]
     \centering
@@ -235,6 +240,72 @@ A good model of practical voltage source is an ideal voltage source $V_s$ in ser
     \caption{Comparison of the voltage-current relationship of an ideal and a practical voltage source.}
     \label{fig:02-04}
 \end{figure}
+
+\begin{boxedstuff}
+    \begin{problem}
+        Plot the voltage-current relationship of a practical current source with $I_s = 2A$ and $R_s = 10\Omega$. What are $v_{oc}$ and $i_{sc}$?
+    \end{problem}
+\end{boxedstuff}
+
+\subsection{Thevenin's and Norton's Theorems}
+Thevenin's and Norton's theorems are two important theorems in circuit theory that allow us to simplify complex circuits into simpler equivalent circuits. These theorems are based on the superposition principle, and can be used to analyze linear circuits with independent and dependent sources.
+
+\noindent\textbf{Thevenin's Theorem.} Thevenin's theorem states that any linear circuit with independent and dependent sources can be replaced by an equivalent circuit with a single voltage source $V_{th}$ in series with a resistor $R_{th}$, connected to the load resistor $R_L$. 
+
+\noindent\textbf{Norton's Theorem.} Norton's theorem states that any linear circuit with independent and dependent sources can be replaced by an equivalent circuit with a single current source $I_{N}$ in parallel with a resistor $R_{N}$, connected to the load resistor $R_L$.
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figure/fig02-05.pdf}
+    \caption{Thevenin's and Norton's circuits for a complex linear circuit. The Thevenin and Norton equivalent circuits have the same voltage-current relationship for any load.}
+    \label{fig:02-05}
+\end{figure}
+
+\noindent\textbf{Computing the Thevenin and Norton equivalent circuits.} The Thevenin and Norton equivalent circuits can be computed using the following steps:
+\begin{enumerate}
+    \item Remove the load resistor $R_L$ from the circuit.
+    \item Compute the open circuit voltage $v_{oc}$ across the terminals of the load resistor. This is the Thevenin voltage $V_{th}$. This can be using the superposition principle, where we zero all the independent sources except one and compute the open circuit voltage. The overall open circuit voltage is the sum of the open circuit voltages when all other sources are zeroed.
+    \item Compute the short circuit current $i_{sc}$ through the terminals of the load resistor. This is the Norton current $I_{N}$. This too can be calculated using the superposition principle.
+    \item Compute the Thevenin resistance $R_{th}$ by zeroing all independent sources in the circuit and computing the equivalent resistance seen from the terminals of the load resistor (without the load resistor). This is also equal to the Norton resistance $R_{N}$.
+    \item The Thevenin and Norton equivalent circuits are then given by:
+    \begin{equation}
+        \begin{split}
+            V_{th} &= v_{oc}\\
+            I_{N} &= i_{sc}\\
+            R_{th} &= R_{N}
+        \end{split}
+        \label{eq:02-23}
+    \end{equation}
+    \item The load resistor $R_L$ can be connected to either the Thevenin or Norton equivalent circuit, and the voltage and current across it can be computed using the voltage-current relationship of the equivalent circuit.
+\end{enumerate}
+
+\begin{boxedstuff}
+    \begin{problem}
+        Compute the Thevenin and Norton equivalent circuits for the circuit shown in Figur~\ref{fig:02-02} assuming the following as the load resistor: (a) $R_8$; (b) $R_2$; and (c) $R_7$.
+    \end{problem}
+\end{boxedstuff}
+
+\subsection{Maximum Power Transfer Theorem}
+The maximum power transfer theorem states that the maximum power is transferred to the load resistor $R_L$ when the load resistance is equal to the Thevenin resistance $R_{th}$ of the circuit. Consider the following circuit (Figure~\ref{fig:02-06}). The power absorbed by the load resistor $R_L$ is given by,
+\begin{equation}
+    P_{R_L} = \frac{R_L}{(R_{th} + R_L)^2} \, V_{th}^2
+    \label{eq:02-24}
+\end{equation}
+Its easy to check that the optimal value of $R_L$ that maximizes the power absorbed by the load resistor is given by,
+\begin{equation}
+    \begin{split}
+        R_L^* &= \arg\max_{R_L} \,\, \frac{R_L}{(R_{th} + R_L)^2} \, V_{th}^2 = R_{Th} \\
+        P_L^* &= \max_{R_L} \,\, \frac{R_L}{(R_{th} + R_L)^2} \, V_{th}^2 = \frac{1}{4}\left(\frac{V_{Th}^2}{R_{Th}}\right)
+    \end{split}
+    \label{eq:02-25}
+\end{equation}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figure/fig02-06.pdf}
+    \caption{Maximum power transfer theorem.}
+    \label{fig:02-06}
+\end{figure}
+
 
 % \begin{tikzpicture}
 %     \draw (2.5, 0) node [npn] (t) {$Q_1$};
