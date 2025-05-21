@@ -1,4 +1,4 @@
-% !TEX root = ../notes_template.tex
+% !TEX root = ../mechatronics.tex
 \chapter{Electronics Review}\label{chp:electronics}
 
 This chapter is a quick review of basic circuit theory and electronics. Prior knowledge of these topics is assumed, along with basic understanding of linear time invariant systems - Fourier/Laplace transforms, linear constant coefficient differential equations, transfer functions, and frequency response. The reader is encouraged to review the material in this chapter before proceeding to the next chapter.
@@ -13,9 +13,9 @@ The interaction of electromagnetic fields with matters is the basis of all elect
     \label{fig:02-01}
 \end{figure}
 
-\noindent\textbf{Voltage source.} An idea voltage source provides a fixed voltage $V$ between its two terminals, and can provide any amount of current. Notice that the voltage $V$ can be fixed or time varying. For example, for a DC vortlage source with $V = 5V$, the voltage across the two terminals will be $5V$ for all time. But for a time varying AC source, $V = 5 \sin \left( 100\pi t \right)$, the voltage across its terminal will vary with time.
+\noindent\textbf{Independent Voltage source.} An idea voltage source provides a fixed voltage $V$ between its two terminals, and can provide any amount of current. Notice that the voltage $V$ can be fixed or time varying. For example, for a DC vortlage source with $V = 5V$, the voltage across the two terminals will be $5V$ for all time. But for a time varying AC source, $V = 5 \sin \left( 100\pi t \right)$, the voltage across its terminal will vary with time. We will often drop the adjective "independent" when we are sure that the context is clear. We will look at dependent sources later, and we will always use the adjective "dependent" to refer to them.
 
-\noindent \textbf{Current source.} An ideal cuyrrent source provide a fixed amount of current to flow throgh its terminals (out through one and in through the other), irrespective of the voltage across its terminals. Current sources can also be time-varying.
+\noindent \textbf{Independent Current source.} An ideal cuyrrent source provide a fixed amount of current to flow throgh its terminals (out through one and in through the other), irrespective of the voltage across its terminals. Current sources can also be time-varying.
 
 \noindent \textbf{Resistor.} A passive element where the current $i_R$ flowing through the element is proportional to the voltage $v_R$ across its terminals.
 \[ v_R \propto i_R \]
@@ -163,6 +163,78 @@ Note that in a parallel connection, the equivalent resistance cannot be larger t
 Its left as an exercise for you to verify these expressions.
 
 \noindent\textbf{What does the equivalent resistance actually mean?} The equilvant resistor with resistance $R_{eq}$ has the same voltage-current relationship as the individual elements in series or parallel connection. We can replace the series or parallel connection of the individual resistors $R_1$ to $R_n$ by a single resistor with value $R_{eq}$ without changing the volatage current relationships in the circuit. The same argument applies for equivalent capacitors and inductors.
+
+\subsubsection{Voltage sources in series and parallel}
+\noindent\textbf{Series connection} of $n$ voltage sources $V_1, V_2, \cdots V_n$ will result in an equivalent voltage source $V_{eq}$ given by
+\begin{equation}
+    V_{eq} = V_1 + V_2 + \cdots + V_n
+    \label{eq:02-19}
+\end{equation}
+Voltage soruces should not be connected in parallel, as this will result in a short circuit. Ideally, an infinite currelt will flow through the connection, because the volaage sources force a potential difference between the two end of the wires and it has zero resistance. Parallel connections are allowed only when the two sources have the same voltage and polarity.
+
+\subsubsection{Current sources in series and parallel}
+\noindent\textbf{Parallel connection} of $n$ current sources $I_1, I_2, \cdots I_n$ will
+result in an equivalent current source $I_{eq}$ given by
+\begin{equation}
+    I_{eq} = I_1 + I_2 + \cdots + I_n
+    \label{eq:02-20}
+\end{equation}
+Current sources should not be connected in series; series connections are allowed only when the two sources have the same current and polarity.
+
+\subsection{Superposition Principle}
+Linear approximations of circuits are often employed as first order approximations when analysing circuits. A linear ciruit is one that consists of linear passive elements, independent sources and linear dependent sources. Linear circuits follow the superposition principle, which states that the response of a linear circuit to a linear combination of inputs is equal to the corresponding linear comibnation of the responses to each input applied separately. Solving the following circuit (Figure~\ref{fig:02-03}) should make this concept clear.
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.65\textwidth]{figure/fig02-03.pdf}
+    \caption{A simple circuit with two sourcers}
+    \label{fig:02-03}
+\end{figure}
+For the circuit in Figure~\ref{fig:02-03}, perform the following calculation and compare your results.
+
+\noindent\textbf{Step 1.} Solve for the voltage across and the current through the resistors $R_1$ and $R_2$; we will refer to these are $v_{R1}, i_{R1}$ and $v_{R2}, i_{R2}$, respectively. You should use both Kirchoff's current and voltages laws to compute these variables.
+
+\noindent Let's now consider of the sources in the circuit seperately. This would mean making the source values ``zero''. This corresponds to two different operations on the circuit. Zeroing a voltage source corresponds to replacing it with a wire (a short circuit), while zeroing a current source corresponds to simple removing the current source (an open circuit). 
+
+\noindent\textbf{Step 2.} Zero the voltage source $V_s$ and compute the voltages and currents associated with the two resistors. We will refer to these as $v_{R1,V_s=0}$, $v_{R2,V_s=0}$, $i_{R1,V_s=0}$, and $i_{R2,V_s=0}$.
+
+\noindent\textbf{Step 3.} Zero the current source $I_s$ and compute the voltages and currents associated with the two resistors. We will refer to these as $v_{R1,I_s=0}$, $v_{R2,I_s=0}$, $i_{R1,I_s=0}$, and $i_{R2,I_s=0}$.
+
+\noindent\textbf{Step 4.} For a linear circuit, shown in Figure~\ref{fig:02-03}, the following will always be true.
+\begin{equation}
+    \begin{split}
+        v_{R1} &= v_{R1,V_s=0} + v_{R1,I_s=0}\\
+        v_{R2} &= v_{R2,V_s=0} + v_{R2,I_s=0}\\
+        i_{R1} &= i_{R1,i_s=0} + i_{R1,I_s=0}\\
+        i_{R2} &= i_{R2,i_s=0} + i_{R2,I_s=0}\\
+    \end{split}
+    \label{eq:02-21}
+\end{equation}
+
+\noindent Let's assume that I am only interested in $i_{R2}$. Can I use $i_{R2,V_s=0}$ and $i_{R2,I_s=0}$ to compute the current $i_{R2}$ if $V_s = 1V$ and $I_s=-2A$? 
+
+\subsection{Practical Voltage and Current Sources}
+The independent voltage and current sources we have discussed so far are ``ideal'' sources. Practical or real sources do not behave like them - a battery cannot provide any amount of current for a load without any changes to the voltage across its terminals.
+
+A good model of practical voltage source is an ideal voltage source $V_s$ in series with a \textit{internal}, \textit{source} or \textit{output} resistor $R_s$. And for a practical current source, it is an ideal current source $I_s$ in parallel with a resistor $R_s$. The voltage across the terminal of a voltage source as function of the current draw from it is depicted for an ideal and practical voltage source in Figure~\ref{fig:02-04}.
+
+\begin{figure}[t]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figure/fig02-04a.pdf}
+        \caption{Ideal voltage source}
+        \label{fig:02-04a}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figure/fig02-04b.pdf}
+        \caption{Practical voltage source with a load}
+        \label{fig:02-04b}
+    \end{subfigure}
+    \caption{Comparison of the voltage-current relationship of an ideal and a practical voltage source.}
+    \label{fig:02-04}
+\end{figure}
 
 % \begin{tikzpicture}
 %     \draw (2.5, 0) node [npn] (t) {$Q_1$};
