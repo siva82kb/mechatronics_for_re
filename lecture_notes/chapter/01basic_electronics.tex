@@ -22,13 +22,13 @@ The interaction of electromagnetic fields with matters is the basis of all elect
 In the case of linear resistors, the proportionality factor is constant, resulting in Ohm's law,
 \begin{equation}
     v_R = R \, i_R
-    \label{eq:ch02-01}
+    \label{eq:02-01}
 \end{equation}
 
 The units of $R$ are $V.A^{-1}$ or $Omhs \left( \Omega \right)$. $R$ is in general positive. The power absorbed by a resistor is given by the product of the voltage across it and the current flowing through the resistor, 
 \begin{equation}
     P = v_R \, i_R = i_R^2 \, R = \frac{v_R^2}{R}
-    \label{eq:ch02-02}
+    \label{eq:02-02}
 \end{equation}
 This power is dissipated as heat by the resistor. Note that the power absorbed by a resistor is always positive, since $R$ is positive.
 
@@ -37,49 +37,49 @@ We will later see non-linear resistors, where the resistance varies as a functio
 \noindent \textbf{Capacitor.} A capacitor is another passive element with the following voltage current relationship.
 \begin{equation}
     i_C = C \frac{d v_C}{dt}
-    \label{eq:ch02-03}
+    \label{eq:02-03}
 \end{equation}
 
 The current $i_C$ through the capacitor is proportional to the rate of change of voltage across its terminals $v_C$. The proportionality factor is called the capacitance $C$, and has units of $F$ (Farads) or $C \cdot V^{-1}$. The voltage across the capacitor is given by at any given time is proportional to the integral of the current flowing through itor the charge stored in the capacitor. The voltage across the capacitor is given by
 \begin{equation}
     q = C \, v_C
-    \label{eq:ch02-04}
+    \label{eq:02-04}
 \end{equation}
 
 The instantaneous power absorbed by the capacitor is given by,
 \begin{equation}
     P = v_C \, i_C = C \, v_C \frac{d v_C}{dt}
-    \label{eq:ch02-05}
+    \label{eq:02-05}
 \end{equation}
 
 The power absorbed by the capacitor can be positive or negative, depending on the direction of current flow. If the current is flowing into the capacitor, then the voltage across it is increasing, and the power absorbed is positive. If the current is flowing out of the capacitor, then the voltage across it is decreasing, and the power absorbed is negative. A capacitor stores energy in the electric field between its plates. The energy stored in a capacitance at any given time depends on the charge stored in it, and is given by,
 \begin{equation}
     E = \frac{1}{2}  C \, v_C^2
-    \label{eq:ch02-06}
+    \label{eq:02-06}
 \end{equation}
 
 \noindent \textbf{Inductor.} An inductor is another passive element with the following voltage current relationship.
 \begin{equation}
     v_L = L \frac{di_L}{dt}
-    \label{eq:ch02-07}
+    \label{eq:02-07}
 \end{equation}
 
 The voltage $v_L$ across the inductor is proportional to the rate of change of current $i_L$ flowing through it. The proportionality factor is called the inductance $L$, and has units of $H$ (Henries) or $V \cdot s \cdot A^{-1}$. The current through the inductor is given by at any given time is proportional to the integral of the voltage across it. The current through the inductor is given by
 \begin{equation}
     i_L = \frac{1}{L} \int v_L \, dt
-    \label{eq:ch02-08}
+    \label{eq:02-08}
 \end{equation}
 
 The instantaneous power absorbed by the inductor is given by,
 \begin{equation}
     P = v_L \, i_L = L \, i_L \frac{di_L}{dt}
-    \label{eq:ch02-09}
+    \label{eq:02-09}
 \end{equation}
 
 The power absorbed by the inductor can be positive or negative, depending on the direction of current flow. If the current is flowing into the inductor, then the voltage across it is increasing, and the power absorbed is positive. If the current is flowing out of the inductor, then the voltage across it is decreasing, and the power absorbed is negative. An inductor stores energy in the magnetic field around it. The energy stored in an inductor at any given time depends on the current flowing through it, and is given by,
 \begin{equation}
     E = \frac{1}{2}  L \, i_L^2
-    \label{eq:ch02-10}
+    \label{eq:02-10}
 \end{equation}
 
 \subsection{Kirchoff's Laws}
@@ -99,7 +99,7 @@ How do we find out the voltages and currents in the circuit? Kirchoff's laws can
     The sum of the currents at a node is equal to zero. This is based on the conservation of charge, and can be expressed mathematically as:
     \begin{equation}
         \sum_{i=1}^{n} i_i = 0
-        \label{eq:ch02-11}
+        \label{eq:02-11}
     \end{equation}
     where $i_i$ is the current flowing into or out of the node, and $n$ is the number of elements connected to the node. The current flowing into a node is positive, and the current flowing out of a node is negative.
     
@@ -108,7 +108,7 @@ How do we find out the voltages and currents in the circuit? Kirchoff's laws can
     This is based on the conservation of energy, and can be expressed mathematically as:
     \begin{equation}
         \sum_{i=1}^{n} v_i = 0
-        \label{eq:ch02-12}
+        \label{eq:02-12}
     \end{equation}
     where $v_i$ is the voltage across each element in the loop, and $n$ is the number of elements in the loop.
 
@@ -312,18 +312,116 @@ Its easy to check that the optimal value of $R_L$ that maximizes the power absor
     \end{problem}
 \end{boxedstuff}
 
+\subsection{RC, RL, and RLC Circuits}
+Unlike resistors, that neitther remember the past values of its votlage or current, capacitors and indutors retain memory of the past current and past voltage, respectively. This can be easily seen from their respective voltage-current relationships given by Eq.~\ref{eq:02-03} and Eq.~\ref{eq:02-07}, respectively. 
 
+\noindent\textbf{Capacitor:}
+\begin{equation}
+    i_C = C \frac{dv_C}{dt} \implies v_C\left(t\right) = \frac{1}{C}\int_{0}^{t} i_C\left(\tau\right) d\tau + v_C\left(0\right)
+    \label{eq:02-26}
+\end{equation} 
+The instantaneous voltage across a capacitor contains some information about the past history the current that has flown through the capacitor. This voltage $v_C\left(t\right)$ is determined by the charge on the capacitor at time $t$. Note, that the voltage across the capacitor cannot change instantaneously, as this would require an infinite current to flow through the capacitor. Theoretically, however, an impulse (Dirac delta function) current applied to the capacutor can produce instantaneous change in the capacitor's voltage.
 
-% \begin{tikzpicture}
-%     \draw (2.5, 0) node [npn] (t) {$Q_1$};
-%     \draw (0, 0) node[ocirc] {} to[R, l=$R_1$] (t.base);
-%     \draw (t.collector) to[R, l=$R_2$] ++(0, 2) -- ++(1.5, 0) node[ocirc] (p1){};
-%     \draw (t.collector) node[circ] {} -- ++(1.5, 0) node[ocirc] (p2) {};
-%     \draw (t.emitter) -- ++(0, -1) node[circ] (e){} -- ++ (1.5, 0) node[ocirc] (p3) {};
-%     \draw (e.center) -- ++(-2.5, 0) node[ocirc]{};
-%     \draw [-latex] ([xshift=-2mm]0, 0) -- ++(0, -1.8) node[midway, left] {$U_1$};
-%     \draw [-latex] ([xshift=2mm]p2.center) -- ([xshift=2mm]p3.center) node[midway, left] {$U_3$};
-%     \draw (t.base) node [above] {B};
-%     \draw (t.collector) node [left] {C};
-%     \draw (t.emitter) node [left] {E};
-% \end{tikzpicture}
+\noindent\textbf{Inductor:}
+\begin{equation}
+    v_L = L \frac{di_L}{dt} \implies i_L\left(t\right) = \frac{1}{L}\int_{0}^{t} v_L\left(\tau\right) d\tau + i_L\left(0\right)
+    \label{eq:02-27}
+\end{equation}
+Similarly, the instantaneous current through the inductor contains some information about the history of voltage applied across the inductor. Current through an inductor cannot change instantaneously, as this would require an infinite voltage to be applied across the inductor. An impulse voltage applied to the inductor can produce instantaneous change in the inductor's current.
+
+\noindent\textbf{RC Circuit.} Consider a simple RC circuit shown in Figure~\ref{fig:02-07a}. We can write Kirchoff's voltage law for the circuit as follows,
+\begin{equation}
+    RC \frac{d v_C}{dt} + v_C = V_s \implies v_C(t) = e^{-t/RC} \left[ v_{C}(0) + \int_0^t \frac{1}{RC} e^{\tau/RC} V_s(\tau)\, d\tau \right]
+    \label{eq:02-28}
+\end{equation}
+The above euqation gives the general solution for the voltage across the capactior. We can derive all other variables of interest from $v_C$. The response to an impulse input, step input, sinusoidal input, or any arbitrary $V_s$ can be computed using the above equation. The response for a step input obtained using a fixed sources and a swtich is given in Figure~\ref{fig:02-07a}. $RC$ is the time constant of the circuit, and is a measure of how fast the capacitor charges or discharges and it has the units of time.
+
+\begin{figure}[t]
+    \centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figure/fig02-07a.pdf}
+        \caption{Ideal voltage source}
+        \label{fig:02-07a}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figure/fig02-07b.pdf}
+        \caption{Practical voltage source with a load}
+        \label{fig:02-07b}
+    \end{subfigure}
+    \caption{Simple RC and RL circuits and their transient responses.}
+    \label{fig:02-07}
+\end{figure}
+
+Using Laplace transform to analyze the circuit, we can write the following expression for the voltage across the capacitor,
+\begin{equation}
+    V_C(s) = \frac{1}{sRC + 1} V_s(s) + \frac{v_C(0)}{sRC + 1}
+    \label{eq:02-29}
+\end{equation}
+$V_C(s)$ and $V_s(s)$ are the Laplace transforms of $v_C(t)$ and $V_s(t)$. Replacing $s = j\omega$ will give us the frequency response of the system with $V_C(s)$ as the output and $V_s(s)$ as the input.
+
+\noindent\textbf{RL Circuit.} Consider a simple RL circuit shown in Figure~\ref{fig:02-07b}. Kirchoff's voltage law for the circuit is as follows,
+\begin{equation}
+    \frac{L}{R} \frac{di_L}{dt} + i_L = \frac{1}{R}V_s \implies i_L(t) = e^{-t/L} \left[ i_{L}(0) + \int_0^t \frac{1}{L} e^{\tau/L} V_s(\tau)\, d\tau \right]
+    \label{eq:02-30}
+\end{equation}
+The above euqation gives the general solution for the current through the inductor. The response to an impulse input, step input, sinusoidal input, or any arbitrary $V_s$ can be computed using the above equation. The response for a step input obtained using a fixed sources and a swtich is given in Figure~\ref{fig:02-07a}. $\frac{L}{R}$ is the time constant of the circuit, and is a measure of how fast the current through the inductor can chamge; it has the units of time.
+
+Similarly, applying the Laplace transform, we have,
+\begin{equation}
+    I_L(s) = \frac{1}{sL + R} V_s(s) + \frac{i_L(0)}{sL + R}
+    \label{eq:02-31}
+\end{equation}
+
+\noindent\textbf{RLC Circuit.} Consider a simple series RLC circuit shown in Figure~\ref{fig:02-08}. Kirchoff's voltage law for the circuit is as follows,
+\begin{equation}
+    LC\frac{d^2 v_C}{dt^2} + RC \frac{d v_C}{dt} + v_C = V_s 
+    \label{eq:02-32}
+\end{equation}
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figure/fig02-08.pdf}
+    \caption{A simple RLC circuit and the different respones of the circuit when the switch $S$ is closed at time $t = 0$, with  zero initial capacitor voltage and inductor current whent .}
+    \label{fig:02-08}
+\end{figure}
+The response of the circuit when the switch is closed at $t=0$ is qualitatively different depending on the values of $R$, $L$ and $C$. This is better understood in the Laplace domain. The Laplace transform of the response $v_c(t)$ is given by,
+\begin{equation}
+    V_C(s) = \frac{V_s(s)}{LCs^2 + RCs + 1} + v_C(0)\frac{C\left(Ls + R\right)}{LCs^2 + RCs + 1} + i_L(0)\frac{RC}{LCs^2 + RCs + 1}
+    \label{eq:02-33}
+\end{equation}
+Note that $i_L(0) = \frac{d v_C}{dt}(0)$. The denominator of the above equation is a second order polynomial in $s$, and thus the response of the circuit will depend on the roots of the polynomial. The four different responses are shown in Figure~\ref{fig:02-08}.
+
+\subsection{Steady State Sinusoidal Analysis}
+The previous subsection looked at the transient response of the some simple circuits involving $R$, $L$, and $C$. However, we are often interested in the steady state response of these circuits to sinussoidal excitations. This is because sinusoisal signals are eigenfunctions of linear systems, such as the linear circuits we have discussed so far. With sinusoidal excitations, all currents and voltages in the circuit will also be sinusoidal with the same frequency as the input excitations, althought with different amplitudes and phases. Complex numbers are used to in this analysis as for compact representation of ampltiude and phase of signals. 
+
+For steady state frequency analysis for circuits involving $R$, $L$, and $C$, we extend the idea of resistance to impedance. Fourier transforms provide a natural way to analyze the steady state response of linear circuits to sinusoidal excitations. We first recast the voltage-current relationships of the circuit elements in the Fourier domain. 
+\begin{equation}
+    \begin{split}
+        \textbf{Resistor:} \quad & v_R = R \, i_R \implies V_R\left(j\omega\right) = R \cdot I_R\left(j\omega\right)\\
+        \textbf{Capacitor:} \quad & i_C = C\frac{d v_C}{dt} \, \implies V_C\left(j\omega\right) = \frac{1}{j\omega C} \cdot I\left(j\omega\right)\\
+        \textbf{Inductor:} \quad & v_L = L \frac{d i_L}{dt} \implies V_L\left(j\omega\right) = j\omega L \cdot I_L\left(j \omega \right)
+    \end{split}
+    \label{eq:02-34}
+\end{equation}
+
+The Fourier transformed voltage-current relationships of the circuit elements look like Ohms law, with the concept of resistance extended to impedance. The impedance of a capacitor and inductor defined as the are defined as the ratio of the Fourier transformed voltage to the Fourier transformed current. They are functions of the frequency of the voltage/current. The impedance of a resistor, capacitor, and inductor are given by,
+\begin{equation}
+    \begin{split}
+        \textbf{Resistor:} \quad & Z_R = R\\
+        \textbf{Capacitor:} \quad & Z_C = \frac{1}{j\omega C}\\
+        \textbf{Inductor:} \quad & Z_L = j\omega L
+    \end{split}
+    \label{eq:02-35}
+\end{equation}
+
+\noindent\textbf{Equivalent Impedance.} The equivalent impedance of a circuit with impedances $Z_1, Z_2, \cdots Z_n$ in series is given by $Z_{eq} = Z_1 + Z_2 + \cdots + Z_n$. When the impedances $Z_1, Z_2, \cdots Z_n$ are in parallel, the equivalent impedances is given by $\frac{1}{Z_{eq}} = \frac{1}{Z_1} + \frac{1}{Z_2} + \cdots + \frac{1}{Z_n}$.
+
+\noindent\textbf{Amplitude and phase modification by an impedance.} If a sinusoidal current excitation $i\left(t\right) = I_o \sin\left(\omega t\right)$ is passed through an impednace $Z$. Then the voltage across the impedance is given by,
+\begin{equation}
+    v\left(t\right) = \vert Z \vert I_o \sin\left(\omega t + \arg Z \right)
+    \label{eq:02-36}
+\end{equation}
+The amplitude of the sinusoidal voltage is $\vert Z \vert I_o$, and the phase of the sinusoidal voltage is $\arg Z$, with respect to the current $i\left(t\right)$. 
+
