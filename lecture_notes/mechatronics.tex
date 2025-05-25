@@ -226,8 +226,10 @@ delim_0 "\\nobreak\\dotfill"
 \begin{multicols}{2}
     \dominitoc% Initialization
     \adjustmtc[2]% chp number shift for mini-toc
-    \tableofcontents
-    \label{toc-contents}
+    {\footnotesize % or \footnotesize, \scriptsize
+      \tableofcontents
+      \label{toc-contents}
+    }
 \end{multicols}
 
 \listoffigures
@@ -259,6 +261,7 @@ delim_0 "\\nobreak\\dotfill"
 % \part{Linear Algebra}
 \input{./chapter/00summary.tex}
 \input{./chapter/01basic_circuit_theory.tex}
+\input{./chapter/02electronics_review.tex}
 
 
 % \input{./chapter/01-matrices.tex}

@@ -1,11 +1,11 @@
 % !TEX root = ../mechatronics.tex
-\chapter{Electronics Review}\label{chp:electronics}
+\chapter{Review of Basic Circuit Theory}\label{chp:circuit_theory}
 
-This chapter is a quick review of basic circuit theory and electronics. Prior knowledge of these topics is assumed, along with basic understanding of linear time invariant systems - Fourier/Laplace transforms, linear constant coefficient differential equations, transfer functions, and frequency response. The reader is encouraged to review the material in this chapter before proceeding to the next chapter.
+This chapter is a quick review of basic circuit theory. Prior knowledge of these topics is assumed, along with basic understanding of linear time invariant systems - Fourier/Laplace transforms, linear constant coefficient differential equations, transfer functions, and frequency response. The reader is encouraged to review the material in this chapter before proceeding to the next chapter.
 
-\section{Review of Basic Circuit Theory}
 The interaction of electromagnetic fields with matters is the basis of all electrical and electronic devices. These interactions are often described, analyzed and synthesized through the abstractions of electrical circuit theory. The following are the most basic circuit two-terminal elements we will need for now. We will introduce new ones as and when they are required. Each circuit element has a unique voltage-current relationship, and it is \emph{important} that you know these by heart.
 
+\section{Basic}
 \begin{figure}[b]
     \centering
     \includegraphics[width=\textwidth]{figure/ch02/fig02-01.pdf}
@@ -82,7 +82,7 @@ The power absorbed by the inductor can be positive or negative, depending on the
     \label{eq:02-10}
 \end{equation}
 
-\subsection{Kirchoff's Laws}
+\section{Kirchoff's Laws}
 The five elements alone are not that interesting. But interesting things can be done by connecting these elements together in different ways to form an electrical circuit. The elements are connected together by wires, whicha are assumed to be perfect conductors, i.e. zero resistance. Consider the following circuit (Figure \ref{fig:02-01}),
 \begin{figure}[t]
     \centering
@@ -117,10 +117,10 @@ How do we find out the voltages and currents in the circuit? Kirchoff's laws can
 
 Note that the two laws apply for any type of circuit element used in the circuits, independnet or dependent voltage/current sources, resistors, capacitors, inductors, other two, three or four terminal elements.
 
-\subsection{Series and Parallel Connections}
+\section{Series and Parallel Connections}
 Two elements that share the same voltage across them between a given pair of notes are said to be \textbf{parallel} to each other. In Figure~\ref{fig:02-02}, $R_4$ and $R_8$ are parallel to each other. In a single loop, two elements that share the same current are said to be in \textbf{series} with each other. In Figure~\ref{fig:02-02}, $V_s$ and $R_1$ are in series, $I_s$ and $R_7$ are in series.
 
-\subsubsection{Resistors in series and parallel}
+\subsection{Resistors in series and parallel}
 When $n$ resistors $R_1, R_2, \cdots R_n \geq 0$ are in series, these can be combined to an equivalent resistor with resistance $R_{eq}$ given by the following,
 \begin{equation}
     R_{eq} = \sum_{i=1}^{n} R_i \implies R_{eq} \geq \max_{1 \leq i \leq n} R_i.
@@ -135,7 +135,7 @@ When $n$ resistors $R_1, R_2, \cdots R_n \geq 0$ are in parallel, these can be c
 \end{equation}
 Note that in a parallel connection, the equivalent resistance cannot be larger than the smallest value of $R_1$ to $R_n$.
 
-\subsubsection{Capacitors in series and parallel}
+\subsection{Capacitors in series and parallel}
 \noindent\textbf{Series connection} of $n$ capacitors $C_1, C_2, \cdots C_n \geq 0$
 \begin{equation}
     C_{eq} = \frac{C_1C_2\cdots C_n}{C_1 + C_2 + \cdots + C_n}
@@ -148,7 +148,7 @@ Note that in a parallel connection, the equivalent resistance cannot be larger t
     \label{eq:02-16}
 \end{equation}
 
-\subsubsection{Inductors in series and parallel}
+\subsection{Inductors in series and parallel}
 \noindent\textbf{Series connection} of $n$ capacitors $L_1, L_2, \cdots L_n \geq 0$
 \begin{equation}
     L_{eq} = L_1 + L_2 + \cdots + L_n
@@ -164,7 +164,7 @@ Its left as an exercise for you to verify these expressions.
 
 \noindent\textbf{What does the equivalent resistance actually mean?} The equilvant resistor with resistance $R_{eq}$ has the same voltage-current relationship as the individual elements in series or parallel connection. We can replace the series or parallel connection of the individual resistors $R_1$ to $R_n$ by a single resistor with value $R_{eq}$ without changing the volatage current relationships in the circuit. The same argument applies for equivalent capacitors and inductors.
 
-\subsubsection{Voltage sources in series and parallel}
+\subsection{Voltage sources in series and parallel}
 \noindent\textbf{Series connection} of $n$ voltage sources $V_1, V_2, \cdots V_n$ will result in an equivalent voltage source $V_{eq}$ given by
 \begin{equation}
     V_{eq} = V_1 + V_2 + \cdots + V_n
@@ -172,7 +172,7 @@ Its left as an exercise for you to verify these expressions.
 \end{equation}
 Voltage soruces should not be connected in parallel, as this will result in a short circuit. Ideally, an infinite currelt will flow through the connection, because the volaage sources force a potential difference between the two end of the wires and it has zero resistance. Parallel connections are allowed only when the two sources have the same voltage and polarity.
 
-\subsubsection{Current sources in series and parallel}
+\subsection{Current sources in series and parallel}
 \noindent\textbf{Parallel connection} of $n$ current sources $I_1, I_2, \cdots I_n$ will
 result in an equivalent current source $I_{eq}$ given by
 \begin{equation}
@@ -181,7 +181,7 @@ result in an equivalent current source $I_{eq}$ given by
 \end{equation}
 Current sources should not be connected in series; series connections are allowed only when the two sources have the same current and polarity.
 
-\subsection{Superposition Principle}
+\section{Superposition Principle}
 Linear approximations of circuits are often employed as first order approximations when analysing circuits. A linear ciruit is one that consists of linear passive elements, independent sources and linear dependent sources. Linear circuits follow the superposition principle, which states that the response of a linear circuit to a linear combination of inputs is equal to the corresponding linear comibnation of the responses to each input applied separately. Solving the following circuit (Figure~\ref{fig:02-03}) should make this concept clear.
 \begin{figure}[t]
     \centering
@@ -212,7 +212,7 @@ For the circuit in Figure~\ref{fig:02-03}, perform the following calculation and
 
 \noindent Let's assume that I am only interested in $i_{R2}$. Can I use $i_{R2,V_s=0}$ and $i_{R2,I_s=0}$ to compute the current $i_{R2}$ if $V_s = 1V$ and $I_s=-2A$? 
 
-\subsection{Practical Voltage and Current Sources}
+\section{Practical Voltage and Current Sources}
 The independent voltage and current sources we have discussed so far are ``ideal'' sources. Practical or real sources do not behave like them - a battery cannot provide any amount of current for a load without any changes to the voltage across its terminals.
 
 A good model of practical voltage source is an ideal voltage source $V_s$ in series with a \textit{internal}, \textit{source} or \textit{output} resistor $R_s$. And for a practical current source, it is an ideal current source $I_s$ in parallel with a resistor $R_s$. The voltage across the terminal of a voltage source as function of the current draw from it is depicted for an ideal and practical voltage source in Figure~\ref{fig:02-04}. For the ideal source (Figure~\ref{fig:02-04a}), the voltage $v_L$ is independent of the current $i_L$ drawn from it. For the practical voltage source (Figure~\ref{fig:02-04b}), the voltage across the terminals is a function of the current drawn from it,
@@ -247,7 +247,7 @@ When $R_L = \infty$ ($i_L = 0$), the voltage across the terminals is equal to th
     \end{problem}
 \end{boxedstuff}
 
-\subsection{Thevenin's and Norton's Theorems}
+\section{Thevenin's and Norton's Theorems}
 Thevenin's and Norton's theorems are two important theorems in circuit theory that allow us to simplify complex circuits into simpler equivalent circuits. These theorems are based on the superposition principle, and can be used to analyze linear circuits with independent and dependent sources.
 
 \noindent\textbf{Thevenin's Theorem.} Thevenin's theorem states that any linear circuit with independent and dependent sources can be replaced by an equivalent circuit with a single voltage source $V_{th}$ in series with a resistor $R_{th}$, connected to the load resistor $R_L$. 
@@ -284,7 +284,7 @@ Thevenin's and Norton's theorems are two important theorems in circuit theory th
     \end{problem}
 \end{boxedstuff}
 
-\subsection{Maximum Power Transfer Theorem}
+\section{Maximum Power Transfer Theorem}
 The maximum power transfer theorem states that the maximum power is transferred to the load resistor $R_L$ when the load resistance is equal to the Thevenin resistance $R_{th}$ of the circuit. Consider the following circuit (Figure~\ref{fig:02-06}). The power absorbed by the load resistor $R_L$ is given by,
 \begin{equation}
     P_{R_L} = \frac{R_L}{(R_{th} + R_L)^2} \, V_{th}^2
@@ -312,7 +312,7 @@ Its easy to check that the optimal value of $R_L$ that maximizes the power absor
     \end{problem}
 \end{boxedstuff}
 
-\subsection{RC, RL, and RLC Circuits}
+\section{RC, RL, and RLC Circuits}
 Unlike resistors, that neitther remember the past values of its votlage or current, capacitors and indutors retain memory of the past current and past voltage, respectively. This can be easily seen from their respective voltage-current relationships given by Eq.~\ref{eq:02-03} and Eq.~\ref{eq:02-07}, respectively. 
 
 \noindent\textbf{Capacitor:}
@@ -393,7 +393,7 @@ The response of the circuit when the switch is closed at $t=0$ is qualitatively 
 \end{equation}
 Note that $i_L(0) = \frac{d v_C}{dt}(0)$. The denominator of the above equation is a second order polynomial in $s$, and thus the response of the circuit will depend on the roots of the polynomial. The four different responses are shown in Figure~\ref{fig:02-08}.
 
-\subsection{Steady State Sinusoidal Analysis}
+\section{Steady State Sinusoidal Analysis}
 The previous subsection looked at the transient response of the some simple circuits involving $R$, $L$, and $C$. However, we are often interested in the steady state response of these circuits to sinussoidal excitations. This is because sinusoisal signals are eigenfunctions of linear systems, such as the linear circuits we have discussed so far. With sinusoidal excitations, all currents and voltages in the circuit will also be sinusoidal with the same frequency as the input excitations, althought with different amplitudes and phases. Complex numbers are used to in this analysis as for compact representation of ampltiude and phase of signals. 
 
 For steady state frequency analysis for circuits involving $R$, $L$, and $C$, we extend the idea of resistance to impedance. Fourier transforms provide a natural way to analyze the steady state response of linear circuits to sinusoidal excitations. We first recast the voltage-current relationships of the circuit elements in the Fourier domain. 
@@ -425,7 +425,7 @@ The Fourier transformed voltage-current relationships of the circuit elements lo
 \end{equation}
 The amplitude of the sinusoidal voltage is $\vert Z \vert I_o$, and the phase of the sinusoidal voltage is $\arg Z$, with respect to the current $i\left(t\right)$. 
 
-\subsection{Exercise}
+\section{Exercise}
 \vspace{-0.5cm}
 \begin{center}
     \rule{\textwidth}{1pt}
