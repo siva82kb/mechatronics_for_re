@@ -13,9 +13,9 @@ The interaction of electromagnetic fields with matters is the basis of all elect
     \label{fig:02-01}
 \end{figure}
 
-\noindent\textbf{Independent Voltage source.} An idea voltage source provides a fixed voltage $V$ between its two terminals, and can provide any amount of current. Notice that the voltage $V$ can be fixed or time varying. For example, for a DC vortlage source with $V = 5V$, the voltage across the two terminals will be $5V$ for all time. But for a time varying AC source, $V = 5 \sin \left( 100\pi t \right)$, the voltage across its terminal will vary with time. We will often drop the adjective "independent" when we are sure that the context is clear. We will look at dependent sources later, and we will always use the adjective "dependent" to refer to them.
+\noindent\textbf{Independent Voltage source.} An Ideal voltage source provides a fixed voltage $V$ between its two terminals, and can provide any amount of current. Notice that the voltage $V$ can be fixed or time varying. For example, for a DC voltage source with $V = 5V$, the voltage across the two terminals will be $5V$ for all time. But for a time varying AC source, $V = 5 \sin \left( 100\pi t \right)$, the voltage across its terminal will vary with time. We will often drop the adjective "independent" when we are sure that the context is clear. We will look at dependent sources later, and we will always use the adjective "dependent" to refer to them.
 
-\noindent \textbf{Independent Current source.} An ideal cuyrrent source provide a fixed amount of current to flow throgh its terminals (out through one and in through the other), irrespective of the voltage across its terminals. Current sources can also be time-varying.
+\noindent \textbf{Independent Current source.} An ideal current source provides a fixed amount of current to flow throgh its terminals (out through one and in through the other), irrespective of the voltage across its terminals. Current sources can also be time-varying.
 
 \noindent \textbf{Resistor.} A passive element where the current $i_R$ flowing through the element is proportional to the voltage $v_R$ across its terminals.
 \[ v_R \propto i_R \]
@@ -25,7 +25,7 @@ In the case of linear resistors, the proportionality factor is constant, resulti
     \label{eq:02-01}
 \end{equation}
 
-The units of $R$ are $V.A^{-1}$ or $Omhs \left( \Omega \right)$. $R$ is in general positive. The power absorbed by a resistor is given by the product of the voltage across it and the current flowing through the resistor, 
+The units of $R$ are $V.A^{-1}$ or $Omhs \left( \Omega \right)$. $R$ in general is positive. The power absorbed by a resistor is given by the product of the voltage across it and the current flowing through it, 
 \begin{equation}
     P = v_R \, i_R = i_R^2 \, R = \frac{v_R^2}{R}
     \label{eq:02-02}
@@ -40,9 +40,9 @@ We will later see non-linear resistors, where the resistance varies as a functio
     \label{eq:02-03}
 \end{equation}
 
-The current $i_C$ through the capacitor is proportional to the rate of change of voltage across its terminals $v_C$. The proportionality factor is called the capacitance $C$, and has units of $F$ (Farads) or $C \cdot V^{-1}$. The voltage across the capacitor is given by at any given time is proportional to the integral of the current flowing through itor the charge stored in the capacitor. The voltage across the capacitor is given by
+The current $i_C$ through the capacitor is proportional to the rate of change of voltage across its terminals $v_C$. The proportionality factor is called the capacitance $C$, and has units of $F$ (Farads) or $C \cdot V^{-1}$. The voltage across the capacitor at any given time is proportional to the integral of the current flowing through it or the charge stored in the capacitor. The voltage across the capacitor is given by
 \begin{equation}
-    q = C \, v_C
+    v_C = \frac{q}{C} = \frac{1}{C}\int i_C \, dt
     \label{eq:02-04}
 \end{equation}
 
@@ -52,7 +52,7 @@ The instantaneous power absorbed by the capacitor is given by,
     \label{eq:02-05}
 \end{equation}
 
-The power absorbed by the capacitor can be positive or negative, depending on the direction of current flow. If the current is flowing into the capacitor, then the voltage across it is increasing, and the power absorbed is positive. If the current is flowing out of the capacitor, then the voltage across it is decreasing, and the power absorbed is negative. A capacitor stores energy in the electric field between its plates. The energy stored in a capacitance at any given time depends on the charge stored in it, and is given by,
+The power absorbed by the capacitor can be positive or negative, depending on the direction of current flow. If the current is flowing into the capacitor, then the voltage across it is increasing, and the power absorbed is positive. If the current is flowing out of the capacitor, then the voltage across it is decreasing, and the power absorbed is negative. A capacitor stores energy in the form of electric field between its plates. The energy stored in a capacitor at any given time depends on the charge stored in it, and is given by,
 \begin{equation}
     E = \frac{1}{2}  C \, v_C^2
     \label{eq:02-06}
@@ -64,7 +64,7 @@ The power absorbed by the capacitor can be positive or negative, depending on th
     \label{eq:02-07}
 \end{equation}
 
-The voltage $v_L$ across the inductor is proportional to the rate of change of current $i_L$ flowing through it. The proportionality factor is called the inductance $L$, and has units of $H$ (Henries) or $V \cdot s \cdot A^{-1}$. The current through the inductor is given by at any given time is proportional to the integral of the voltage across it. The current through the inductor is given by
+The voltage $v_L$ across the inductor is proportional to the rate of change of current $i_L$ flowing through it. The proportionality factor is called the inductance $L$, and has units of $H$ (Henries) or $V \cdot s \cdot A^{-1}$. The current through the inductor at any given time is proportional to the integral of the voltage across it. The current through the inductor is given by
 \begin{equation}
     i_L = \frac{1}{L} \int v_L \, dt
     \label{eq:02-08}
@@ -76,14 +76,14 @@ The instantaneous power absorbed by the inductor is given by,
     \label{eq:02-09}
 \end{equation}
 
-The power absorbed by the inductor can be positive or negative, depending on the direction of current flow. If the current is flowing into the inductor, then the voltage across it is increasing, and the power absorbed is positive. If the current is flowing out of the inductor, then the voltage across it is decreasing, and the power absorbed is negative. An inductor stores energy in the magnetic field around it. The energy stored in an inductor at any given time depends on the current flowing through it, and is given by,
+The power absorbed by the inductor can be positive or negative, depending on the direction of current flow. If the current is flowing into the inductor, then the voltage across it is increasing, and the power absorbed is positive. If the current is flowing out of the inductor, then the voltage across it is decreasing, and the power absorbed is negative. An inductor stores energy in the form of magnetic field around it. The energy stored in an inductor at any given time depends on the current flowing through it, and is given by,
 \begin{equation}
     E = \frac{1}{2}  L \, i_L^2
     \label{eq:02-10}
 \end{equation}
 
 \section{Kirchoff's Laws}
-The five elements alone are not that interesting. But interesting things can be done by connecting these elements together in different ways to form an electrical circuit. The elements are connected together by wires, whicha are assumed to be perfect conductors, i.e. zero resistance. Consider the following circuit (Figure \ref{fig:02-01}),
+The five elements alone are not that interesting. But interesting things can be done by connecting these elements together in different ways to form an electrical circuit. The elements are connected together by wires, which are assumed to be perfect conductors, i.e. zero resistance. Consider the following circuit (Figure \ref{fig:02-02}),
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.5\textwidth]{figure/ch02/fig02-02.pdf}
@@ -94,7 +94,7 @@ The five elements alone are not that interesting. But interesting things can be 
 How do we find out the voltages and currents in the circuit? Kirchoff's laws can be used for analysing such circuits, which are based on the conservation of charge and energy. The circuit in Figure \ref{fig:02-02} is a simple electrical circuit with a voltage source, a current source, and a bunch of resistors. The voltage source provides a fixed voltage $V_s$ between its two terminals, and the current source provides a fixed amount of current $I_s$ to flow through its terminals. The voltages and currents in the rest of the elements will be determined by Kirchoff's laws with the constraints imposed by the voltage and current sources. The two laws are:
 
 \begin{enumerate}
-    \item \textbf{Kirchoff's current law (KCL):} The sum of the currents entering a node is equal to the sum of the currents leaving the node. A \textit{node} is a point at which two or more circuit elements are connected together. In Figure \ref{fig:02-02}, $n_A$, $n_B$, $n_C$ and $n_D$ are examples of nodes where three elements are connected together. There are three other nodes in the circuit, can you identify them? 
+    \item \textbf{Kirchoff's current law (KCL):} The sum of the currents entering a node is equal to the sum of the currents leaving the node. A \textit{node} is a point at which two or more circuit elements are connected together. In Figure \ref{fig:02-02}, $n_A$, $n_B$, $n_C$, $n_D$ and $n_E$ are examples of nodes where three elements are connected together. There are two other nodes in the circuit, can you identify them? 
     
     The sum of the currents at a node is equal to zero. This is based on the conservation of charge, and can be expressed mathematically as:
     \begin{equation}
@@ -103,7 +103,7 @@ How do we find out the voltages and currents in the circuit? Kirchoff's laws can
     \end{equation}
     where $i_i$ is the current flowing into or out of the node, and $n$ is the number of elements connected to the node. The current flowing into a node is positive, and the current flowing out of a node is negative.
     
-    \item \textbf{Kirchoff's voltage law (KVL):} The sum of the voltages around a closed loop in a circuit is equal to zero. A \textit{closed loop} is a path in the circuit that starts and ends at the same node, and does not cross itself. In Figure \ref{fig:02-02}, the path starting from $n_A$, to $n_D$, to $n_B$, and back to $n_A$ is a closed path. This path invludes the resistors $R_3$, $R_4$, $R_5$, and $R_2$. 
+    \item \textbf{Kirchoff's voltage law (KVL):} The sum of the voltages around a closed loop in a circuit is equal to zero. A \textit{closed loop} is a path in the circuit that starts and ends at the same node, and does not cross itself. In Figure \ref{fig:02-02}, the path starting from $n_A$, to $n_D$, to $n_B$, and back to $n_A$ is a closed path. This path includes the resistors $R_2$, $R_5$, $R_4$, and $R_3$. 
     
     This is based on the conservation of energy, and can be expressed mathematically as:
     \begin{equation}
@@ -115,10 +115,10 @@ How do we find out the voltages and currents in the circuit? Kirchoff's laws can
     The voltage across an element is positive if the current is flowing into the positive terminal of the element, and negative if the current is flowing out of the positive terminal of the element.
 \end{enumerate}
 
-Note that the two laws apply for any type of circuit element used in the circuits, independnet or dependent voltage/current sources, resistors, capacitors, inductors, other two, three or four terminal elements.
+Note that the two laws apply for any type of circuit element used in the circuits, independnet or dependent voltage/current sources, resistors, capacitors, inductors, either? two, three or four terminal elements.
 
 \section{Series and Parallel Connections}
-Two elements that share the same voltage across them between a given pair of notes are said to be \textbf{parallel} to each other. In Figure~\ref{fig:02-02}, $R_4$ and $R_8$ are parallel to each other. In a single loop, two elements that share the same current are said to be in \textbf{series} with each other. In Figure~\ref{fig:02-02}, $V_s$ and $R_1$ are in series, $I_s$ and $R_7$ are in series.
+Two elements that share the same voltage across them between a given pair of nodes are said to be \textbf{parallel} to each other. In Figure~\ref{fig:02-02}, $R_4$ and $R_8$ are parallel to each other. In a single loop, two elements that share the same current are said to be in \textbf{series} with each other. In Figure~\ref{fig:02-02}, $V_s$ and $R_1$ are in series, $I_s$ and $R_7$ are in series.
 
 \subsection{Resistors in series and parallel}
 When $n$ resistors $R_1, R_2, \cdots R_n \geq 0$ are in series, these can be combined to an equivalent resistor with resistance $R_{eq}$ given by the following,
@@ -149,20 +149,20 @@ Note that in a parallel connection, the equivalent resistance cannot be larger t
 \end{equation}
 
 \subsection{Inductors in series and parallel}
-\noindent\textbf{Series connection} of $n$ capacitors $L_1, L_2, \cdots L_n \geq 0$
+\noindent\textbf{Series connection} of $n$ inductors $L_1, L_2, \cdots L_n \geq 0$
 \begin{equation}
     L_{eq} = L_1 + L_2 + \cdots + L_n
     \label{eq:02-17}
 \end{equation}
 
-\noindent\textbf{Parallel connection} of $n$ capacitors $L_1, L_2, \cdots L_n \geq 0$
+\noindent\textbf{Parallel connection} of $n$ inductors $L_1, L_2, \cdots L_n \geq 0$
 \begin{equation}
     L_{eq} = \frac{L_1L_2\cdots L_n}{L_1 + L_2 + \cdots + L_n}
     \label{eq:02-18}
 \end{equation}
 Its left as an exercise for you to verify these expressions.
 
-\noindent\textbf{What does the equivalent resistance actually mean?} The equilvant resistor with resistance $R_{eq}$ has the same voltage-current relationship as the individual elements in series or parallel connection. We can replace the series or parallel connection of the individual resistors $R_1$ to $R_n$ by a single resistor with value $R_{eq}$ without changing the volatage current relationships in the circuit. The same argument applies for equivalent capacitors and inductors.
+\noindent\textbf{What does the equivalent resistance actually mean?} The equivalent resistor with resistance $R_{eq}$ has the same voltage-current relationship as the individual elements in series or parallel connection. We can replace the series or parallel connection of the individual resistors $R_1$ to $R_n$ by a single resistor with value $R_{eq}$ without changing the volatage current relationships in the circuit. The same argument applies for equivalent capacitors and inductors.
 
 \subsection{Voltage sources in series and parallel}
 \noindent\textbf{Series connection} of $n$ voltage sources $V_1, V_2, \cdots V_n$ will result in an equivalent voltage source $V_{eq}$ given by
@@ -170,7 +170,7 @@ Its left as an exercise for you to verify these expressions.
     V_{eq} = V_1 + V_2 + \cdots + V_n
     \label{eq:02-19}
 \end{equation}
-Voltage soruces should not be connected in parallel, as this will result in a short circuit. Ideally, an infinite currelt will flow through the connection, because the volaage sources force a potential difference between the two end of the wires and it has zero resistance. Parallel connections are allowed only when the two sources have the same voltage and polarity.
+Voltage soruces should not be connected in parallel, as this will result in a short circuit. Ideally, an infinite current will flow through the connection, because the volatage sources force a potential difference between the two ends of the wire to be zero and it has zero resistance. Parallel connections are allowed only when the two sources have the same voltage and polarity.
 
 \subsection{Current sources in series and parallel}
 \noindent\textbf{Parallel connection} of $n$ current sources $I_1, I_2, \cdots I_n$ will
@@ -186,7 +186,7 @@ Linear approximations of circuits are often employed as first order approximatio
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.65\textwidth]{figure/ch02/fig02-03.pdf}
-    \caption{A simple circuit with two sourcers}
+    \caption{A simple circuit with two sources}
     \label{fig:02-03}
 \end{figure}
 For the circuit in Figure~\ref{fig:02-03}, perform the following calculation and compare your results.
@@ -204,8 +204,8 @@ For the circuit in Figure~\ref{fig:02-03}, perform the following calculation and
     \begin{split}
         v_{R1} &= v_{R1,V_s=0} + v_{R1,I_s=0}\\
         v_{R2} &= v_{R2,V_s=0} + v_{R2,I_s=0}\\
-        i_{R1} &= i_{R1,i_s=0} + i_{R1,I_s=0}\\
-        i_{R2} &= i_{R2,i_s=0} + i_{R2,I_s=0}\\
+        i_{R1} &= i_{R1,V_s=0} + i_{R1,I_s=0}\\
+        i_{R2} &= i_{R2,V_s=0} + i_{R2,I_s=0}\\
     \end{split}
     \label{eq:02-21}
 \end{equation}
@@ -215,7 +215,7 @@ For the circuit in Figure~\ref{fig:02-03}, perform the following calculation and
 \section{Practical Voltage and Current Sources}
 The independent voltage and current sources we have discussed so far are ``ideal'' sources. Practical or real sources do not behave like them - a battery cannot provide any amount of current for a load without any changes to the voltage across its terminals.
 
-A good model of practical voltage source is an ideal voltage source $V_s$ in series with a \textit{internal}, \textit{source} or \textit{output} resistor $R_s$. And for a practical current source, it is an ideal current source $I_s$ in parallel with a resistor $R_s$. The voltage across the terminal of a voltage source as function of the current draw from it is depicted for an ideal and practical voltage source in Figure~\ref{fig:02-04}. For the ideal source (Figure~\ref{fig:02-04a}), the voltage $v_L$ is independent of the current $i_L$ drawn from it. For the practical voltage source (Figure~\ref{fig:02-04b}), the voltage across the terminals is a function of the current drawn from it,
+A good model of practical voltage source is an ideal voltage source $V_s$ in series with a \textit{internal}, \textit{source} or \textit{output} resistor $R_s$. And for a practical current source, it is an ideal current source $I_s$ in parallel with a resistor $R_s$. The voltage across the terminal of a voltage source as a function of the current drawn from it is depicted for an ideal and practical voltage source in Figure~\ref{fig:02-04}. For the ideal source (Figure~\ref{fig:02-04a}), the voltage $v_L$ is independent of the current $i_L$ drawn from it. For the practical voltage source (Figure~\ref{fig:02-04b}), the voltage across the terminals is a function of the current drawn from it,
 \begin{equation}
     v_L = V_s - R_s \, i_L
     \label{eq:02-22}
@@ -263,7 +263,7 @@ Thevenin's and Norton's theorems are two important theorems in circuit theory th
 \noindent\textbf{Computing the Thevenin and Norton equivalent circuits.} The Thevenin and Norton equivalent circuits can be computed using the following steps:
 \begin{enumerate}
     \item Remove the load resistor $R_L$ from the circuit.
-    \item Compute the open circuit voltage $v_{oc}$ across the terminals of the load resistor. This is the Thevenin voltage $V_{th}$. This can be using the superposition principle, where we zero all the independent sources except one and compute the open circuit voltage. The overall open circuit voltage is the sum of the open circuit voltages when all other sources are zeroed.
+    \item Compute the open circuit voltage $v_{oc}$ across the terminals of the load resistor. This is the Thevenin voltage $V_{th}$. This can be done using the superposition principle, where we zero all the independent sources except one and compute the open circuit voltage. The overall open circuit voltage is the sum of the open circuit voltages when all other sources are zeroed.
     \item Compute the short circuit current $i_{sc}$ through the terminals of the load resistor. This is the Norton current $I_{N}$. This too can be calculated using the superposition principle.
     \item Compute the Thevenin resistance $R_{th}$ by zeroing all independent sources in the circuit and computing the equivalent resistance seen from the terminals of the load resistor (without the load resistor). This is also equal to the Norton resistance $R_{N}$.
     \item The Thevenin and Norton equivalent circuits are then given by:
@@ -313,14 +313,14 @@ Its easy to check that the optimal value of $R_L$ that maximizes the power absor
 \end{boxedstuff}
 
 \section{RC, RL, and RLC Circuits}
-Unlike resistors, that neitther remember the past values of its votlage or current, capacitors and indutors retain memory of the past current and past voltage, respectively. This can be easily seen from their respective voltage-current relationships given by Eq.~\ref{eq:02-03} and Eq.~\ref{eq:02-07}, respectively. 
+Unlike resistors, that neither remember the past values of its votlage or current, capacitors and indutors retain memory of the past current and past voltage, respectively. This can be easily seen from their respective voltage-current relationships given by Eq.~\ref{eq:02-03} and Eq.~\ref{eq:02-07}, respectively. 
 
 \noindent\textbf{Capacitor:}
 \begin{equation}
     i_C = C \frac{dv_C}{dt} \implies v_C\left(t\right) = \frac{1}{C}\int_{0}^{t} i_C\left(\tau\right) d\tau + v_C\left(0\right)
     \label{eq:02-26}
 \end{equation} 
-The instantaneous voltage across a capacitor contains some information about the past history the current that has flown through the capacitor. This voltage $v_C\left(t\right)$ is determined by the charge on the capacitor at time $t$. Note, that the voltage across the capacitor cannot change instantaneously, as this would require an infinite current to flow through the capacitor. Theoretically, however, an impulse (Dirac delta function) current applied to the capacutor can produce instantaneous change in the capacitor's voltage.
+The instantaneous voltage across a capacitor contains some information about the past history the current that has flown through the capacitor. This voltage $v_C\left(t\right)$ is determined by the charge on the capacitor at time $t$. Note, that the voltage across the capacitor cannot change instantaneously, as this would require an infinite current to flow through the capacitor. Theoretically, however, an impulse (Dirac delta function) current applied to the capacitor can produce instantaneous change in the capacitor's voltage.
 
 \noindent\textbf{Inductor:}
 \begin{equation}
@@ -334,7 +334,7 @@ Similarly, the instantaneous current through the inductor contains some informat
     RC \frac{d v_C}{dt} + v_C = V_s \implies v_C(t) = e^{-t/RC} \left[ v_{C}(0) + \int_0^t \frac{1}{RC} e^{\tau/RC} V_s(\tau)\, d\tau \right]
     \label{eq:02-28}
 \end{equation}
-The above euqation gives the general solution for the voltage across the capactior. We can derive all other variables of interest from $v_C$. The response to an impulse input, step input, sinusoidal input, or any arbitrary $V_s$ can be computed using the above equation. The response for a step input obtained using a fixed sources and a swtich is given in Figure~\ref{fig:02-07a}. $RC$ is the time constant of the circuit, and is a measure of how fast the capacitor charges or discharges and it has the units of time.
+The above euqation gives the general solution for the voltage across the capactior. We can derive all other variables of interest from $v_C$. The response to an impulse input, step input, sinusoidal input, or any arbitrary $V_s$ can be computed using the above equation. The response for a step input obtained using a fixed sources and a switch is given in Figure~\ref{fig:02-07a}. $RC$ is the time constant of the circuit, and is a measure of how fast the capacitor charges or discharges and it has the units of time.
 
 \begin{figure}[t]
     \centering
@@ -364,10 +364,10 @@ $V_C(s)$ and $V_s(s)$ are the Laplace transforms of $v_C(t)$ and $V_s(t)$. Repla
 
 \noindent\textbf{RL Circuit.} Consider a simple RL circuit shown in Figure~\ref{fig:02-07b}. Kirchoff's voltage law for the circuit is as follows,
 \begin{equation}
-    \frac{L}{R} \frac{di_L}{dt} + i_L = \frac{1}{R}V_s \implies i_L(t) = e^{-t/L} \left[ i_{L}(0) + \int_0^t \frac{1}{L} e^{\tau/L} V_s(\tau)\, d\tau \right]
+    \frac{L}{R} \frac{di_L}{dt} + i_L = \frac{1}{R}V_s \implies i_L(t) = e^{-tR/L} \left[ i_{L}(0) + \int_0^t \frac{1}{L} e^{\tau R/L} V_s(\tau)\, d\tau \right]
     \label{eq:02-30}
 \end{equation}
-The above euqation gives the general solution for the current through the inductor. The response to an impulse input, step input, sinusoidal input, or any arbitrary $V_s$ can be computed using the above equation. The response for a step input obtained using a fixed sources and a swtich is given in Figure~\ref{fig:02-07a}. $\frac{L}{R}$ is the time constant of the circuit, and is a measure of how fast the current through the inductor can chamge; it has the units of time.
+The above euqation gives the general solution for the current through the inductor. The response to an impulse input, step input, sinusoidal input, or any arbitrary $V_s$ can be computed using the above equation. The response for a step input obtained using a fixed sources and a switch is given in Figure~\ref{fig:02-07a}. $\frac{L}{R}$ is the time constant of the circuit, and is a measure of how fast the current through the inductor can chamge; it has the units of time.
 
 Similarly, applying the Laplace transform, we have,
 \begin{equation}
@@ -394,7 +394,7 @@ The response of the circuit when the switch is closed at $t=0$ is qualitatively 
 Note that $i_L(0) = \frac{d v_C}{dt}(0)$. The denominator of the above equation is a second order polynomial in $s$, and thus the response of the circuit will depend on the roots of the polynomial. The four different responses are shown in Figure~\ref{fig:02-08}.
 
 \section{Steady State Sinusoidal Analysis}
-The previous subsection looked at the transient response of the some simple circuits involving $R$, $L$, and $C$. However, we are often interested in the steady state response of these circuits to sinussoidal excitations. This is because sinusoisal signals are eigenfunctions of linear systems, such as the linear circuits we have discussed so far. With sinusoidal excitations, all currents and voltages in the circuit will also be sinusoidal with the same frequency as the input excitations, althought with different amplitudes and phases. Complex numbers are used to in this analysis as for compact representation of ampltiude and phase of signals. 
+The previous subsection looked at the transient response of the some simple circuits involving $R$, $L$, and $C$. However, we are often interested in the steady state response of these circuits to sinusoidal excitations. This is because sinusoidal signals are eigenfunctions of linear systems, such as the linear circuits we have discussed so far. With sinusoidal excitations, all currents and voltages in the circuit will also be sinusoidal with the same frequency as the input excitations, althought with different amplitudes and phases. Complex numbers are used in this analysis for compact representation of ampltiude and phase of signals. 
 
 For steady state frequency analysis for circuits involving $R$, $L$, and $C$, we extend the idea of resistance to impedance. Fourier transforms provide a natural way to analyze the steady state response of linear circuits to sinusoidal excitations. We first recast the voltage-current relationships of the circuit elements in the Fourier domain. 
 \begin{equation}
@@ -406,7 +406,7 @@ For steady state frequency analysis for circuits involving $R$, $L$, and $C$, we
     \label{eq:02-34}
 \end{equation}
 
-The Fourier transformed voltage-current relationships of the circuit elements look like Ohms law, with the concept of resistance extended to impedance. The impedance of a capacitor and inductor defined as the are defined as the ratio of the Fourier transformed voltage to the Fourier transformed current. They are functions of the frequency of the voltage/current. The impedance of a resistor, capacitor, and inductor are given by,
+The Fourier transformed voltage-current relationships of the circuit elements look like Ohms law, with the concept of resistance extended to impedance. The impedance of a capacitor and inductor defined as the ratio of the Fourier transformed voltage to the Fourier transformed current. They are functions of the frequency of the voltage/current. The impedance of a resistor, capacitor, and inductor are given by,
 \begin{equation}
     \begin{split}
         \textbf{Resistor:} \quad & Z_R = R\\
@@ -432,7 +432,7 @@ The amplitude of the sinusoidal voltage is $\vert Z \vert I_o$, and the phase of
 \end{center}
 
 \begin{enumerate}
-    \item Plot the current across a resistor $R = 10\Omega$, capacitor $C = 5\mu F$, and inductor $L = 2mH$ for the following voltage inputs.
+    \item Plot the current through a resistor $R = 10\Omega$, capacitor $C = 5\mu F$, and inductor $L = 2mH$ for the following voltage inputs.
     \begin{figure}[h]
         \centering
         \includegraphics[width=\textwidth]{figure/ch02/ex02-01.pdf}
@@ -458,7 +458,7 @@ The amplitude of the sinusoidal voltage is $\vert Z \vert I_o$, and the phase of
         \label{fig:ex02-03}
     \end{figure}
     
-    \item In the following circuit (Figure~\ref{fig:ex02-04}), find the voltage across the capacitors $C_1$ and $C_2$. The single pole double throw swtich $S$ is connect to the top terminal before time $t=0$. At time $t=0$, swtich is flipped to the bottom terminal.  Assume that the before time $t=0$, the voltage across the capacitor $C_2$, $v_{C2} = 1V$. Draw the plot of the voltage across the capcitors $C_1$ and $C_2$ as function of time.
+    \item In the following circuit (Figure~\ref{fig:ex02-04}), find the voltage across the capacitors $C_1$ and $C_2$. The single pole double throw swtich $S$ is connected to the top terminal before time $t=0$. At time $t=0$, swtich is flipped to the bottom terminal.  Assume that before time $t=0$, the voltage across the capacitor $C_2$, $v_{C2} = 1V$. Draw the plot of the voltage across the capcitors $C_1$ and $C_2$ as function of time.
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.35\textwidth]{figure/ch02/ex02-04.pdf}
