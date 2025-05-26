@@ -30,14 +30,60 @@ Silicon or Germanium have crystalline strcuture with four covalent bonds between
 where $B$ is a material constant ($7.3 \times 10^15 \text{cm}^{-3}\text{K}^{-3/2}$ for Si), $E_g$ is the band gap energy, $k_B$ is the Boltzmann constant, and $T$ is the absolute temperature in Kelvin. The band gap energy is the energy required to break a covalent bond and create a free electron-hole pair. It should be noted that the conductivity of semiconductors increases with temperature, making them suitable for thermometry.
 
 \subsection{Doped Semiconductors}
-With intrinsic semiconductors, the conductivity is still quite small at room temperature. Another precise and controlled way to change a semiconductor's conductivity is by adding impurities, called \textit{doping}. The two types of doping are: \textbf{$n$-type} and \textbf{$p$-type} doping. In $n$-type doping, a small amount of pentavalent atoms (e.g. Phosphorus, Arsenic) are added to the semiconductor. These atoms have five valence electrons, and when added to the silicon crystal, four of these electrons form covalent bonds with the neighbouring silicon atoms, while the fifth electron is free to roam around in the crystal. This results in an increase in the concentration of free electrons, making the semiconductor more conductive. The concentration of free electrons in an $n$-type semiconductor is given by,
+With intrinsic semiconductors, the conductivity is still quite small at room temperature. Another precise and controlled way to change a semiconductor's conductivity is by adding impurities, called \textit{doping}. The two types of doping are: \textbf{$n$-type} and \textbf{$p$-type} doping. 
+
+In a \textbf{$n$-type} semiconductor, a small amount of pentavalent atoms (e.g. Phosphorus, Arsenic) are added to the semiconductor. These atoms have five valence electrons, and when added to the silicon crystal, four of these electrons form covalent bonds with the neighbouring silicon atoms, while the fifth electron is free to roam around in the crystal. This results in an increase in the concentration of free electrons, making the semiconductor more conductive. The concentration of free electrons in an $n$-type semiconductor is given by,
 \begin{equation}
     n_{e^-} = n_i + N_D \quad n_{h^+} = n_i
     \label{eq:ch03-n-type-elec-conc}
 \end{equation}
+where, $N_D$ is concentration of the doping element.
 
+In a \textbf{$p$-type} semiconductor, a small amount of trivalent atoms (e.g. Boron) is added to the silicon crystal structure. This leaves the dopped elements with four covalent bonds with one of the bonds lacking an electron or a hole. This holes acts as a charge carrier. The concentration of the holes in a $p$-type semiconductor is give by,
+\begin{equation}
+    n_{h^+} = n_i + N_D \quad n_{e^-} = n_i
+    \label{eq:ch03-p-type-elec-conc}
+\end{equation}
+where, $N_D$ is concentration of the doping element.
+
+The doped semiconductors will have higher conductivity than the intrinsic semiconductors depending on the concentration of the impurities added to the silicon crystal.
+
+\subsection{Flow of current in semiconductors}
+There are two types of current flow mechanisms in seminconductors unlike pure conudctors -- (a) \textbf{drift current} and (b) \textbf{diffusion current}. Both are imporant for understanding the operation of the basic electronic components.
+
+\noindent\textbf{Drift current.} Drift current is established by an external electric fields, for examples when a semiconductor is connected to a battery. Holes will accelerate in the direction of the field, while the electrons accelerate in the opposite direction. Bumping into the atoms of the cystral structure, the holes and electrons acquire an average drift velocity given by,
+\begin{equation}
+    \nu_{p-drift} = \mu_p E \quad \& \quad \nu_{n-drift} = -\mu_n E\
+    \label{eq:ch03-drift-vel}
+\end{equation}
+This constitute a drift current through the semiconductor given by the following,
+\begin{equation}
+    I_{drift} \propto q\left(n_{h^+}\mu_p + n_{e^-}\mu_n \right) E
+    \label{eq:ch03-drift-current}
+\end{equation}
+where, $q$ is the magnitude of electron charge.
+
+\noindent\textbf{Diffusion current.} Diffusion currents result whena concentration gradient exists across a semiconductor.
+\begin{equation}
+    I_{diff} \propto -q D_q \frac{d p\left(x\right)}{dx}
+    \label{eq:ch03-diff-current}
+\end{equation}
+where, $p\left(x\right)$ is the concentration of the charge carrier along the $x$ direction. Diffusion currents play an important role in the functioning of the BJT.
 
 \section{Diode}
+Whena  $p$-type and $n$-type semiconductors are brought in close contact to each other, there is a big concentration difference between the charge carriers across the interface. A $pn$-junction diode made by bringing a $n$-type and $p$-type semiconductors together as shown in Figure~\ref{fig:03-02}. Due to the concentration difference, electrons from the $n$-type semiconductor diffuse into the $p$-type semiconductor, while holes from the $p$-type semiconductor will diffuse into the $n$-type semiconductor. Note that this is the diffusion current $I_D$. This flows even when the diode is open circuited as shown in Figure~\ref{fig:03-02}. 
+
+This results in a depletion region at the interface, where there are no free charge carriers. The depletion region is a region of fixed positive and negative charges, which creates an electric field across the junction. This electric field opposes further diffusion of charge carriers across the junction, and results in a potential barrier that must be overcome for current to flow through the diode. 
+
+When a forward bias voltage is applied across the diode (i.e. positive voltage on the $p$-side and negative voltage on the $n$-side), the potential barrier is reduced, allowing current to flow through the diode. The current-voltage relationship of a diode is given by,
+
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figure/ch03/fig03-02.pdf}
+    \caption{$pn$ junction diode}
+    \label{fig:03-02}
+\end{figure}
 
 % \noindent\textbf{Independent Voltage source.} An idea voltage source provides a fixed voltage $V$ between its two terminals, and can provide any amount of current. Notice that the voltage $V$ can be fixed or time varying. For example, for a DC vortlage source with $V = 5V$, the voltage across the two terminals will be $5V$ for all time. But for a time varying AC source, $V = 5 \sin \left( 100\pi t \right)$, the voltage across its terminal will vary with time. We will often drop the adjective "independent" when we are sure that the context is clear. We will look at dependent sources later, and we will always use the adjective "dependent" to refer to them.
 
