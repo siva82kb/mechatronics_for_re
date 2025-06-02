@@ -162,7 +162,7 @@ Note that in a parallel connection, the equivalent resistance cannot be larger t
 \end{equation}
 Its left as an exercise for you to verify these expressions.
 
-\noindent\textbf{What does the equivalent resistance actually mean?} The equivalent resistor with resistance $R_{eq}$ has the same voltage-current relationship as the individual elements in series or parallel connection. We can replace the series or parallel connection of the individual resistors $R_1$ to $R_n$ by a single resistor with value $R_{eq}$ without changing the volatage current relationships in the circuit. The same argument applies for equivalent capacitors and inductors.
+\noindent\textbf{What does the equivalent resistance actually mean?} The equivalent resistor with resistance $R_{eq}$ has the same voltage-current relationship as the individual elements in series or parallel connection. We can replace the series or parallel connection of the individual resistors $R_1$ to $R_n$ by a single resistor with value $R_{eq}$ without changing the voltage current relationships in the circuit. The same argument applies for equivalent capacitors and inductors.
 
 \subsection{Voltage sources in series and parallel}
 \noindent\textbf{Series connection} of $n$ voltage sources $V_1, V_2, \cdots V_n$ will result in an equivalent voltage source $V_{eq}$ given by
@@ -170,7 +170,7 @@ Its left as an exercise for you to verify these expressions.
     V_{eq} = V_1 + V_2 + \cdots + V_n
     \label{eq:02-19}
 \end{equation}
-Voltage soruces should not be connected in parallel, as this will result in a short circuit. Ideally, an infinite current will flow through the connection, because the volatage sources force a potential difference between the two ends of the wire to be zero and it has zero resistance. Parallel connections are allowed only when the two sources have the same voltage and polarity.
+Voltage sources should not be connected in parallel, as this will result in a short circuit. Ideally, an infinite current will flow through the connection, because the voltage sources force a potential difference between the two ends of the wire to be zero and it has zero resistance. Parallel connections are allowed only when the two sources have the same voltage and polarity.
 
 \subsection{Current sources in series and parallel}
 \noindent\textbf{Parallel connection} of $n$ current sources $I_1, I_2, \cdots I_n$ will
@@ -182,7 +182,7 @@ result in an equivalent current source $I_{eq}$ given by
 Current sources should not be connected in series; series connections are allowed only when the two sources have the same current and polarity.
 
 \section{Superposition Principle}
-Linear approximations of circuits are often employed as first order approximations when analysing circuits. A linear ciruit is one that consists of linear passive elements, independent sources and linear dependent sources. Linear circuits follow the superposition principle, which states that the response of a linear circuit to a linear combination of inputs is equal to the corresponding linear comibnation of the responses to each input applied separately. Solving the following circuit (Figure~\ref{fig:02-03}) should make this concept clear.
+Linear approximations of circuits are often employed as first order approximations when analysing circuits. A linear ciruit is one that consists of linear passive elements, independent sources and linear dependent sources. Linear circuits follow the superposition principle, which states that the response of a linear circuit to a linear combination of inputs is equal to the corresponding linear combination of the responses to each input applied separately. Solving the following circuit (Figure~\ref{fig:02-03}) should make this concept clear.
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.65\textwidth]{figure/ch02/fig02-03.pdf}
@@ -191,7 +191,7 @@ Linear approximations of circuits are often employed as first order approximatio
 \end{figure}
 For the circuit in Figure~\ref{fig:02-03}, perform the following calculation and compare your results.
 
-\noindent\textbf{Step 1.} Solve for the voltage across and the current through the resistors $R_1$ and $R_2$; we will refer to these are $v_{R1}, i_{R1}$ and $v_{R2}, i_{R2}$, respectively. You should use both Kirchoff's current and voltages laws to compute these variables.
+\noindent\textbf{Step 1.} Solve for the voltage across and the current through the resistors $R_1$ and $R_2$; we will refer to these as $v_{R1}, i_{R1}$ and $v_{R2}, i_{R2}$, respectively. You should use both Kirchoff's current and voltages laws to compute these variables.
 
 \noindent Let's now consider of the sources in the circuit seperately. This would mean making the source values ``zero''. This corresponds to two different operations on the circuit. Zeroing a voltage source corresponds to replacing it with a wire (a short circuit), while zeroing a current source corresponds to simple removing the current source (an open circuit). 
 
@@ -280,7 +280,7 @@ Thevenin's and Norton's theorems are two important theorems in circuit theory th
 
 \begin{boxedstuff}
     \begin{problem}
-        Compute the Thevenin and Norton equivalent circuits for the circuit shown in Figur~\ref{fig:02-02} assuming the following as the load resistor: (a) $R_8$; (b) $R_2$; and (c) $R_7$.
+        Compute the Thevenin and Norton equivalent circuits for the circuit shown in Figure~\ref{fig:02-02} assuming the following as the load resistor: (a) $R_8$; (b) $R_2$; and (c) $R_7$.
     \end{problem}
 \end{boxedstuff}
 
@@ -313,7 +313,7 @@ Its easy to check that the optimal value of $R_L$ that maximizes the power absor
 \end{boxedstuff}
 
 \section{RC, RL, and RLC Circuits}
-Unlike resistors, that neither remember the past values of its votlage or current, capacitors and indutors retain memory of the past current and past voltage, respectively. This can be easily seen from their respective voltage-current relationships given by Eq.~\ref{eq:02-03} and Eq.~\ref{eq:02-07}, respectively. 
+Unlike resistors, that neither remember the past values of its voltage or current, capacitors and inductors retain memory of the past current and past voltage, respectively. This can be easily seen from their respective voltage-current relationships given by Eq.~\ref{eq:02-03} and Eq.~\ref{eq:02-07}, respectively. 
 
 \noindent\textbf{Capacitor:}
 \begin{equation}
@@ -334,7 +334,7 @@ Similarly, the instantaneous current through the inductor contains some informat
     RC \frac{d v_C}{dt} + v_C = V_s \implies v_C(t) = e^{-t/RC} \left[ v_{C}(0) + \int_0^t \frac{1}{RC} e^{\tau/RC} V_s(\tau)\, d\tau \right]
     \label{eq:02-28}
 \end{equation}
-The above euqation gives the general solution for the voltage across the capactior. We can derive all other variables of interest from $v_C$. The response to an impulse input, step input, sinusoidal input, or any arbitrary $V_s$ can be computed using the above equation. The response for a step input obtained using a fixed sources and a switch is given in Figure~\ref{fig:02-07a}. $RC$ is the time constant of the circuit, and is a measure of how fast the capacitor charges or discharges and it has the units of time.
+The above equation gives the general solution for the voltage across the capactior. We can derive all other variables of interest from $v_C$. The response to an impulse input, step input, sinusoidal input, or any arbitrary $V_s$ can be computed using the above equation. The response for a step input obtained using a fixed sources and a switch is given in Figure~\ref{fig:02-07a}. $RC$ is the time constant of the circuit, and is a measure of how fast the capacitor charges or discharges and it has the units of time.
 
 \begin{figure}[t]
     \centering
@@ -367,7 +367,7 @@ $V_C(s)$ and $V_s(s)$ are the Laplace transforms of $v_C(t)$ and $V_s(t)$. Repla
     \frac{L}{R} \frac{di_L}{dt} + i_L = \frac{1}{R}V_s \implies i_L(t) = e^{-tR/L} \left[ i_{L}(0) + \int_0^t \frac{1}{L} e^{\tau R/L} V_s(\tau)\, d\tau \right]
     \label{eq:02-30}
 \end{equation}
-The above euqation gives the general solution for the current through the inductor. The response to an impulse input, step input, sinusoidal input, or any arbitrary $V_s$ can be computed using the above equation. The response for a step input obtained using a fixed sources and a switch is given in Figure~\ref{fig:02-07a}. $\frac{L}{R}$ is the time constant of the circuit, and is a measure of how fast the current through the inductor can chamge; it has the units of time.
+The above equation gives the general solution for the current through the inductor. The response to an impulse input, step input, sinusoidal input, or any arbitrary $V_s$ can be computed using the above equation. The response for a step input obtained using a fixed sources and a switch is given in Figure~\ref{fig:02-07a}. $\frac{L}{R}$ is the time constant of the circuit, and is a measure of how fast the current through the inductor can change; it has the units of time.
 
 Similarly, applying the Laplace transform, we have,
 \begin{equation}
@@ -383,7 +383,7 @@ Similarly, applying the Laplace transform, we have,
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{figure/ch02/fig02-08.pdf}
-    \caption{A simple RLC circuit and the different respones of the circuit when the switch $S$ is closed at time $t = 0$, with  zero initial capacitor voltage and inductor current whent .}
+    \caption{A simple RLC circuit and the different responses of the circuit when the switch $S$ is closed at time $t = 0$, with  zero initial capacitor voltage and inductor current whent .}
     \label{fig:02-08}
 \end{figure}
 The response of the circuit when the switch is closed at $t=0$ is qualitatively different depending on the values of $R$, $L$ and $C$. This is better understood in the Laplace domain. The Laplace transform of the response $v_c(t)$ is given by,
@@ -394,7 +394,7 @@ The response of the circuit when the switch is closed at $t=0$ is qualitatively 
 Note that $i_L(0) = \frac{d v_C}{dt}(0)$. The denominator of the above equation is a second order polynomial in $s$, and thus the response of the circuit will depend on the roots of the polynomial. The four different responses are shown in Figure~\ref{fig:02-08}.
 
 \section{Steady State Sinusoidal Analysis}
-The previous subsection looked at the transient response of the some simple circuits involving $R$, $L$, and $C$. However, we are often interested in the steady state response of these circuits to sinusoidal excitations. This is because sinusoidal signals are eigenfunctions of linear systems, such as the linear circuits we have discussed so far. With sinusoidal excitations, all currents and voltages in the circuit will also be sinusoidal with the same frequency as the input excitations, althought with different amplitudes and phases. Complex numbers are used in this analysis for compact representation of ampltiude and phase of signals. 
+The previous subsection looked at the transient response of the some simple circuits involving $R$, $L$, and $C$. However, we are often interested in the steady state response of these circuits to sinusoidal excitations. This is because sinusoidal signals are eigen functions of linear systems, such as the linear circuits we have discussed so far. With sinusoidal excitations, all currents and voltages in the circuit will also be sinusoidal with the same frequency as the input excitations, althought with different amplitudes and phases. Complex numbers are used in this analysis for compact representation of amplitude and phase of signals. 
 
 For steady state frequency analysis for circuits involving $R$, $L$, and $C$, we extend the idea of resistance to impedance. Fourier transforms provide a natural way to analyze the steady state response of linear circuits to sinusoidal excitations. We first recast the voltage-current relationships of the circuit elements in the Fourier domain. 
 \begin{equation}
@@ -406,7 +406,7 @@ For steady state frequency analysis for circuits involving $R$, $L$, and $C$, we
     \label{eq:02-34}
 \end{equation}
 
-The Fourier transformed voltage-current relationships of the circuit elements look like Ohms law, with the concept of resistance extended to impedance. The impedance of a capacitor and inductor defined as the ratio of the Fourier transformed voltage to the Fourier transformed current. They are functions of the frequency of the voltage/current. The impedance of a resistor, capacitor, and inductor are given by,
+The Fourier transformed voltage-current relationships of the circuit elements look like Ohm's law, with the concept of resistance extended to impedance. The impedance of a capacitor and inductor defined as the ratio of the Fourier transformed voltage to the Fourier transformed current. They are functions of the frequency of the voltage/current. The impedance of a resistor, capacitor, and inductor are given by,
 \begin{equation}
     \begin{split}
         \textbf{Resistor:} \quad & Z_R = R\\
@@ -418,7 +418,7 @@ The Fourier transformed voltage-current relationships of the circuit elements lo
 
 \noindent\textbf{Equivalent Impedance.} The equivalent impedance of a circuit with impedances $Z_1, Z_2, \cdots Z_n$ in series is given by $Z_{eq} = Z_1 + Z_2 + \cdots + Z_n$. When the impedances $Z_1, Z_2, \cdots Z_n$ are in parallel, the equivalent impedances is given by $\frac{1}{Z_{eq}} = \frac{1}{Z_1} + \frac{1}{Z_2} + \cdots + \frac{1}{Z_n}$.
 
-\noindent\textbf{Amplitude and phase modification by an impedance.} If a sinusoidal current excitation $i\left(t\right) = I_o \sin\left(\omega t\right)$ is passed through an impednace $Z$. Then the voltage across the impedance is given by,
+\noindent\textbf{Amplitude and phase modification by an impedance.} If a sinusoidal current excitation $i\left(t\right) = I_o \sin\left(\omega t\right)$ is passed through an impedance $Z$. Then the voltage across the impedance is given by,
 \begin{equation}
     v\left(t\right) = \vert Z \vert I_o \sin\left(\omega t + \arg Z \right)
     \label{eq:02-36}
@@ -440,7 +440,7 @@ The amplitude of the sinusoidal voltage is $\vert Z \vert I_o$, and the phase of
         \label{fig:ex02-01}
     \end{figure}
     
-    \item Find the Thevenin and Norton equivalent circuits of the following circuits (Figure~\ref{fig:ex02-02}). Note that one of the problems has a dependent source. Dependent sourcrs are voltage or current sources (diamond shaped elements), whose voltage or current, respectively, depend on the voltage or current across another element in the circuit.
+    \item Find the Thevenin and Norton equivalent circuits of the following circuits (Figure~\ref{fig:ex02-02}). Note that one of the problems has a dependent source. Dependent sources are voltage or current sources (diamond shaped elements), whose voltage or current, respectively, depend on the voltage or current across another element in the circuit.
     \begin{figure}[h]
         \centering
         \includegraphics[width=\textwidth]{figure/ch02/ex02-02.pdf}
@@ -466,7 +466,7 @@ The amplitude of the sinusoidal voltage is $\vert Z \vert I_o$, and the phase of
         \label{fig:ex02-04}
     \end{figure}
     
-    \item Figure~\ref{fig:ex02-05} shows a voltage divider circuit with a sinusoidal voltage source $V_s\left(t\right) = 10 \sin\left(1000\pi t\right)$. The impedane $Z_1 = 3 + j4 \Omega$. What should the impedance $Z_2$ be if the the voltage across $Z_2$ has one-fourth the amplitude of $V_s$ and with a phase difference of $45\deg$?
+    \item Figure~\ref{fig:ex02-05} shows a voltage divider circuit with a sinusoidal voltage source $V_s\left(t\right) = 10 \sin\left(1000\pi t\right)$. The impedance $Z_1 = 3 + j4 \Omega$. What should the impedance $Z_2$ be if the the voltage across $Z_2$ has one-fourth the amplitude of $V_s$ and with a phase difference of $45\deg$?
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.35\textwidth]{figure/ch02/ex02-05.pdf}
