@@ -42,6 +42,7 @@
 \usepackage{color}
 \usepackage{listings}
 \usepackage{caption}
+\usepackage{marginnote}
 \usepackage[inline]{enumitem}
 % \usepackage{fullpage}
 \usepackage{lipsum} % provides dummy text for testing
@@ -97,12 +98,13 @@
 % Set up mirrored margins for book-like layout
 \geometry{
   bindingoffset=10mm, % Space for binding
-  inner=25mm, % Inner margin (next to the binding)
+  inner=35mm, % Inner margin (next to the binding)
   outer=15mm, % Outer margin
   top=20mm,
   bottom=20mm,
   twoside % Enable different margins for odd and even pages
 }
+\reversemarginpar  % <-- this puts margin notes into the inner margin
 
 % %%%%%%%%%%%%%%%% thmtools %%%%%%%%%%%%%%%%%%%%%
 \usepackage{mdframed}
@@ -122,6 +124,9 @@ delim_0 "\\nobreak\\dotfill"
 \newcommand{\myindex}[1]{\index{#1} \emph{#1}}
 \makeindex[columns=3, intoc, title=Alphabetical Index, options= -s index.ist]
 %%%%%%%%%%%%%%%% index %%%%%%%%%%%%%%%%%%%%%
+
+% Figure captions.
+\captionsetup[figure]{name=Fig.}
 
 %%%%%%%%%%%%%%%% ToC %%%%%%%%%%%%%%%%%%%%%
 % Link Chapter title to ToC: https://tex.stackexchange.com/questions/32495/linking-the-section-text-to-the-toc

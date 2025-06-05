@@ -98,7 +98,7 @@ When we connect a voltage source across the diode (Figure~\ref{fig:03-diode-vi})
 where, $I_S$ is the saturation current, which is the reverse current that flows when the diode is reverse biased, and , and $q$ is the magnitude of electron charge.
 
 When the negative terminal of the voltage source is connected to the $p$-side and the positive terminal is connected to the $n$-side, we have a \textbf{reverse bias}. This increases the barrier voltage $V_0$, and prevents the diffusion current $I_D$ from flowing across the junction. The diode is said to be \textit{off} in this case, and only a small reverse saturation current $I_S$ flows through the diode.
-\begin{figure}[h]
+\begin{figure}[t]
     \centering
     \includegraphics[width=0.7\textwidth]{figure/ch03/fig03-03.pdf}
     \caption{V-I characteristics of a diode}
@@ -107,45 +107,67 @@ When the negative terminal of the voltage source is connected to the $p$-side an
 When the reverse biased voltage is increased beyond a certain threshold, called the \textit{breakdown voltage} $V_B$, the diode will start conducting in the reverse direction. This is called \textit{avalanche breakdown}, and the diode can be damaged if the current is not limited by a resistor or some other means. The avalanche breakdown is the reason for the sharp rise in the current at the $V_B$.
 
 \subsection{A simple diode circuit}
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figure/ch03/fig03-diode-resistor-ckt.pdf}
+    \caption{Diode voltage and current in a simple diode circuit with a series resistor.}
+    \label{fig:03-diode-resistor-ckt}
+\end{figure}
 In the circuit shown in Figure~\ref{fig:03-diode-vi}, the moment the forward bias-voltage gets close tot 0.6, the current starts to rise drammatically. Slight changes in the voltage will lead to large changes in the current if it is not limited by a series resistor. Without a resistor, we can easily burn the diode due to large power dissipation across the diode. Consider a more practical cicruit with a voltage source, resistor, and a diode, as shown in Figure~\ref{fig:03-diode-resistor-ckt}. The voltage across the diode $V_D$ and the current through the diode $I_D$ by writing the Kirchoff voltage law (KVL) around the loop,
 \begin{equation}
     V - I_D R - V_D = 0
     \label{eq:ch03-diode-resistor-kvl}
 \end{equation}
 The current $I_D$ and $V_D$ from Eq.~\ref{eq:ch03-forward-bias-vi} can be substituted into Eq.~\ref{eq:ch03-diode-resistor-kvl} to solve for $V_D$ and $I_D$,
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure/ch03/fig03-bjt-struct.pdf}
+    \caption{Bipolar junction transistor structure and symbol}
+    \label{fig:03-04}
+\end{figure}
 \begin{equation}
     V - R I_S \left( e^{\frac{V_D}{V_T}} - 1 \right) - V_D = 0
     \label{eq:ch03-diode-resistor-vd-id}
 \end{equation}
 Unfortunately, this is a non-linear solution will need to be solved to find the voltage across the diode $V_D$ and the current through the diode $I_D$. 
 
-A first order approximation can be made by assuming that the diode is \textit{forward biased} or it is \textit{switched on}, and the voltage across it is approximately $0.7 V$ for silicon diodes. This will give us a first order approximation of the diode current,
+Let's assume that $V=5V$ and $R=1k\Omega$ in Figure~\ref{fig:03-diode-resistor-ckt}. A first order approximation can be made by assuming that the diode is \textit{switched off}, i.e. no current is flow through it and see if it leads to a contradiction. If we assume the diode is off and no current is flowing $I_D = 0mA$ through it, then $V_D = 5V$ The diode cannot be off if $V_D \geq 0.7V$. So, the diode must be swtiched on. We will assume that the diode is on and then find out the current flowing through it and check that it is not close to 0. In the current circuit, have 
 \begin{equation}
-    I_D \approx \frac{V - 0.7}{R}
+    I_D \approx \frac{V - 0.7}{R} = 4.3mA
     \label{eq:ch03-diode-resistor-id-approx}
 \end{equation}
-We then need to check if our assumption is valid by checking if the 
-
-\begin{figure}[t]
-    \centering
-    \includegraphics[width=0.7\textwidth]{figure/ch03/fig03-diode-resistor-ckt.pdf}
-    \caption{Diode voltage and current in a simple diode circuit with a series resistor.}
-    \label{fig:03-diode-resistor-ckt}
-\end{figure}
+$I_D$ is large enough for to flow through the didode when its switched on. Thus, $V_D=0.7V$ and $I_D=4.3mA$ is a reasonable first approximation of the diode's voltage and current in the current circuit.
 
 \section{Bipolar junction transistor (BJT)}
-The bipolar junction transistor (BJT) is the first of some of the three terminal devices we will come across int his course. There are two types of BJTs -- $npn$ and $pnp$. BJTs are formed by sandwiching a thin layer of $p$-type semiconductor between two $n$-type semiconductors or vice versa. This is depicted in Figure~\ref{fig:03-04}. Metal contacts are made with these three semiconductor regions to form the three terminals of the BJT. In an $npn$ BJT, one of the  $n$ regions is the \textit{emitter} which is heavily dopped, and the other $n$ region is the \textit{collector}. The $p$ region is the \textit{base}, which is lightly doped and very thin compared to the widths of the emitter and collector regions. The collector is moderately doped. Three terminal devices like the BJT and MOSFET can be used as an amplifier or a switch, depending on how it is biased. We will only discuss $npn$ transistors for the rest of the section; the $pnp$ transistor is similar, but with the polarities of the voltages and currents reversed.
+The bipolar junction transistor (BJT) is the first of some of the three terminal devices we will come across int his course. There are two types of BJTs -- $npn$ and $pnp$. BJTs are formed by sandwiching a thin layer of $p$-type semiconductor between two $n$-type semiconductors or vice versa. This is depicted in Figure~\ref{fig:03-04}. Metal contacts are made with these three semiconductor regions to form the three terminals of the BJT. In an $npn$ BJT, one of the  $n$ regions is the \textit{emitter} which is heavily dopped, and the other $n$ region is the \textit{collector}. The $p$ region is the \textit{base}, which is lightly doped and very thin compared to the widths of the emitter and collector regions. The collector is moderately doped. Three terminal devices like the BJT and MOSFET can be used as an amplifier or a switch, depending on how it is biased. We will only discuss $npn$ transistors for the rest of the section; the $pnp$ transistor is similar, but with the polarities of the voltages and currents reversed.A BJT is essentially two diodes connected back to back as shown in Figure~\ref{fig:03-04}
 
 A BJT can be operated in three different modes, depending on the biasing of the terminals. The three modes are: (a) \textbf{Cut-off mode}, (b) \textbf{Active mode}, and (c) \textbf{Saturation mode}. The difference between the three modes are summarized in Table~\ref{tab:03-bjt-modes}.
+\subsection{Cut-off mode}
+In this mode, the emitter-base (EB) and the collector-base (CB) junctions are reverse biased, and not current flows through the transistor.
+\begin{equation}
+    I_E = 0 \quad I_B = 0 \quad I_C = 0
+    \label{eq:03-bjt-cutoff}
+\end{equation}
+\subsection{Active mode}
+In this mode, the EB junction is forward biased, while the CB junction is reverse biased. Consider the circuit in Fig.~\ref{fig:03-bjt-active}.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{figure/ch03/fig03-04.pdf}
-    \caption{Bipolar junction transistor structure and symbol}
-    \label{fig:03-04}
+    \includegraphics[width=0.55\textwidth]{figure/ch03/fig03-bjt-active.pdf}
+    \caption{$npn$ BJT in active mode.}
+    \label{fig:03-bjt-active}
 \end{figure}
-\subsection{Cut-off mode}
-In this mode, the emitter-base junction and the 
-\begin{table}[b]
+When the $npn$ BJT's EB junction is forward biased ($V_{BE} \approx 0.7V$), electrons (the majority carrier) from the highly doped emitter region are injected just across the EB junction. The electrons diffuse into the base region, which is lighly doped and very thin. Because $V_C > V_B$, the injected electrons are swept across the base region by the electric field created by the reverse biased CB junction. A small percentage of these injected electrons recombibe with the holes in the base region, which contributes to the small base current. The collector current will be proportional the base current; the current gain is given by the parameter $\beta$.
+\begin{equation}
+    I_C = \beta I_B \quad \text{where, } \beta \approx 100 - 1000
+    \label{eq:03-bjt-active-ic}
+\end{equation}
+An equivalent circuit of the BJT in the active model is shown in the following figure (Fig.~\ref{fig:03-bjt-active-eqt}). In this circuit, assume that the supply voaltges $V_{BB}$, $V_{CC}$, and the resistors $R_B$ and $R_C$ are chosen appropriately to place the $npn$ transistor in the active mode. The AC source $v_{s}$ of sufficiently small in amplitude (in $mV$) will result in small changes in $I_B$, which lead to corresponding change in $I_C$. The voltage at the collector $V_C$ have a larger amplitude variations riding on a DC voltage, given by the following,
+\begin{equation}
+    V_C = V_{CC} - \beta \frac{R_C}{R_B}\left(V_{BB} - 0.7 \right) -  \beta \frac{R_C}{R_B} v_s
+    \label{eq:03-bjt-active-vc}
+\end{equation}
+This is easy to derive and is left as an exercise for the reader. The input voltage $v_s$ get amplified by a factor of $\beta \frac{R_C}{R_B}$, which is the voltage gain of this the common emitter amplifier circuit. We will no disucss such circuits any further in the course. This was just to illustrate the utility of the BJT in amplifying small AC signals when operated in the active mode.
+\begin{table}[h]
     \centering
     \caption{Modes of operation of a bipolar junction transistor (BJT)}
     \begin{tabular}{ c c c l}
@@ -171,6 +193,26 @@ In this mode, the emitter-base junction and the
     \label{tab:03-bjt-modes}
 \end{table}
 
+\subsection{Saturation mode}
+Consider the circuit in Fig.~\ref{fig:03-bjt-sat-eqt}. If for fixed $V_{BB}$, we reduce $R_B$, this will increase $I_B$, which would result in progressively increasing $I_C$. However, $I_C$ cannot continue to increase forever. As $I_C$ increases, $V_C = V_{CC} - I_{C}R_{C}$ decreases. Once its value falls sufficiently below the base voltage $V_B$, the collector-base (CB) junction becomes forward biased. This is called the \textbf{saturation mode} of operation of the BJT. In this mode, the BJT behaves like a closed switch, and the collector current $I_C$ saturates at a value that is independent of the base current $I_B$. The collector-emitter voltage saturates at $V_{CE(sat)} \approx 0.2V$ for silicon BJTs, making the collector current independent of the base current.
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figure/ch03/fig03-bjt-active-eq.pdf}
+    \caption{$npn$ BJT active mode equivalent circuit, and a simple common emitter voltage amplifier circuit.}
+    \label{fig:03-bjt-active-eqt}
+\end{figure}
+\begin{equation}
+    I_C \approx \frac{V_{CC} - V_{CE(sat)}}{R_C} \quad \text{and } V_{CE(sat)} \approx 0.2V
+    \label{eq:03-bjt-sat-ic}
+\end{equation}
+The saturation mode is used in switching applications, where the BJT is used as a switch to turn on or off a load connected to the collector; think of the collector resistor as the load. We will discuss some applications later in the chapter.
+
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=\textwidth]{figure/ch03/fig03-bjt-sat-eq.pdf}
+    \caption{$npn$ BJT active mode equivalent circuit, and a simple common emitter voltage amplifier circuit.}
+    \label{fig:03-bjt-sat-eqt}
+\end{figure}
 
 \section{Metal oxide field effect transistor (MOSFET)}
 

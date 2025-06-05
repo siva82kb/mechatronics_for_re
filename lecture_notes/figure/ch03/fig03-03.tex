@@ -17,7 +17,7 @@
     % Diode circuit
     \begin{scope}
         \node[anchor=center, color=myred] at (2, 3.25) {Diode with an external voltage source};
-        \draw (0,0) to[D, l=$D$, , i^>=$I$] ++(4, 0) 
+        \draw (0,0) to[D, l=$D$, i^>=$I$] ++(4, 0) 
               to ++(0, 2) 
               to[battery1, l_=$V$, invert] ++(-4, 0) 
               to ++(0, -2);
