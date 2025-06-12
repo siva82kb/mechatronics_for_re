@@ -210,6 +210,50 @@ delim_0 "\\nobreak\\dotfill"
 % \usepackage[record,abbreviations,symbols,stylemods={list,tree,mcols}]{glossaries-extra}
 %%%%%%%%%%%%%%%%%%%%% glossaries-extra %%%%%%%%%%%%%%%%%
 
+%% C Code formating
+\usepackage{inconsolata}
+\usepackage{courier}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{courier}
+
+% Define colors
+\definecolor{vscbg}{RGB}{250,250,250}
+\definecolor{vsckeyword}{RGB}{0,0,255}
+\definecolor{vsccomment}{RGB}{0,128,0}
+\definecolor{vscstring}{RGB}{163,21,21}
+\definecolor{vscnumber}{RGB}{128,128,128}
+
+% Define style
+\lstdefinestyle{cstyle}{
+    language=C,
+    backgroundcolor=\color{vscbg},
+    basicstyle=\fontfamily{pcr}\selectfont\fontsize{9.5pt}{11pt}\selectfont,
+    keywordstyle=\color{vsckeyword}\bfseries,
+    commentstyle=\color{vsccomment}\itshape,
+    stringstyle=\color{vscstring},
+    numbers=left,
+    numberstyle=\fontfamily{pcr}\selectfont\fontsize{8pt}{9pt}\color{vscnumber},
+    numbersep=8pt,
+    numberblanklines=false,
+    showstringspaces=false,
+    breaklines=true,
+    breakindent=0pt,
+    postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space},
+    frame=single,
+    rulecolor=\color{vscbg}, % invisible frame
+    framesep=6pt,
+    framexleftmargin=15pt,
+    framextopmargin=0pt,
+    framexbottommargin=0pt,
+    xleftmargin=0pt,
+    tabsize=4,
+    captionpos=b,
+    keepspaces=true,
+}
+
+
 \input{./macros.tex}
 \input{./customdef.tex}
 
@@ -265,9 +309,17 @@ delim_0 "\\nobreak\\dotfill"
 % \input{./chapter/preface.tex}
 
 % \part{Linear Algebra}
-\input{./chapter/00summary.tex}
+% \input{./chapter/00summary.tex}
 \input{./chapter/01basic_circuit_theory.tex}
 \input{./chapter/02electronics_review.tex}
+\input{./chapter/03linearsystems.tex}
+\input{./chapter/04microcontrollers.tex}
+\input{./chapter/05Cpropgramming.tex}
+\input{./chapter/06sensors.tex}
+\input{./chapter/07actuators.tex}
+\input{./chapter/08somecontroltheory.tex}
+\input{./chapter/09baseneuromechanics.tex}
+\input{./chapter/10casestudies.tex}
 
 
 % \input{./chapter/01-matrices.tex}
