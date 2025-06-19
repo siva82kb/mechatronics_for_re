@@ -30,9 +30,9 @@
             to ++(3.68, 0) node[circ] () {}
             to (Q.emitter);
         \draw (Q.collector)
-            to[vR, l=$R_C$, mirror] ++(0, 1.5)
+            to[vR, l=$R_C$, mirror] ++(0, 1.75)
             to ++(1.75, 0)
-            to[battery1, l=$V_{CC}$] ++(0, -5.14)
+            to[battery1, l=$V_{CC}$] ++(0, -5.39)
             to ++(-1.75, 0);
         % Current arrows
         \draw[-Latex, thin] (Q.base) ++(-0.4, 0.0) -- ++(0.4, 0) node[above, midway] {$I_B$};

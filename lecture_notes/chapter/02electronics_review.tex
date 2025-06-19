@@ -215,8 +215,67 @@ The saturation mode is used in switching applications, where the BJT is used as 
 \end{figure}
 
 \section{Metal oxide field effect transistor (MOSFET)}
+While the BJT might be a popular choice for many applications where circuits are made on a breadboard or a PCB. However, when it comes to integrated circuits, the MOSFET is the most popular choice. MOSFETS can be made quite small, are easier to fabricate, and consume less power than BJTs. They canb be use for both digitial and analog integrated circuits. There are four types of MOSFETs, $n$-channel or $p$-channel textit{enhancement} or \textit{depeltion} type MOSFETs. In this section, we will only focus on the enhancement-type $n$-channel MOSFET to understand the fundamental principle of operation of the MOSFETs.
 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.45\textwidth]{figure/ch03/fig03-mosfet-struct.pdf}
+    \caption{$n$ Channel Enhancement MOSFET.}
+    \label{fig:03-mosfet-struct}
+\end{figure}
 
+The physical structure of an enhancement-type $n$-channel MOSFET is shown in Figure~\ref{fig:03-mosfet-struct}. The MOSFET in this figure has four terminals - source (S), drain (D), gate (G), adn body (B). The source and drain are heavily doped $n$-type regions, while the channel is lightly doped $p$-type region. The region between drain and the source is called the \textit{channel region}. The gate is insulated from the channel by a thin layer of oxide, which acts as a dielectric. The gate terminal is used to control the formation of a conductive channel between the source and drain terminals. The body terminal is connected to the source terminal, and is usually shorted to the source in most applications. The MOSFET is a four terminal device, but it can be treated as a three terminal device by shorting the body and source terminals.
+
+The drain is always kept at then higher potential than then source. The connection between the drain to the source is essentially two diodes connected back-to-back, implying that applying a voltage between the drain and source does not result in any current because one of the diodes if reverse biased. However, when a positive voltage is applied to the gate with respect to the body/source, things get interesting as shown in Figure~\ref{fig:03-mosfet-gate-volt}. Applying a positive gate voltage $V_{GS}$ with respect to the source terminal creates an electric field across the oxide layer, which penetrates into the channel region. This electric field attracts electrons in to the channel region right below the gate oxide layer. As the voltage in increased beyond a threshold $V_t$, a conductive channel is formed between the source and drain terminals, which can now conduct current between the source and the drain. The threshold voltage is typically between $0.3V-1.0V$. Any $v_{GS}$ applied beyond $V_t$ is called the \text{overdrive} votlage or \textit{effective} voltage $v_{OV}$.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figure/ch03/fig03-mosfet-vgs-vds.pdf}
+    \caption{$n$-Channel MOSFET $V_{GS}$-$V_{DS}$ Characteristics.}
+    \label{fig:03-mosfet-gate-volt}
+\end{figure}
+
+In Figure~\ref{fig:03-mosfet-gate-volt} no current flows because both the source and drain are grouded. When a drain source voltage is applied, as shown in Figure~\ref{fig:03-mosfet-drainsource-volt}, the MOSFET can be turned on by applying a positive gate voltage $V_{GS}$ with respect to the source. The current flowing through the MOSFET is called the \textit{drain current} $I_D$. The relationship between the drain current $i_D$, the gate-source voltage $V_{GS}$, and the drain-source voltage $V_{DS}$ is given by,
+\begin{equation}
+    i_D = k_n\left(\left(v_{GS} - V_t\right)v_{DS} - \frac{1}{2}v_{DS}^2\right)
+    \label{eq03-mosfet-id-vgs}
+\end{equation}
+where, $k_n$ is the process transconductance parameter, and $V_t$ is the threshold voltage. This expression hold only when $V_{GS} > V_t$ and $0 \leq V_{DS} < V_{GS} - V_t$. Something very interesting happens to the channel when a drain-source voltage is applied and its magnitude is increased, as shown in Figure~\ref{fig:03-mosfet-vds-pinchoff}. The channel becomes trapizoidal in shape as $v_{DS}$ is increased due to different is $g_{GS}$ and $v_{GD}$. This causes the resistance of the channel to increase, tapering off the current flowing through it. When the $v_{DS}$ is increased further, the channels gets pinched off and the current saturates.
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=1\textwidth]{figure/ch03/fig03-mosfet-vds-pinchoff.pdf}
+    \caption{$n$-Channel MOSFET $V_{DS}$ Characteristics.}
+    \label{fig:03-mosfet-vds-pinchoff}
+\end{figure}
+
+\subsubsection{MOSFET regions of operation}
+The MOSFET can bwe operated in three different regions, depending on the values of $V_{GS}$ and $V_{DS}$. The three regions are: (a) \textbf{Cut-off region}, (b) \textbf{Triode region}, and (c) \textbf{Saturation region}. The difference between the three regions are summarized in Table~\ref{tab:03-mosfet-regions}.
+
+\begin{table}[h]
+    \centering
+    \caption{Modes of operation of a MOSFET}
+    \begin{tabular}{ c c c l}
+    \hline
+    \rowcolor[HTML]{F8F8F8} 
+    \textbf{Mode} &
+    \textbf{\begin{tabular}[c]{@{}c@{}}Gate-Source\\ Voltage\end{tabular}} &
+    \textbf{\begin{tabular}[c]{@{}c@{}}Drain-Source\\ Voltage\end{tabular}} &
+    \multicolumn{1}{c}{\textbf{Operation}} \\ \hline
+    Cut-off &
+    $V_{GS} < V_t$ &
+    $V_{DS} = 0$ &
+    Transistor is off; no current flows. \\ \hline
+    Triode &
+    $V_{GS} > V_t$ &
+    $V_{DS} < V_{GS} - V_t$ &
+    $I_D$ is proportional to $V_{DS}$. \\ \hline
+    Saturation &
+    $V_{GS} > V_t$ &
+    $V_{DS} \geq V_{GS} - V_t$ &
+    $I_D$ is constant. \\ \hline
+    \end{tabular}
+    \label{tab:03-mosfet-regions}
+\end{table}
 
 % \noindent\textbf{Independent Voltage source.} An idea voltage source provides a fixed voltage $V$ between its two terminals, and can provide any amount of current. Notice that the voltage $V$ can be fixed or time varying. For example, for a DC vortlage source with $V = 5V$, the voltage across the two terminals will be $5V$ for all time. But for a time varying AC source, $V = 5 \sin \left( 100\pi t \right)$, the voltage across its terminal will vary with time. We will often drop the adjective "independent" when we are sure that the context is clear. We will look at dependent sources later, and we will always use the adjective "dependent" to refer to them.
 
