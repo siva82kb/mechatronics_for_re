@@ -388,12 +388,31 @@ For non-resistive loads, the analysis is similar, but we must consider the load'
     \end{example}
 \end{boxedstuff}
 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/ch03/fig03-bjt-solenoid.pdf}
+    \caption{BJT solenoid control circuit}
+    \label{fig:03-bjt-solenoid}
+\end{figure}
 \begin{boxedstuff}
     \begin{example}[\textbf{Switch on/off a solenoid}]
-        Consider a tiny solenoid that switches on at $5V$ across it coil and a current of $0.8A$. We wish to use  a $npn$ BJT to switch the the solenoid ON and OFF by controlling the BJT's base voltage. 
+        Consider a tiny solenoid that switches on at $5V$ across it coil and a current of $0.8A$. We wish to use  a $npn$ BJT to switch the the solenoid ON and OFF by controlling the BJT's base voltage. The circuit for switching the solenoid ON and OFF is shown in Figure~\ref{fig:03-bjt-solenoid}. We will assume that the BJT has a current gain of $\beta = 500$. We need to choose $R_B$ for this circuit assuming that $V_{in}$ is $0V$ or $3.3V$.
+
+        The solenoid has a voltage drop of $5V$ and a current of $0.8A$. When the transistor is in saturation the voltage across the solenoid will be $4.8V$, i.e. close to $5V$ (the solenoid should still work as per the specification). To ensure $0.8A$ flows throught the solenoid, we need to ensure that the base current must be at least $i_B = \frac{i_C}{\beta} = \frac{0.8A}{500} = 1.6mA$. The base current is given by $i_B = \frac{V_{in} - 0.7}{R_B}$, where $V_{in} = 3.3V$. Thus, we have, $R_B = \frac{3.3V - 0.7V}{1.6mA} = 1.625k\Omega$.
+
+        You are probably wondering about the purpose of the $D_{flyback}$ diode. Let's assume that we apply a square pulse as the input $V_{in}$ to the base. 
+        \[ V_{in} = \begin{cases}
+            5V & 0.25s \leq t < 1.25s \\
+            0V & \text{otherwise}
+        \end{cases}\]
+        When the BJT is suddenly turned OFF at time $t=1.25s$ with $0.8A$ flowing through it, the current is forced to stop suddenly, which causes a large voltage spike across the solenoid, which will result in a large voltage spike across the BJT, which can damage it. The flyback diode $D_{flyback}$ is used to suppress this voltage spike by allowing the current to flow through it, and decay down slowly (relatively), thus avoiding a voltage spike across the inductor and the BJT. You will see this in actionin the lab exercise, when you are deliberately asked to remove the flyback diode and see what happen to the BJT.
     \end{example}
 \end{boxedstuff}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch03/fig03-bjt-switch-solenoid-plot.pdf}
+    \caption{Effect of the flyback diode on the solenoid switching circuit. The left plot shows the collector voltage for a input pulse voltage $V_{in}$ of $5V$ amplitude over $0.25s \leq t \leq 1.25s$. Without the flyback diode we find a large voltage spike when the collector current is suddenly reduced to zero. With the flyback diode suppressed the voltage spike by allowing the current to flow through it when the BJT is turned off. The right plot shows the transient diode current when the BJT is switched off at $t=1.25sec$.}
+    \label{fig:03-bjt-solenoid-plot}
+\end{figure}
 
 \section{Some MOSFET Circuits}
-
-
