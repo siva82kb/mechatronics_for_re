@@ -1,0 +1,24 @@
+% File: basic_elements.tex
+\documentclass{standalone}
+\usepackage[american]{circuitikz}
+\ctikzset{
+    bipoles/diode/height=0.4,
+    bipoles/diode/width=0.3
+}
+
+\begin{document}
+\begin{circuitikz}[american]
+    % Diode
+    \draw (0, -0.8) to[D] (0, 0.7);
+    \node at (0,-1.25) {\textit{pn} junction diode};
+
+    % BJT
+    \draw (3,0) node[npn] (t) {};
+    \node at (3,-1.25) {\textit{npn} BJT};
+
+    % MOSFET
+    \draw (6,0) node[nmos] (t) {};
+    \node at (6,-1.25) {\textit{n}-Channel MOSFET};
+\end{circuitikz}
+
+\end{document}

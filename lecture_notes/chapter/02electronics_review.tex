@@ -5,7 +5,7 @@ This chapter is a quick review of basic electronics. The previous chapter involv
 
 \begin{figure}[b]
     \centering
-    \includegraphics[width=0.8\textwidth]{figure/ch03/fig03-01.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/ch03/fig03-01.pdf}
     \caption{Three most essential electronic components reviewed in this chapter.}
     \label{fig:03-01}
 \end{figure}
@@ -84,7 +84,7 @@ where, $V_T$ is the thermal voltage given by $V_T = \frac{k_B T}{q}$, where $k_B
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.6\textwidth]{figure/ch03/fig03-02.pdf}
+    \includegraphics[width=0.6\textwidth]{figures/ch03/fig03-02.pdf}
     \caption{$pn$ junction diode}
     \label{fig:03-02}
 \end{figure}
@@ -100,7 +100,7 @@ where, $I_S$ is the saturation current, which is the reverse current that flows 
 When the negative terminal of the voltage source is connected to the $p$-side and the positive terminal is connected to the $n$-side, we have a \textbf{reverse bias}. This increases the barrier voltage $V_0$, and prevents the diffusion current $I_D$ from flowing across the junction. The diode is said to be \textit{off} in this case, and only a small reverse saturation current $I_S$ flows through the diode.
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.7\textwidth]{figure/ch03/fig03-03.pdf}
+    \includegraphics[width=0.7\textwidth]{figures/ch03/fig03-03.pdf}
     \caption{V-I characteristics of a diode}
     \label{fig:03-diode-vi}
 \end{figure}
@@ -109,7 +109,7 @@ When the reverse biased voltage is increased beyond a certain threshold, called 
 \subsection{A simple diode circuit}
 \begin{figure}[b]
     \centering
-    \includegraphics[width=0.7\textwidth]{figure/ch03/fig03-diode-resistor-ckt.pdf}
+    \includegraphics[width=0.7\textwidth]{figures/ch03/fig03-diode-resistor-ckt.pdf}
     \caption{Diode voltage and current in a simple diode circuit with a series resistor.}
     \label{fig:03-diode-resistor-ckt}
 \end{figure}
@@ -121,7 +121,7 @@ In the circuit shown in Figure~\ref{fig:03-diode-vi}, the moment the forward bia
 The current $I_D$ and $V_D$ from Eq.~\ref{eq:ch03-forward-bias-vi} can be substituted into Eq.~\ref{eq:ch03-diode-resistor-kvl} to solve for $V_D$ and $I_D$,
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\textwidth]{figure/ch03/fig03-bjt-struct.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/ch03/fig03-bjt-struct.pdf}
     \caption{Bipolar junction transistor structure and symbol}
     \label{fig:03-04}
 \end{figure}
@@ -152,7 +152,7 @@ In this mode, the emitter-base (EB) and the collector-base (CB) junctions are re
 In this mode, the EB junction is forward biased, while the CB junction is reverse biased. Consider the circuit in Fig.~\ref{fig:03-bjt-active}.
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.55\textwidth]{figure/ch03/fig03-bjt-active.pdf}
+    \includegraphics[width=0.55\textwidth]{figures/ch03/fig03-bjt-active.pdf}
     \caption{$npn$ BJT in active mode.}
     \label{fig:03-bjt-active}
 \end{figure}
@@ -197,7 +197,7 @@ This is easy to derive and is left as an exercise for the reader. The input volt
 Consider the circuit in Fig.~\ref{fig:03-bjt-sat-eqt}. If for fixed $V_{BB}$, we reduce $R_B$, this will increase $I_B$, which would result in progressively increasing $I_C$. However, $I_C$ cannot continue to increase forever. As $I_C$ increases, $V_C = V_{CC} - I_{C}R_{C}$ decreases. Once its value falls sufficiently below the base voltage $V_B$, the collector-base (CB) junction becomes forward biased. This is called the \textbf{saturation mode} of operation of the BJT. In this mode, the BJT behaves like a closed switch, and the collector current $I_C$ saturates at a value that is independent of the base current $I_B$. The collector-emitter voltage saturates at $V_{CE(sat)} \approx 0.2V$ for silicon BJTs, making the collector current independent of the base current.
 \begin{figure}[t]
     \centering
-    \includegraphics[width=\textwidth]{figure/ch03/fig03-bjt-active-eq.pdf}
+    \includegraphics[width=\textwidth]{figures/ch03/fig03-bjt-active-eq.pdf}
     \caption{$npn$ BJT active mode equivalent circuit, and a simple common emitter voltage amplifier circuit.}
     \label{fig:03-bjt-active-eqt}
 \end{figure}
@@ -209,7 +209,7 @@ The saturation mode is used in switching applications, where the BJT is used as 
 
 \begin{figure}[b]
     \centering
-    \includegraphics[width=\textwidth]{figure/ch03/fig03-bjt-sat-eq.pdf}
+    \includegraphics[width=\textwidth]{figures/ch03/fig03-bjt-sat-eq.pdf}
     \caption{$npn$ BJT active mode equivalent circuit, and a simple common emitter voltage amplifier circuit.}
     \label{fig:03-bjt-sat-eqt}
 \end{figure}
@@ -219,7 +219,7 @@ While the BJT might be a popular choice for many applications where circuits are
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.45\textwidth]{figure/ch03/fig03-mosfet-struct.pdf}
+    \includegraphics[width=0.45\textwidth]{figures/ch03/fig03-mosfet-struct.pdf}
     \caption{$n$ Channel Enhancement MOSFET.}
     \label{fig:03-mosfet-struct}
 \end{figure}
@@ -230,7 +230,7 @@ The drain is always kept at then higher potential than then source. The connecti
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\textwidth]{figure/ch03/fig03-mosfet-vgs-vds.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/ch03/fig03-mosfet-vgs-vds.pdf}
     \caption{$n$-Channel MOSFET $V_{GS}$-$V_{DS}$ Characteristics.}
     \label{fig:03-mosfet-gate-volt}
 \end{figure}
@@ -243,7 +243,7 @@ In Figure~\ref{fig:03-mosfet-gate-volt} no current flows because both the source
 where, $k_n$ is the process transconductance parameter, and $V_t$ is the threshold voltage. This expression hold only when $V_{GS} > V_t$ and $0 \leq V_{DS} < V_{GS} - V_t$. Something very interesting happens to the channel when a drain-source voltage is applied and its magnitude is increased, as shown in Figure~\ref{fig:03-mosfet-vds-pinchoff}. The channel becomes trapizoidal in shape as $v_{DS}$ is increased due to different is $g_{GS}$ and $v_{GD}$. This causes the resistance of the channel to increase, tapering off the current flowing through it. When the $v_{DS}$ is increased further, the channels gets pinched off and the current saturates.
 \begin{figure}[b]
     \centering
-    \includegraphics[width=1\textwidth]{figure/ch03/fig03-mosfet-vds-pinchoff.pdf}
+    \includegraphics[width=1\textwidth]{figures/ch03/fig03-mosfet-vds-pinchoff.pdf}
     \caption{$n$-Channel MOSFET $V_{DS}$ Characteristics.}
     \label{fig:03-mosfet-vds-pinchoff}
 \end{figure}
@@ -252,7 +252,7 @@ where, $k_n$ is the process transconductance parameter, and $V_t$ is the thresho
 
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\textwidth]{figure/ch03/fig03-mosfet-regions.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/ch03/fig03-mosfet-regions.pdf}
     \caption{Regions of operation of a MOSFET.}
     \label{fig:03-mosfet_regions}
 \end{figure}
@@ -291,11 +291,109 @@ Figure~\ref{fig:03-mosfet_regions} shows $i_D$ versus $v_{DS}$ for a fixed value
     \label{eq03-mosfet-id-sat}
 \end{equation}
 
-
 \begin{figure}[t]
     \centering
-    \includegraphics[width=0.8\textwidth]{figure/ch03/fig03-mosfet-iv-curves.pdf}
+    \includegraphics[width=0.8\textwidth]{figures/ch03/fig03-mosfet-iv-curves.pdf}
     \caption{Current vs. voltage characteristics of a MOSFET.}
     \label{fig:03-mosfet-iv-curves}
 \end{figure}
+
+\section{Some Diode Circuits}
+The diode is used in many circuits, such as rectifiers, votlage regulators, clipper, clampers, etc. In this section, we will briefly presents some common and basic diode circuits. The analysis of these circuits are left as an exercise for the reader. The reader is encouraged to simulate these circuits using a circuit simulation software such as LTSpice to gain a better understanding of the operation of these circuits.
+\begin{figure}[b]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch03/fig03-diode-ckt-hlfwaverect.pdf}
+    \caption{Half-wave and full-wave rectifier circuits.}
+    \label{fig:03-diode-ckt-hlfwaverect}
+\end{figure}
+
+\subsection{Rectifiers}
+Figure~\ref{fig:03-diode-ckt-hlfwaverect} shows a half-wave and full-wave rectifier circuit. Assume that the input signal  $v_{in}\left(t\right)$ is sinusoidal, i.e., $v_{in}\left(t\right) = v_o \sin\left(\omega t\right)$. The output signal, i.e., the voltage across the load resistance $R_L$ can be computed with different levels of accuracy based on the model we assume for the diode. The output of the half-wave rectifier circuit is shown in Figure~\ref{fig:03-diode-halfwave-plot} for four different models, starting with the simplest idea model (model 1) to a more realistic model (model 4). 
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch03/fig03-diode-halfwave-plot.pdf}
+    \caption{The top row plots show the current-voltage relationship for the assumed diode model. Model 1 is an ideal diode model, while model 4 is a one described in Eq.~\ref{eq:ch03-forward-bias-vi}. The plot in the bottom row shows the input voltage $v_{in}\left(t\right) = 2 \sin\left(2\pi t\right)$ in gray, and the voltage across the load resistance $R_L = 100\Omega$ for the different assumed model.}
+    \label{fig:03-diode-halfwave-plot}
+\end{figure}
+
+\begin{boxedstuff}
+    \begin{problem}
+        Can you explain the four output graphs in Figure~\ref{fig:03-diode-halfwave-plot} using the four models?
+    \end{problem}
+\end{boxedstuff}
+The problem of generating a similar output for the full-wave bridge rectifier is left as an exercise at the end of the chapter.
+
+\subsection{Voltage regulator}
+A voltage regulator is a circuit that maintains a constant voltage across its output terminals, even when the input voltage or load current changes. Voltage regulators are widely used in power supplies to provide a stable output voltage. Diodes can be used for building simple voltage regulators. Consider the simple circuit in Figure~\ref{fig:03-diode-voltreg1}. Here, we want a stable 2.8V supply for a circuit and we have a voltage supply $V_s$ that is higher than 2.8V. We can build a stable 2.8V using the arrangement shown in this figure ($R_1 = 1k\Omega$). The variation of $V_{out}$ with variations in $V_{in} \in [5, 15]V$ are shown in the adjacent plots with $\left(R_L = \infty \Omega\right)$ and without a load resistance (top plot; $R_L = 1k\Omega$). The bottom plot shows the change in the $V_{out}$ as a function of the load resistance $R_L \in [0.1k, 10K]\Omega$. Both of these plots show that that $V_{out}$ is fairly robust to large variations in $V_{in}$ and $R_L$; for very low values of $V_{in}$ and $R_L$, the circuit fails as expected.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[height=7.5cm]{figures/ch03/fig03-diode-ckt-voltreg.pdf}
+    \hspace{1em} % adjust spacing between the figures
+    \includegraphics[height=7.5cm]{figures/ch03/fig03-diode-simplevoltreg-plot.pdf}
+    \caption{A simple voltage regulator circuit using 4 diodes to obtain a stable voltage of 2.8V. The plots shown in the figure were obtained by simulating this circuit in LTSpice.}
+    \label{fig:03-diode-voltreg1}
+\end{figure}
+
+\noindent\textbf{Zener diode voltage regulator.} A Zener diode is a special type of diode that is designed to operate in the reverse breakdown region, with sufficient power dissipation capability. When a Zener diode is reverse biased, it allows current to flow in the reverse direction when the voltage across it exceeds a certain value, called the \textit{Zener voltage} $V_Z$. This makes it useful for voltage regulation applications. The Zener diode can be used to build a simple voltage regulator circuit as shown in Figure~\ref{fig:03-diode-voltreg2}. The Zener diode is connected in reverse bias in series with a resistor $R_1$ and the input voltage $V_{in}$ is slowly increased.  The current-voltage relationship of the Zener diode ($V_Z$ vs. $I_Z$) is shown in the figure. For now assume that the load resistance $R_L$ is not connected to the the circuit. In this case, the Zener breakdown voltage is $5.1V$, when $V_Z < 5.1V$, hardly any current flows through the Zener diode and $V_Z = V_{in}$. But once $V_{in}$ get closed to $5.1V$, the Zener diode starts to conduct and $V_Z$ clamps to $5.1V$.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[height=4.0cm]{figures/ch03/fig03-diode-zener.pdf}
+    \hspace{1em} % adjust spacing between the figures
+    \includegraphics[height=4.0cm]{figures/ch03/fig03-zener-iv-curve.pdf}
+    \caption{A simple Zener voltage regulator circuit using a Zener diode.}
+    \label{fig:03-diode-voltreg2}
+\end{figure}
+
+The plot of $V_{in}$ versus $V_Z$ with and without the load resistance is shown in Figure~\ref{fig:03-diode-zener-voltreg-plot}.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch03/fig03-diode-zener-voltreg-plot.pdf}
+    \caption{The plot on the left shows the performance of the Zener diode voltage regulator with ($R_L = 1k\Omega$) and without ($R_L = \infty \Omega$) the load. The second plot shows the Zener diode's performance for varying load resistance.}
+    \label{fig:03-diode-zener-voltreg-plot}
+\end{figure}
+
+\section{Some BJT Circuits}
+These days the most common practical use of the BJT is as a switch. This is what we will focus on; we will also briefly talk about a simple voltage amplifier circuit using the BJT for the sake of demonstration.
+
+\subsection{BJT as a switch}
+The BJT can be used as a voltage controlled switch to control the flow of current through different types of loads such as resistors, inductors, LEDs, etc. To act as a switch the BJT is operated in the cut-off or the saturation modes, to turn it off or on, respectively, as shown in Figure~\ref{fig:03-bjt-switch-ckt}. In the ideal case, it behave alike an open or closed switch between the collector and emitter terminals. 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ch03/fig03-bjt-switch.pdf}
+    \caption{Circuit of a typical $npn$ BJT based switch.}
+    \label{fig:03-bjt-switch-ckt}
+\end{figure}
+
+Consider a resistive load in Figure~\ref{fig:03-bjt-switch-ckt} with load resistance $R_L$. In the cut-off mode, when the base-emitter junction is reverse biased, i.e. $V_{BE} < 0.7V$, the BJT is off. One way to achieve this is to set $V_{in} = 0V$ for a $npn$ BJT. In the cut-off mode, $i_B = 0$, which means that $i_C = 0$ and $i_E = 0$. The voltage at the collector of the BJT will be equal to the supply voltage $V_{CC}$, i.e. $v_C = V_{CC} - i_C R_L = V_{CC}$. In saturation mode, the base-emitter and collector-base junctions are both forward biased. In a real $npn$ BJT circuit, the collector-emitter voltage is $v_{CE} = \approx 0.2V$. Thus, we have, $i_C = \frac{V_{CC} - v_{CE}}{R_L} = \frac{V_{CC} - 0.2}{R_L}$. For this collector current, the base current must be at least $i_B = \frac{i_C}{\beta}$. Thus, we have $i_B = \frac{V_{in} - 0.7}{R_B}$. This can be achieve by choosing a sufficiently large $V_{in}$ or sufficiently small $R_B$.
+
+For non-resistive loads, the analysis is similar, but we must consider the load's voltage-current characteristics and appropriately design the circuit. Let's look at a couple of examples.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/ch03/fig03-bjt-led.pdf}
+    \caption{BJT LED control circuit}
+    \label{fig:03-bjt-led}
+\end{figure}
+\begin{boxedstuff}
+    \begin{example}[\textbf{Switch on an LED}]
+        We have an LED with a forward voltage drop of $2.0V$ and a forward current of $20mA$. We want to control the LED through a transistor, such that when $3.3V$ is applied to the base of the transistor, the LED switches ON, else it is OFF (Figure~\ref{fig:03-bjt-led}). Assume that the $npn$ transistor has a current gain in the range $\beta = 100-200$. We need to choose $R_{led}$ and $R_B$ for this circuit.
+
+        We need $i_C$ must be $20mA$ when the LED is turned on, and it has a drop of $2V$. When the transistor is in saturation, we have,
+        \[ V_{CC} - 2V - i_C R_L = 0 \implies R_L = \frac{V_{CC} - 2V}{i_C} = \frac{3.3V - 2V}{20mA} = 65\Omega \]
+
+        To get an collector current of $20mA$, we need a base current of $i_B = \frac{i_C}{\beta} = \frac{20mA}{\beta}$. Since we do not have the exact value of $\beta$, we will assume the worst case, i.e. lowest possible value for $\beta$, which in this case is $100$. Thus, we have $i_B = \frac{20mA}{100} = 0.2mA$. The base current is given by $i_B = \frac{V_{in} - 0.7}{R_B}$, where $V_{in} = 3.3V$. Thus, we have, $R_B = \frac{3.3V - 0.7V}{i_B} = \frac{2.6V}{0.2mA} = 13k\Omega$.
+    \end{example}
+\end{boxedstuff}
+
+\begin{boxedstuff}
+    \begin{example}[\textbf{Switch on/off a solenoid}]
+        Consider a tiny solenoid that switches on at $5V$ across it coil and a current of $0.8A$. We wish to use  a $npn$ BJT to switch the the solenoid ON and OFF by controlling the BJT's base voltage. 
+    \end{example}
+\end{boxedstuff}
+
+\section{Some MOSFET Circuits}
+
 
