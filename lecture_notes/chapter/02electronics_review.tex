@@ -1,7 +1,7 @@
 % !TEX root = ../mechatronics.tex
 \chapter{Electronics Review}\label{chp:electronics}
 
-This chapter is a quick review of basic electronics. The previous chapter involved simple, linear passive two terminal elements, which are essential for building most electrical circuits. This chapter will focus on some essential non-linear, two/three terminal electronics components which form the basis for more useful electronics cricuits such as amplifiers, oscillators,filters, power supplies, switches, etc. We will review three important electronic components and their circuits in this chapter: \textit{diode}, \textit{bipolar junction transistor (BJT)}, and \textit{metal oxide field effect transistor}.
+This chapter is a quick review of basic electronics. The previous chapter involved simple, linear passive two terminal elements, which are essential for building most electrical circuits. This chapter will focus on some essential non-linear, two/three terminal electronics components which form the basis for more useful electronics cricuits such as amplifiers, oscillators,filters, power supplies, switches, etc. We will review three important electronic components and their circuits in this chapter: \textit{diode}, \textit{bipolar junction transistor (BJT)}, \textit{metal oxide field effect transistor}, and \textit{operational amplifiers}.
 
 \begin{figure}[b]
     \centering
@@ -441,6 +441,95 @@ We now look at using MOSFETs as switches. A MOSFET operated in the cut-off mode 
     \label{fig:03-mosfet-switch-led}
 \end{figure}
 
+\section{Operational Amplifiers}
+The electronic components and circuits we have seen so far have been for non-linear applications. The later switching circuits are used most in digital circuits. In this section, we will look at a vital component in analog circuits, the \textit{operational amplifier} or (op-amp). The op-amp is a versatile component that can be used for a wide range of applications such as amplifiers, filters, oscillators, etc. The op-amp is a differential amplifier with two inputs and one output. The two inputs are called the inverting input ($-$) and the non-inverting input ($+$). The output is the amplified difference between the two inputs. The circuit symbol for an op-amp is shown in Figure~\ref{fig:03-opamp-symbol}. 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch03/fig03-opamp.pdf}
+    \caption{Operational amplifier symbol and equivalent circuit.}
+    \label{fig:03-opamp-symbol}
+\end{figure}
+The output $v_{out}$ of the op-amp is the amplified version of the difference in the voltages at the two input terminals, $v_{out} = A \cdot \left(v_{+} - v_{-}\right)$, where $A$ is the open-loop gain of the op-amp.
+
+An \textbf{ideal op-amp} has the following characteristics, and for most practical applications we can assume that the op-amp behaves like an ideal op-amp.
+\begin{itemize}
+    \item The input impedance is infinite $R_{in} = \infty \Omega$, i.e., no current flows into the input terminals
+    \item The output impedance is zero $r_{out} = 0 \Omega$, i.e., the output can drive any load without affecting the output voltage.
+    \item The open-loop gain is infinite $A = \infty$, i.e., the output voltage is always equal to the amplified difference between the two input voltages.
+    \item The bandwidth of the op-amp is infinite, i.e., it can amplify signals of any frequency without distortion.
+    \item The common mode rejection ratio is infinite, i.e. if the same input is applied to the op-amp, the output will be zero.
+    \item The output voltage is limited to the supply voltage, i.e., the output cannot exceed the positive and negative supply voltages.
+\end{itemize}
+For any op-amp, any difference between $v_{+}$ and $v_{-}$ is amplfied and results in the votlage output of the op-amp saturating either to postive or negative supply voltage. Interesting circuits with op-amps are obtained by operating with feedback, i.e. when the output votlage is fed back to the input terminals using a circuit element.
+
+\section{Some useful Op-Amp circuits}
+In this section we will present the following useful op-amp circuits: (a) inverting amplifier; (b) non-inverting amplifier; (c) Summing amplifier; (d) Difference amplfier; (e) Instrumentation amplifier; (f) Integrator circuit; (g) Differentiator circuit; and (h) Precision rectifier. We will simply show the circuit diagrams and present the input-output relationships. The derivation of these are left as an exercise for the reader.
+
+\subsection{Inverting amplifier}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ch03/fig03-opamp-invert-amp.pdf}
+    \caption{Opamp inverting amplifier.}
+    \label{fig:03-opamp-inver-amp}
+\end{figure}
+
+\subsection{Non-inverting amplifier}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ch03/fig03-opamp-noninvert-amp.pdf}
+    \caption{Opamp inverting amplifier.}
+    \label{fig:03-opamp-noninver-amp}
+\end{figure}
+The op-amp buffer is a special case of the non-inverting amplifier, where $R_1 = 0\Omega$ and $R_2 = \infty\Omega$. The output voltage is equal to the input voltage, i.e., $v_{out} = v_{in}$. 
+
+\subsection{Summing amplifier}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch03/fig03-opamp-summ-amp.pdf}
+    \caption{Opamp summing amplifier.}
+    \label{fig:03-opamp-summ-amp}
+\end{figure}
+The input impedance of this circuit will need to computed with respect to each input. The input impedance of the $v_1$ is given by,
+\begin{equation}
+    Z_{in}(v_1) = R_1 + \frac{R_2 R_3}{R_2 + R_3}
+    \label{eq:ch03-opamp-summ-amp-rin}
+\end{equation}
+
+\subsection{Difference amplifier}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch03/fig03-opamp-diff-amp.pdf}
+    \caption{Opamp difference amplifier.}
+    \label{fig:03-opamp-diff-amp}
+\end{figure}
+
+\subsection{Instrumentation amplifier}
+The three op-amp instrumentation amplifier is a special case of the difference amplifier, where the input impedance with respect to the two inputs is very high. The circuit diagram is shown in Figure~\ref{fig:03-opamp-inst-amp}. Note that if $R_2 = 0$ or $R_1 = \infty$, it is equivalent to a difference amplifier circuit where the input are connected to the difference amplifier through an op-amp buffer.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\textwidth]{figures/ch03/fig03-opamp-inst-amp.pdf}
+    \caption{Opamp instrumentation amplifier.}
+    \label{fig:03-opamp-inst-amp}
+\end{figure}
+
+\subsection{Integrator and differentiator circuits}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/ch03/fig03-opamp-int-diff.pdf}
+    \caption{Opamp integrator and differentiator.}
+    \label{fig:03-opamp-int-diff}
+\end{figure}
+While RC circuits can approximate the integrator and differentiator behavior, the op-amp integrator and differentiator circuits behave more like the ideal integrator or differentiator. The output, however, is clamped by the op-amp supply voltages.
+
+\subsection{Precision rectifier}
+The rectifier circuits we saw earlier have the diode drop in their output voltage. This is due to the diode forward voltage drop. Although this is not a problem when the peak-to-peak voltage of the input signal is large, it can be significant for small signals. For examples, if want to do analog processing of EMG signal to estimate it envelope, the 0.7V diode drop is a significant problem. Op-amps are quite useful in building precision rectifiers where the output voltage accurately follows the input voltage without the diode drop. A simple half-wave precision rectifier is shown in Figure~\ref{fig:03-opamp-prec-rec}.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ch03/fig03-opamp-prec-rect.pdf}
+    \caption{Opamp half wave precision rectifier.}
+    \label{fig:03-opamp-prec-rec}
+\end{figure}
 
 \section{Exercise}
 \vspace{-0.5cm}
@@ -491,4 +580,8 @@ We now look at using MOSFETs as switches. A MOSFET operated in the cut-off mode 
     \end{figure}
 
     \item We have seen an LED switching circuit using a BJT/MOSFET, were the LED swtiches on when the input is high $v_{in} = 3.3V$ and it turns off when the input is low $v_{in} = 0V$. Can you design a circuit using a BJT and a MOSFET to control an LED with forward voltage of $1.8V$ and current of $30mA$, where we want the LED to turn on when $v_{in} = 0V$ and turn off when $v_{in} = 3.3V$. Draw the circuit diagram, explain how it works,and your design.
+    
+    \item Draw the circuit diagram for a full-wave precision rectifier and explain its operation.
+    
+    \item Derive the input-output relationship for all the op-amp circuits (except for the precision amplifier) shown in the section on operational amplifiers in the chapter? Assume ideal op-amp characteristics.
 \end{enumerate}

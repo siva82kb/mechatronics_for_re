@@ -1,0 +1,90 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{amsmath}
+\usepackage[american]{circuitikz}
+\usepackage{cmbright}
+
+\ctikzset{bipoles/resistor/height=0.2, bipoles/resistor/width=0.6}
+
+\definecolor{myred}{RGB}{170,0,0}
+\definecolor{myblue}{RGB}{0,0,220}
+\definecolor{mygreen}{RGB}{0,150,0}
+\definecolor{myorange}{RGB}{255,127,0}
+\definecolor{mybrown}{RGB}{150,75,0}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{scope}[scale=0.7]
+        \node[anchor=center, align=center, color=myred] at (2, 4) {Op-Amp Integrator Circuit};
+        \draw (0, 0) node[op amp] (OpAmp) {};
+        \path let \p2 = (OpAmp.out) in
+            \pgfextra{
+                \xdef\xout{\x2}
+                \xdef\yout{\y2}
+            };
+        \path let \p1 = (OpAmp.-) in
+            \pgfextra{
+                \xdef\xin{\x1}
+                \xdef\yin{\y1}
+            };
+        \draw (OpAmp.-)
+            to[R, l_={$R$}, *-o] ++(-3, 0)
+            node[anchor=east] {$v_{in}$};
+        \draw (OpAmp.-)
+            to[short] ++(0, 1.5)
+            to[C, l={$C$}] ++(\xout - \xin, 0)
+            to[short, -*] (OpAmp.out);
+        \draw (OpAmp.out)
+            to[short, -o] ++(1.0, 0)
+            node[anchor=west] {$v_{out}$};
+        \node[ground] at (OpAmp.+) {};
+    \end{scope}
+    \begin{scope}[xshift=4.5cm, scale=0.7]
+        % Title
+        \node[anchor=center, color=myred] at (0, 0) {
+            $\begin{aligned}
+                v_{out} &= -\frac{1}{RC} \int v_{in} dt \\
+                Z_{in} &= R \\
+                Z_{out} &= 0
+            \end{aligned}$
+        };
+    \end{scope}
+    \begin{scope}[yshift=-4.5cm, scale=0.7]
+        \node[anchor=center, align=center, color=myred] at (2, 3.5) {Op-Amp Differentiator Circuit};
+        \draw (0, 0) node[op amp] (OpAmp) {};
+        \path let \p2 = (OpAmp.out) in
+            \pgfextra{
+                \xdef\xout{\x2}
+                \xdef\yout{\y2}
+            };
+        \path let \p1 = (OpAmp.-) in
+            \pgfextra{
+                \xdef\xin{\x1}
+                \xdef\yin{\y1}
+            };
+        \draw (OpAmp.-)
+            to[C, l_={$C$}, *-o] ++(-3, 0)
+            node[anchor=east] {$v_{in}$};
+        \draw (OpAmp.-)
+            to[short] ++(0, 1.5)
+            to[R, l={$R$}] ++(\xout - \xin, 0)
+            to[short, -*] (OpAmp.out);
+        \draw (OpAmp.out)
+            to[short, -o] ++(1.0, 0)
+            node[anchor=west] {$v_{out}$};
+        \node[ground] at (OpAmp.+) {};
+    \end{scope}
+    \begin{scope}[yshift=-4.5cm, xshift=4.5cm, scale=0.7]
+        % Title
+        \node[anchor=center, color=myred] at (0, 0) {
+            $\begin{aligned}
+                v_{out} &= -RC \frac{d}{dt} v_{in} \\
+                Z_{in}(s) &= \frac{1}{sC} \\
+                Z_{out} &= 0
+            \end{aligned}$
+        };
+    \end{scope}
+\end{tikzpicture}
+\end{document}
