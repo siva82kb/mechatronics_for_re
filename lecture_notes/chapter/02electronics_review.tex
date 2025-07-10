@@ -405,7 +405,7 @@ For non-resistive loads, the analysis is similar, but we must consider the load'
             5V & 0.25s \leq t < 1.25s \\
             0V & \text{otherwise}
         \end{cases}\]
-        When the BJT is suddenly turned OFF at time $t=1.25s$ with $0.8A$ flowing through it, the current is forced to stop suddenly, which causes a large voltage spike across the solenoid, which will result in a large voltage spike across the BJT, which can damage it. The flyback diode $D_{flyback}$ is used to suppress this voltage spike by allowing the current to flow through it, and decay down slowly (relatively), thus avoiding a voltage spike across the inductor and the BJT. You will see this in actionin the lab exercise, when you are deliberately asked to remove the flyback diode and see what happen to the BJT.
+        When the BJT is suddenly turned OFF at time $t=1.25s$ with $0.8A$ flowing through it, the current is forced to stop suddenly, which causes a large voltage spike across the solenoid, which will result in a large voltage spike across the BJT, which can damage it.\ The flyback diode $D_{flyback}$ is used to suppress this voltage spike by allowing the current to flow through it, and decay down slowly (relatively), thus avoiding a voltage spike across the inductor and the BJT.\ You will see this in action in the lab exercise, when you are deliberately asked to remove the flyback diode and see what happens to the BJT.\
     \end{example}
 \end{boxedstuff}
 \begin{figure}[htbp]
@@ -416,3 +416,79 @@ For non-resistive loads, the analysis is similar, but we must consider the load'
 \end{figure}
 
 \section{Some MOSFET Circuits}
+We now look at using MOSFETs as switches. A MOSFET operated in the cut-off mode will act like an open switch, while a MOSFET operated in the triode region with sufficient gate overvoltage for it to act like a closed switch (low drain-source resistance). The MOSFET switching circuit design is simpler than the BJT where we needed to ensure that the base current is sufficient to turn on the BJT. In the case of MOSFETs, we only need to ensure that the gate-source voltage $V_{GS}$ is greater than the threshold voltage $V_t$ to turn it on. We demonstrate the MOSFET switch design in the following example.
+
+\begin{boxedstuff}
+    \begin{example}[\textbf{MOSFET switch}]
+        Consider a $n$-channel MOSFET with a threshold voltage of $V_t = 2.5V$. We want to use it to switch on an LED with a forward voltage of $2V$ and current of $50mA$. The drain-source resistance of the MOSFET is $10m\Omega$ at $v_{GS} = 3.3V$. This circuit is shown in Figure~\ref{fig:03-mosfet-switch-led}. The supply voltage $V_{DD} = 3.3V$.
+
+        Let's assume that $V_{GS} = 3.3V$, which results in the following equation for the drain to source loop, assuming the LED is switched on.
+        \[ V_{DD} - i_D r_{led} - 2 - i_D r_{DS} = 0 \]
+        \[ R_{led} = \frac{V_{DD} - 2}{i_D} - r_{DS} = \frac{3.3V - 2V}{50mA} - 10m\Omega \approx 26.0\Omega \]
+
+        The votlage divider circuit at the gate in Figure~\ref{fig:03-mosfet-switch-led} is used to control the gate-source voltage $V_{GS}$. The gate-source voltage is given by,
+        \[ V_{GS} = \frac{R_2}{R_1 + R_2}V_{in} \]
+        where $V_{in} = 3.3V$. To ensure that the MOSFET is turned on, we need $V_{GS} > V_t = 2.5V$. Thus, we have,
+        \[ \frac{R_2}{R_1 + R_2}V_{in} > 2.5V \implies \frac{R_2}{R_1 + R_2} > \frac{2.5V}{3.3V} \approx 0.7576 \]
+        \[ \implies R_2 > 2.5R_1 \]
+        Typically, $R_1$ is chosen to be small to prevent current rush when 3.3V is applied to the gate, due to the charging of the gate capacitance. And $R_2$ is chosen to be a large value to ensure $v_{GS} \approx 3.3V$.
+    \end{example}
+\end{boxedstuff}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.4\textwidth]{figures/ch03/fig03-mosfet-swtich-led.pdf}
+    \caption{MOSFET switch for controlling an LED. The MOSFET is turned on when $V_{in} = 3.3V$.}
+    \label{fig:03-mosfet-switch-led}
+\end{figure}
+
+
+\section{Exercise}
+\vspace{-0.5cm}
+\begin{center}
+    \rule{\textwidth}{1pt}
+\end{center}
+
+\begin{enumerate}
+    \item Compute the voltage and current across the load resistor $R_L$ in Figure~\ref{fig:ex03-01} for the following: (a) $V_{in} = 1.0V$; (b) $V_{in} = -1.5V$. Assume the following parameters for the diodes: $I_s = 10^{-12}A$, $n = 1$, $V_T = 25.85mV$, and $R_l = 1k\Omega$.
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=\textwidth]{figures/ch03/ex03-01-diode-ckt.pdf}
+        \caption{[Exercise 01]Different diode circuits.}
+        \label{fig:ex03-01}
+    \end{figure}
+
+    \item If the input signal $v_{in} = 2\sin\left(3\pi t\right)$, plot the current flowing through the load resistance $R_l$. You must use Matlab/Python/Julia or any scientific computing software for generating these plots. You are required to generate these plots for the four diode models shown in Figure~\ref{fig:03-diode-halfwave-plot}. Assume the following parameters for the models:
+    \begin{enumerate}
+        \item Model 2: Diode forward voltage = $0.7V$.
+        \item Model 3: Diode forward voltage = $0.7V$, Diode on resistance $r_d = 1\Omega$.
+        \item Model 4: $I_s = 10^{-12}A$, $n = 1$, $V_T = 25.85mV$, and $R_l = 1k\Omega$.
+    \end{enumerate} 
+    Hand drawn plots will not be accepted.
+
+    \item Similar to the plot of the in Figure~\ref{fig:03-diode-halfwave-plot} for the half wave rectifier, using a computer program generate the output plot of the full wave bridge rectifier circuit in Figure~\ref{fig:03-diode-ckt-hlfwaverect}.
+    
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.67\textwidth]{figures/ch03/ex03-02-diode-ckt.pdf}
+        \caption{[Exercise 02]More diode circuits.}
+        \label{fig:ex03-02}
+    \end{figure}
+    
+    \item For the following diode circuits, plot the outputs $v_{out}$ for the following input signal,
+    \[ v_{in} = \begin{cases}
+        -10V &, t \leq -10s \\
+        t &, -10s < t \leq 5s \\
+        5 &, t > 5s \\
+        \end{cases} \]
+    Generate the plots for the four diode models used in the previous questions. What do think is the purpose of such circuits?
+
+    \item Consider the following BJT circuit (Figurer~\ref{fig:ex03-03}). If the input is a square wave of amplitude 3V with a time period of $2s$, plot the output of the circuit $v_C$. What does this circuit do? Can you design a similar ciruit with a n-channel MOSFET?
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=0.33\textwidth]{figures/ch03/ex03-03-bjt-switch.pdf}
+        \caption{[Exercise 05] BJT switch circuit.}
+        \label{fig:ex03-03}
+    \end{figure}
+
+    \item We have seen an LED switching circuit using a BJT/MOSFET, were the LED swtiches on when the input is high $v_{in} = 3.3V$ and it turns off when the input is low $v_{in} = 0V$. Can you design a circuit using a BJT and a MOSFET to control an LED with forward voltage of $1.8V$ and current of $30mA$, where we want the LED to turn on when $v_{in} = 0V$ and turn off when $v_{in} = 3.3V$. Draw the circuit diagram, explain how it works,and your design.
+\end{enumerate}
