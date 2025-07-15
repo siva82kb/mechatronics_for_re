@@ -1,7 +1,7 @@
 % !TEX root = ../mechatronics.tex
 \chapter{Electronics Review}\label{chp:electronics}
 
-This chapter is a quick review of basic electronics. The previous chapter involved simple, linear passive two terminal elements, which are essential for building most electrical circuits. This chapter will focus on some essential non-linear, two/three terminal electronics components which form the basis for more useful electronics cricuits such as amplifiers, oscillators,filters, power supplies, switches, etc. We will review three important electronic components and their circuits in this chapter: \textit{diode}, \textit{bipolar junction transistor (BJT)}, and \textit{metal oxide field effect transistor}.
+This chapter is a quick review of basic electronics. The previous chapter involved simple, linear passive two terminal elements, which are essential for building most electrical circuits. This chapter will focus on some essential non-linear, two/three terminal electronics components which form the basis for more useful electronics circuits such as amplifiers, oscillators,filters, power supplies, switches, etc. We will review three important electronic components and their circuits in this chapter: \textit{diode}, \textit{bipolar junction transistor (BJT)}, and \textit{metal oxide field effect transistor}.
 
 \begin{figure}[b]
     \centering
@@ -11,7 +11,7 @@ This chapter is a quick review of basic electronics. The previous chapter involv
 \end{figure}
 
 \section{Basic semiconductor concepts}
-Conductivity of a material is proportional the concentration of free electrons.
+Conductivity of a material is proportional to the concentration of free electrons.
 \begin{equation}
     \begin{split}
     \textbf{Conductor: }\,\, & n_{cond} \approx 10^{28} electrons/m^3 \\
@@ -22,7 +22,7 @@ Conductivity of a material is proportional the concentration of free electrons.
 \end{equation}
 
 \subsection{Intrinsic semiconductors}
-Silicon or Germanium have crystalline strcuture with four covalent bonds between neighbouring atoms. At $0^\circ K$ semiconductors all covalent bonds are in place tightly holding on to electrons in the bonds. Thus these behave as perfect insulators at low temperatures. With increase in temperature, covalent bonds are ruptured, releasing \textit{free electrons} to roam around in the crystal and become available for conduction when there is an externally applied electric field. The missing electron in the ruptured covalent bond is called a \text{hole}, which too act as carrier of electricity. When an electric field is applied, electrons from neighbouring covalent bonds jump into a hole creating a hole in their previvous bond. This results in the hole effectively moving the direction opposite to the jumping electrons from the covalent bonds. Thus, unlike conductors, semiconductors can have two types of charge carriers: \textit{electrons} and \textit{holes}. The concentration of free electrons and holes in a semiconductor determines it conductivity, which is controlled by temperature. In intrinsic semiconductors, the concentration of free electrons and holes is equal, i.e. $n_{e^-} = n_{h^+} = n_i$. This concentration is given by,
+Silicon or Germanium have crystalline structure with four covalent bonds between neighbouring atoms. At $0^\circ K$ semiconductors all covalent bonds are in place tightly holding on to electrons in the bonds. Thus these behave as perfect insulators at low temperatures. With increase in temperature, covalent bonds are ruptured, releasing \textit{free electrons} to roam around in the crystal and become available for conduction when there is an externally applied electric field. The missing electron in the ruptured covalent bond is called a \text{hole}, which too act as a carrier of electricity. When an electric field is applied, electrons from neighbouring covalent bonds jump into a hole creating a hole in their previous bond. This results in the hole effectively moving the direction opposite to the jumping electrons from the covalent bonds. Thus, unlike conductors, semiconductors can have two types of charge carriers: \textit{electrons} and \textit{holes}. The concentration of free electrons and holes in a semiconductor determines its conductivity, which is controlled by temperature. In intrinsic semiconductors, the concentration of free electrons and holes is equal, i.e. $n_{e^-} = n_{h^+} = n_i$. This concentration is given by,
 \begin{equation}
     n_i = B \, T^{3/2} \, e^{-\frac{E_g}{k_B T}}
     \label{eq:ch03-intrinsic-elec-conc}
@@ -39,7 +39,7 @@ In a \textbf{$n$-type} semiconductor, a small amount of pentavalent atoms (e.g. 
 \end{equation}
 where, $N_D$ is concentration of the doping element.
 
-In a \textbf{$p$-type} semiconductor, a small amount of trivalent atoms (e.g. Boron) is added to the silicon crystal structure. This leaves the dopped elements with four covalent bonds with one of the bonds lacking an electron or a hole. This holes acts as a charge carrier. The concentration of the holes in a $p$-type semiconductor is give by,
+In a \textbf{$p$-type} semiconductor, a small amount of trivalent atoms (e.g. Boron) is added to the silicon crystal structure. This leaves the dopped elements with four covalent bonds with one of the bonds lacking an electron or a hole. This hole act as a charge carrier. The concentration of the holes in a $p$-type semiconductor is give by,
 \begin{equation}
     n_{h^+} = n_i + N_A \quad n_{e^-} = n_i
     \label{eq:ch03-p-type-elec-conc}
@@ -51,7 +51,7 @@ The doped semiconductors will have higher conductivity than the intrinsic semico
 \subsection{Flow of current in semiconductors}
 There are two types of current flow mechanisms in seminconductors unlike pure conudctors -- (a) \textbf{drift current} and (b) \textbf{diffusion current}. Both are imporant for understanding the operation of the basic electronic components.
 
-\noindent\textbf{Drift current.} Drift current is established by an external electric fields, for examples when a semiconductor is connected to a battery. Holes will accelerate in the direction of the field, while the electrons accelerate in the opposite direction. Bumping into the atoms of the cystral structure, the holes and electrons acquire an average drift velocity given by,
+\noindent\textbf{Drift current.} Drift current is established by an external electric fields, for examples when a semiconductor is connected to a battery. Holes will accelerate in the direction of the field, while the electrons accelerate in the opposite direction. Bumping into the atoms of the crystral structure, the holes and electrons acquire an average drift velocity given by,
 \begin{equation}
     \nu_{p-drift} = \mu_p E \quad \& \quad \nu_{n-drift} = -\mu_n E\
     \label{eq:ch03-drift-vel}
@@ -63,7 +63,7 @@ This constitute a drift current through the semiconductor given by the following
 \end{equation}
 where, $q$ is the magnitude of electron charge.
 
-\noindent\textbf{Diffusion current.} Diffusion currents result whena concentration gradient exists across a semiconductor.
+\noindent\textbf{Diffusion current.} Diffusion currents result when a concentration gradient exists across a semiconductor.
 \begin{equation}
     I_{diff} \propto -q D_q \frac{d p\left(x\right)}{dx}
     \label{eq:ch03-diff-current}
@@ -71,11 +71,11 @@ where, $q$ is the magnitude of electron charge.
 where, $p\left(x\right)$ is the concentration of the charge carrier along the $x$ direction. Diffusion currents play an important role in the functioning of the BJT.
 
 \section{Diode}
-Whena  $p$-type and $n$-type semiconductors are brought in close contact to each other, there is a big concentration difference between the charge carriers across the interface. A $pn$-junction diode made by bringing a $n$-type and $p$-type semiconductors together as shown in Figure~\ref{fig:03-02}. Due to the concentration difference, electrons from the $n$-type semiconductor diffuse into the $p$-type semiconductor, while holes from the $p$-type semiconductor will diffuse into the $n$-type semiconductor. Note that this is the diffusion current $I_D$, which flows even when the diode is open circuited. This diffusion current sets up the depletion region at the interface, where there are no free charge carriers. This region consists of fixed positive and negative charges, which creates an electric field across the junction. This electric field opposes further diffusion of charge carriers across the junction, and the potential or \textit{barrier voltage} $V_0$ due to the electric field must be overcome for th diffusion current to flow across the junction. Note that the diffusion current $I_D$ is due to the majority charge carriers -- \text{holes} from the $p$ side and \textit{electrons} from the $n$-side.
+When a  $p$-type and $n$-type semiconductors are brought in close contact to each other, there is a big concentration difference between the charge carriers across the interface. A $pn$-junction diode made by bringing a $n$-type and $p$-type semiconductors together as shown in Figure~\ref{fig:03-02}. Due to the concentration difference, electrons from the $n$-type semiconductor diffuse into the $p$-type semiconductor, while holes from the $p$-type semiconductor will diffuse into the $n$-type semiconductor. Note that this is the diffusion current $I_D$, which flows even when the diode is open circuited. This diffusion current sets up the depletion region at the interface, where there are no free charge carriers. This region consists of fixed positive and negative charges, which creates an electric field across the junction. This electric field opposes further diffusion of charge carriers across the junction, and the potential or \textit{barrier voltage} $V_0$ due to the electric field must be overcome for the diffusion current to flow across the junction. Note that the diffusion current $I_D$ is due to the majority charge carriers -- \text{holes} from the $p$ side and \textit{electrons} from the $n$-side.
 
 There is a drift current $I_S$ that flows across the junction due to the minority charge carriers - the \textit{electrons} from the $p$-side and the \textit{holes} from the $n$-side. These thermally generated minority charge carriers, will be swept across and transported across the junction due to the electric field, which tends to reduce the barrier voltage $V_0$. Thus, when the diode is open circuited, we have an equilibrium $I_D = I_S$.
 
-\noindent\textit{Barrier voltage} of a diode depends on several factors, the amount fo doping of the $n$ and $p$ semiconductors, the temperature, etc. The exact relationship is give by,
+\noindent\textit{Barrier voltage} of a diode depends on several factors, the amount fo doping of the $n$ and $p$ semiconductors, the temperature, etc. The exact relationship is given by,
 \begin{equation}
     V_0 = V_T \ln\left(\frac{N_A N_D}{n_i^2}\right)
     \label{eq:ch03-barrier-volt}
@@ -107,7 +107,7 @@ When the negative terminal of the voltage source is connected to the $p$-side an
 When the reverse biased voltage is increased beyond a certain threshold, called the \textit{breakdown voltage} $V_B$, the diode will start conducting in the reverse direction. This is called \textit{avalanche breakdown}, and the diode can be damaged if the current is not limited by a resistor or some other means. The avalanche breakdown is the reason for the sharp rise in the current at the $V_B$.
 
 \subsection{A simple diode circuit}
-In the circuit shown in Figure~\ref{fig:03-diode-vi}, the moment the forward bias-voltage gets close tot 0.6, the current starts to rise drammatically. Slight changes in the voltage will lead to large changes in the current if it is not limited by a series resistor. Without a resistor, we can easily burn the diode due to large power dissipation across the diode. Consider a more practical cicruit with a voltage source, resistor, and a diode, as shown in Figure~\ref{fig:03-diode-resistor-ckt}. The voltage across the diode $V_D$ and the current through the diode $I_D$ by writing the Kirchoff voltage law (KVL) around the loop,
+In the circuit shown in Figure~\ref{fig:03-diode-vi}, the moment the forward bias-voltage gets close to 0.6, the current starts to rise drammatically. Slight changes in the voltage will lead to large changes in the current if it is not limited by a series resistor. Without a resistor, we can easily burn the diode due to large power dissipation across the diode. Consider a more practical cicruit with a voltage source, resistor, and a diode, as shown in Figure~\ref{fig:03-diode-resistor-ckt}. The voltage across the diode $V_D$ and the current through the diode $I_D$ by writing the Kirchoff voltage law (KVL) around the loop,
 \begin{equation}
     V - I_D R - V_D = 0
     \label{eq:ch03-diode-resistor-kvl}
