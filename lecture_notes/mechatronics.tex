@@ -42,6 +42,7 @@
 \usepackage{color}
 \usepackage{listings}
 \usepackage{caption}
+\usepackage{marginnote}
 \usepackage[inline]{enumitem}
 % \usepackage{fullpage}
 \usepackage{lipsum} % provides dummy text for testing
@@ -97,12 +98,13 @@
 % Set up mirrored margins for book-like layout
 \geometry{
   bindingoffset=10mm, % Space for binding
-  inner=25mm, % Inner margin (next to the binding)
+  inner=35mm, % Inner margin (next to the binding)
   outer=15mm, % Outer margin
   top=20mm,
   bottom=20mm,
   twoside % Enable different margins for odd and even pages
 }
+\reversemarginpar  % <-- this puts margin notes into the inner margin
 
 % %%%%%%%%%%%%%%%% thmtools %%%%%%%%%%%%%%%%%%%%%
 \usepackage{mdframed}
@@ -122,6 +124,9 @@ delim_0 "\\nobreak\\dotfill"
 \newcommand{\myindex}[1]{\index{#1} \emph{#1}}
 \makeindex[columns=3, intoc, title=Alphabetical Index, options= -s index.ist]
 %%%%%%%%%%%%%%%% index %%%%%%%%%%%%%%%%%%%%%
+
+% Figure captions.
+\captionsetup[figure]{name=Fig.}
 
 %%%%%%%%%%%%%%%% ToC %%%%%%%%%%%%%%%%%%%%%
 % Link Chapter title to ToC: https://tex.stackexchange.com/questions/32495/linking-the-section-text-to-the-toc
@@ -205,13 +210,58 @@ delim_0 "\\nobreak\\dotfill"
 % \usepackage[record,abbreviations,symbols,stylemods={list,tree,mcols}]{glossaries-extra}
 %%%%%%%%%%%%%%%%%%%%% glossaries-extra %%%%%%%%%%%%%%%%%
 
+%% C Code formating
+\usepackage{inconsolata}
+\usepackage{courier}
+
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{courier}
+
+% Define colors
+\definecolor{vscbg}{RGB}{250,250,250}
+\definecolor{vsckeyword}{RGB}{0,0,255}
+\definecolor{vsccomment}{RGB}{0,128,0}
+\definecolor{vscstring}{RGB}{163,21,21}
+\definecolor{vscnumber}{RGB}{128,128,128}
+
+% Define style
+\lstdefinestyle{cstyle}{
+    language=C,
+    backgroundcolor=\color{vscbg},
+    basicstyle=\fontfamily{pcr}\selectfont\fontsize{9.5pt}{11pt}\selectfont,
+    keywordstyle=\color{vsckeyword}\bfseries,
+    commentstyle=\color{vsccomment}\itshape,
+    stringstyle=\color{vscstring},
+    numbers=left,
+    numberstyle=\fontfamily{pcr}\selectfont\fontsize{8pt}{9pt}\color{vscnumber},
+    numbersep=8pt,
+    numberblanklines=false,
+    showstringspaces=false,
+    breaklines=true,
+    breakindent=0pt,
+    postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space},
+    frame=single,
+    rulecolor=\color{vscbg}, % invisible frame
+    framesep=6pt,
+    framexleftmargin=15pt,
+    framextopmargin=0pt,
+    framexbottommargin=0pt,
+    xleftmargin=0pt,
+    tabsize=4,
+    captionpos=b,
+    keepspaces=true,
+}
+
+
 \input{./macros.tex}
 \input{./customdef.tex}
+
+% \includeonly{./chapter/02electronics_review.tex}  % Only this will compile
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%% begin of document %%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{document}
 
 \title{\bf \huge Mechatronics for Rehabilitation Engineering: Course Notes}
@@ -260,9 +310,17 @@ delim_0 "\\nobreak\\dotfill"
 % \input{./chapter/preface.tex}
 
 % \part{Linear Algebra}
-\input{./chapter/00summary.tex}
+% \input{./chapter/00summary.tex}
 \input{./chapter/01basic_circuit_theory.tex}
 \input{./chapter/02electronics_review.tex}
+% \input{./chapter/03linearsystems.tex}
+% \input{./chapter/04microcontrollers.tex}
+% \input{./chapter/05Cpropgramming.tex}
+% \input{./chapter/06sensors.tex}
+% \input{./chapter/07actuators.tex}
+% \input{./chapter/08somecontroltheory.tex}
+% \input{./chapter/09baseneuromechanics.tex}
+% \input{./chapter/10casestudies.tex}
 
 
 % \input{./chapter/01-matrices.tex}
