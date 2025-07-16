@@ -257,14 +257,13 @@ delim_0 "\\nobreak\\dotfill"
 \input{./macros.tex}
 \input{./customdef.tex}
 
-% \includeonly{./chapter/02electronics_review.tex}  % Only this will compile
-
+\renewcommand{\chaptername}{Experiment}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%% begin of document %%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
-\title{\bf \huge Mechatronics for Rehabilitation Engineering: Course Notes}
+\title{\bf \huge Mechatronics for Rehabilitation Engineering: Lab Notebook}
 \author{Sivakumar Balasubramanian \\ CMC Vellore}
 \date{Update on \today}
 % \title{\bf \huge Applied Linear Algebra in Data Analysis: Course Notes}
@@ -283,7 +282,7 @@ delim_0 "\\nobreak\\dotfill"
     }
 \end{multicols}
 
-\listoffigures
+% \listoffigures
 % \listoftables
 % \begin{multicols}{2}
 % 	\listoftheorems[ignoreall,show={theorem}]
@@ -295,7 +294,7 @@ delim_0 "\\nobreak\\dotfill"
 
 % \printglossaries
 % \printglossary[type=\acronymtype]
-\printglossary
+% \printglossary
 % \printglossary[title=List of terms, toctitle=List of terms]
 
 % bib2gls
@@ -311,9 +310,10 @@ delim_0 "\\nobreak\\dotfill"
 
 % \part{Linear Algebra}
 % \input{./chapter/00summary.tex}
-\input{./chapter/01basic_circuit_theory.tex}
-\input{./chapter/02electronics_review.tex}
-\input{./chapter/03linearsystems.tex}
+\input{./experiments/expt01.tex}
+\input{./experiments/expt02.tex}
+% \input{./chapter/02electronics_review.tex}
+% \input{./chapter/03linearsystems.tex}
 % \input{./chapter/04microcontrollers.tex}
 % \input{./chapter/05Cpropgramming.tex}
 % \input{./chapter/06sensors.tex}
@@ -355,12 +355,12 @@ delim_0 "\\nobreak\\dotfill"
 % \input{./chapter/appendix_formula.tex}
 % \end{appendices}
 
-\backmatter
+% \backmatter
 
 %%%%%%%%%%%%%%% Reference %%%%%%%%%%%%%%%
 
-\printbibliography[heading=bibintoc]
-\printindex
+% \printbibliography[heading=bibintoc]
+% \printindex
 
 \end{document}
 
