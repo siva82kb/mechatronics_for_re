@@ -1,0 +1,38 @@
+
+% File: basic_elements.tex
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[american]{circuitikz}
+\usepackage{cmbright}
+
+\definecolor{myred}{RGB}{170,0,0}
+\definecolor{myblue}{RGB}{0,0,220}
+
+\ctikzset{bipoles/resistor/height=0.2}
+\ctikzset{bipoles/resistor/width=0.5}
+
+
+\begin{document}
+% Simple RC circuit, with equations, and plots of different quantities.
+\begin{tikzpicture}
+    % Subtitle for the circuit.
+    \node[anchor=center, color=myred] at (3.0, 0.75) {\textbf{Parallel RLC Circuit}};
+    \begin{scope}
+        \draw (0, 0)
+            to[ospst] ++(1.0, 0)
+            to[R, l_={$R_s$}, -*] ++(2.0, 0)
+            to[R, l_={$R$}, -*] ++(0, -2)
+            to[short] ++(-3, 0)
+            to[V, l={$V_s$}, invert] ++(0, 2);
+        \draw (3.0, 0)
+            to[short, -*] ++(1.5, 0)
+            to[C, l_={$C$}, -*] ++(0, -2)
+            to[short] ++(-1.5, 0);
+        \draw (4.5, 0)
+            to[short, -*] ++(1.5, 0)
+            to[L, l_={$L$}, -*] ++(0, -2)
+            to[short] ++(-1.5, 0);
+    \end{scope}
+\end{tikzpicture}
+\end{document}
