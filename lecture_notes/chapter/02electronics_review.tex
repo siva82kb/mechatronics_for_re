@@ -22,7 +22,7 @@ Conductivity of a material is proportional the concentration of free electrons.
 \end{equation}
 
 \subsection{Intrinsic semiconductors}
-Silicon or Germanium have crystalline strcuture with four covalent bonds between neighbouring atoms. At $0^\circ K$ semiconductors all covalent bonds are in place tightly holding on to electrons in the bonds. Thus these behave as perfect insulators at low temperatures. With increase in temperature, covalent bonds are ruptured, releasing \textit{free electrons} to roam around in the crystal and become available for conduction when there is an externally applied electric field. The missing electron in the ruptured covalent bond is called a \text{hole}, which too act as carrier of electricity. When an electric field is applied, electrons from neighbouring covalent bonds jump into a hole creating a hole in their previvous bond. This results in the hole effectively moving the direction opposite to the jumping electrons from the covalent bonds. Thus, unlike conductors, semiconductors can have two types of charge carriers: \textit{electrons} and \textit{holes}. The concentration of free electrons and holes in a semiconductor determines it conductivity, which is controlled by temperature. In intrinsic semiconductors, the concentration of free electrons and holes is equal, i.e. $n_{e^-} = n_{h^+} = n_i$. This concentration is given by,
+Silicon or Germanium have crystalline strcuture with four covalent bonds between neighbouring atoms. At $0^\circ K$ semiconductors all covalent bonds are in place tightly holding on to electrons in the bonds. Thus these behave as perfect insulators at low temperatures. With increase in temperature, covalent bonds are ruptured, releasing \textit{free electrons} to roam around in the crystal and become available for conduction when there is an externally applied electric field. The missing electron in the ruptured covalent bond is called a \text{hole}, which too act as carrier of electricity. When an electric field is applied, electrons from neighbouring covalent bonds jump into a hole creating a hole in their previous bond. This results in the hole effectively moving the direction opposite to the jumping electrons from the covalent bonds. Thus, unlike conductors, semiconductors can have two types of charge carriers: \textit{electrons} and \textit{holes}. The concentration of free electrons and holes in a semiconductor determines it conductivity, which is controlled by temperature. In intrinsic semiconductors, the concentration of free electrons and holes is equal, i.e. $n_{e^-} = n_{h^+} = n_i$. This concentration is given by,
 \begin{equation}
     n_i = B \, T^{3/2} \, e^{-\frac{E_g}{k_B T}}
     \label{eq:ch03-intrinsic-elec-conc}
@@ -63,7 +63,7 @@ This constitute a drift current through the semiconductor given by the following
 \end{equation}
 where, $q$ is the magnitude of electron charge.
 
-\noindent\textbf{Diffusion current.} Diffusion currents result whena concentration gradient exists across a semiconductor.
+\noindent\textbf{Diffusion current.} Diffusion currents result when a concentration gradient exists across a semiconductor.
 \begin{equation}
     I_{diff} \propto -q D_q \frac{d p\left(x\right)}{dx}
     \label{eq:ch03-diff-current}
@@ -71,7 +71,7 @@ where, $q$ is the magnitude of electron charge.
 where, $p\left(x\right)$ is the concentration of the charge carrier along the $x$ direction. Diffusion currents play an important role in the functioning of the BJT.
 
 \section{Diode}
-Whena  $p$-type and $n$-type semiconductors are brought in close contact to each other, there is a big concentration difference between the charge carriers across the interface. A $pn$-junction diode made by bringing a $n$-type and $p$-type semiconductors together as shown in Figure~\ref{fig:03-02}. Due to the concentration difference, electrons from the $n$-type semiconductor diffuse into the $p$-type semiconductor, while holes from the $p$-type semiconductor will diffuse into the $n$-type semiconductor. Note that this is the diffusion current $I_D$, which flows even when the diode is open circuited. This diffusion current sets up the depletion region at the interface, where there are no free charge carriers. This region consists of fixed positive and negative charges, which creates an electric field across the junction. This electric field opposes further diffusion of charge carriers across the junction, and the potential or \textit{barrier voltage} $V_0$ due to the electric field must be overcome for th diffusion current to flow across the junction. Note that the diffusion current $I_D$ is due to the majority charge carriers -- \text{holes} from the $p$ side and \textit{electrons} from the $n$-side.
+When a  $p$-type and $n$-type semiconductors are brought in close contact to each other, there is a big concentration difference between the charge carriers across the interface. A $pn$-junction diode made by bringing a $n$-type and $p$-type semiconductors together as shown in Figure~\ref{fig:03-02}. Due to the concentration difference, electrons from the $n$-type semiconductor diffuse into the $p$-type semiconductor, while holes from the $p$-type semiconductor will diffuse into the $n$-type semiconductor. Note that this is the diffusion current $I_D$, which flows even when the diode is open circuited. This diffusion current sets up the depletion region at the interface, where there are no free charge carriers. This region consists of fixed positive and negative charges, which creates an electric field across the junction. This electric field opposes further diffusion of charge carriers across the junction, and the potential or \textit{barrier voltage} $V_0$ due to the electric field must be overcome for th diffusion current to flow across the junction. Note that the diffusion current $I_D$ is due to the majority charge carriers -- \text{holes} from the $p$ side and \textit{electrons} from the $n$-side.
 
 There is a drift current $I_S$ that flows across the junction due to the minority charge carriers - the \textit{electrons} from the $p$-side and the \textit{holes} from the $n$-side. These thermally generated minority charge carriers, will be swept across and transported across the junction due to the electric field, which tends to reduce the barrier voltage $V_0$. Thus, when the diode is open circuited, we have an equilibrium $I_D = I_S$.
 
@@ -95,7 +95,7 @@ When we connect a voltage source across the diode (Figure~\ref{fig:03-diode-vi})
     I = I_S \left( e^{\frac{V}{V_T}} - 1 \right)
     \label{eq:ch03-forward-bias-vi}
 \end{equation}
-where, $I_S$ is the saturation current, which is the reverse current that flows when the diode is reverse biased, and , and $q$ is the magnitude of electron charge.
+where, $I_S$ is the saturation current, which is the reverse current that flows when the diode is reverse biased, and $q$ is the magnitude of electron charge.
 
 When the negative terminal of the voltage source is connected to the $p$-side and the positive terminal is connected to the $n$-side, we have a \textbf{reverse bias}. This increases the barrier voltage $V_0$, and prevents the diffusion current $I_D$ from flowing across the junction. The diode is said to be \textit{off} in this case, and only a small reverse saturation current $I_S$ flows through the diode.
 \begin{figure}[t]
@@ -113,7 +113,7 @@ When the reverse biased voltage is increased beyond a certain threshold, called 
     \caption{Diode voltage and current in a simple diode circuit with a series resistor.}
     \label{fig:03-diode-resistor-ckt}
 \end{figure}
-In the circuit shown in Figure~\ref{fig:03-diode-vi}, the moment the forward bias-voltage gets close tot 0.6, the current starts to rise drammatically. Slight changes in the voltage will lead to large changes in the current if it is not limited by a series resistor. Without a resistor, we can easily burn the diode due to large power dissipation across the diode. Consider a more practical cicruit with a voltage source, resistor, and a diode, as shown in Figure~\ref{fig:03-diode-resistor-ckt}. The voltage across the diode $V_D$ and the current through the diode $I_D$ by writing the Kirchoff voltage law (KVL) around the loop,
+In the circuit shown in Figure~\ref{fig:03-diode-vi}, the moment the forward bias-voltage gets close to 0.7V, the current starts to rise drammatically. Slight changes in the voltage will lead to large changes in the current if it is not limited by a series resistor. Without a resistor, we can easily burn the diode due to large power dissipation across the diode. Consider a more practical cicruit with a voltage source, resistor, and a diode, as shown in Figure~\ref{fig:03-diode-resistor-ckt}. The voltage across the diode $V_D$ and the current through the diode $I_D$ by writing the Kirchoff voltage law (KVL) around the loop,
 \begin{equation}
     V - I_D R - V_D = 0
     \label{eq:ch03-diode-resistor-kvl}
@@ -136,10 +136,10 @@ Let's assume that $V=5V$ and $R=1k\Omega$ in Figure~\ref{fig:03-diode-resistor-c
     I_D \approx \frac{V - 0.7}{R} = 4.3mA
     \label{eq:ch03-diode-resistor-id-approx}
 \end{equation}
-$I_D$ is large enough for to flow through the didode when its switched on. Thus, $V_D=0.7V$ and $I_D=4.3mA$ is a reasonable first approximation of the diode's voltage and current in the current circuit.
+$I_D$ is large enough for to flow through the diode when its switched on. Thus, $V_D=0.7V$ and $I_D=4.3mA$ is a reasonable first approximation of the diode's voltage and current in the given circuit.
 
 \section{Bipolar junction transistor (BJT)}
-The bipolar junction transistor (BJT) is the first of some of the three terminal devices we will come across int his course. There are two types of BJTs -- $npn$ and $pnp$. BJTs are formed by sandwiching a thin layer of $p$-type semiconductor between two $n$-type semiconductors or vice versa. This is depicted in Figure~\ref{fig:03-04}. Metal contacts are made with these three semiconductor regions to form the three terminals of the BJT. In an $npn$ BJT, one of the  $n$ regions is the \textit{emitter} which is heavily dopped, and the other $n$ region is the \textit{collector}. The $p$ region is the \textit{base}, which is lightly doped and very thin compared to the widths of the emitter and collector regions. The collector is moderately doped. Three terminal devices like the BJT and MOSFET can be used as an amplifier or a switch, depending on how it is biased. We will only discuss $npn$ transistors for the rest of the section; the $pnp$ transistor is similar, but with the polarities of the voltages and currents reversed.A BJT is essentially two diodes connected back to back as shown in Figure~\ref{fig:03-04}
+The bipolar junction transistor (BJT) is the first of some of the three terminal devices we will come across in this course. There are two types of BJTs -- $npn$ and $pnp$. BJTs are formed by sandwiching a thin layer of $p$-type semiconductor between two $n$-type semiconductors or vice versa. This is depicted in Figure~\ref{fig:03-04}. Metal contacts are made with these three semiconductor regions to form the three terminals of the BJT. In an $npn$ BJT, one of the  $n$ regions is the \textit{emitter} which is heavily dopped, and the other $n$ region is the \textit{collector}. The $p$ region is the \textit{base}, which is lightly doped and very thin compared to the widths of the emitter and collector regions. The collector is moderately doped. Three terminal devices like the BJT and MOSFET can be used as an amplifier or a switch, depending on how it is biased. We will only discuss $npn$ transistors for the rest of the section; the $pnp$ transistor is similar, but with the polarities of the voltages and currents reversed.A BJT is essentially two diodes connected back to back as shown in Figure~\ref{fig:03-04}
 
 A BJT can be operated in three different modes, depending on the biasing of the terminals. The three modes are: (a) \textbf{Cut-off mode}, (b) \textbf{Active mode}, and (c) \textbf{Saturation mode}. The difference between the three modes are summarized in Table~\ref{tab:03-bjt-modes}.
 \subsection{Cut-off mode}
@@ -156,7 +156,7 @@ In this mode, the EB junction is forward biased, while the CB junction is revers
     \caption{$npn$ BJT in active mode.}
     \label{fig:03-bjt-active}
 \end{figure}
-When the $npn$ BJT's EB junction is forward biased ($V_{BE} \approx 0.7V$), electrons (the majority carrier) from the highly doped emitter region are injected just across the EB junction. The electrons diffuse into the base region, which is lighly doped and very thin. Because $V_C > V_B$, the injected electrons are swept across the base region by the electric field created by the reverse biased CB junction. A small percentage of these injected electrons recombibe with the holes in the base region, which contributes to the small base current. The collector current will be proportional the base current; the current gain is given by the parameter $\beta$.
+When the $npn$ BJT's EB junction is forward biased ($V_{BE} \approx 0.7V$), electrons (the majority carrier) from the highly doped emitter region are injected just across the EB junction. The electrons diffuse into the base region, which is lighly doped and very thin. Because $V_C > V_B$, the injected electrons are swept across the base region by the electric field created by the reverse biased CB junction. A small percentage of these injected electrons recombine with the holes in the base region, which contributes to the small base current. The collector current will be proportional the base current; the current gain is given by the parameter $\beta$.
 \begin{equation}
     I_C = \beta I_B \quad \text{where, } \beta \approx 100 - 1000
     \label{eq:03-bjt-active-ic}
@@ -215,7 +215,7 @@ The saturation mode is used in switching applications, where the BJT is used as 
 \end{figure}
 
 \section{Metal oxide field effect transistor (MOSFET)}
-While the BJT might be a popular choice for many applications where circuits are made on a breadboard or a PCB. However, when it comes to integrated circuits, the MOSFET is the most popular choice. MOSFETS can be made quite small, are easier to fabricate, and consume less power than BJTs. They canb be use for both digitial and analog integrated circuits. There are four types of MOSFETs, $n$-channel or $p$-channel textit{enhancement} or \textit{depeltion} type MOSFETs. In this section, we will only focus on the enhancement-type $n$-channel MOSFET to understand the fundamental principle of operation of the MOSFETs.
+While the BJT might be a popular choice for many applications where circuits are made on a breadboard or a PCB. However, when it comes to integrated circuits, the MOSFET is the most popular choice. MOSFETS can be made quite small, are easier to fabricate, and consume less power than BJTs. They can be use for both digitial and analog integrated circuits. There are four types of MOSFETs, $n$-channel or $p$-channel \textit{enhancement} or \textit{depeltion} type MOSFETs. In this section, we will only focus on the enhancement-type $n$-channel MOSFET to understand the fundamental principle of operation of the MOSFETs.
 
 \begin{figure}[t]
     \centering
@@ -224,7 +224,7 @@ While the BJT might be a popular choice for many applications where circuits are
     \label{fig:03-mosfet-struct}
 \end{figure}
 
-The physical structure of an enhancement-type $n$-channel MOSFET is shown in Figure~\ref{fig:03-mosfet-struct}. The MOSFET in this figure has four terminals - source (S), drain (D), gate (G), adn body (B). The source and drain are heavily doped $n$-type regions, while the channel is lightly doped $p$-type region. The region between drain and the source is called the \textit{channel region}. The gate is insulated from the channel by a thin layer of oxide, which acts as a dielectric. The gate terminal is used to control the formation of a conductive channel between the source and drain terminals. The body terminal is connected to the source terminal, and is usually shorted to the source in most applications. The MOSFET is a four terminal device, but it can be treated as a three terminal device by shorting the body and source terminals.
+The physical structure of an enhancement-type $n$-channel MOSFET is shown in Figure~\ref{fig:03-mosfet-struct}. The MOSFET in this figure has four terminals - source (S), drain (D), gate (G), and body (B). The source and drain are heavily doped $n$-type regions, while the channel is lightly doped $p$-type region. The region between drain and the source is called the \textit{channel region}. The gate is insulated from the channel by a thin layer of oxide, which acts as a dielectric. The gate terminal is used to control the formation of a conductive channel between the source and drain terminals. The body terminal is connected to the source terminal, and is usually shorted to the source in most applications. The MOSFET is a four terminal device, but it can be treated as a three terminal device by shorting the body and source terminals.
 
 The drain is always kept at then higher potential than then source. The connection between the drain to the source is essentially two diodes connected back-to-back, implying that applying a voltage between the drain and source does not result in any current because one of the diodes if reverse biased. However, when a positive voltage is applied to the gate with respect to the body/source, things get interesting as shown in Figure~\ref{fig:03-mosfet-gate-volt}. Applying a positive gate voltage $V_{GS}$ with respect to the source terminal creates an electric field across the oxide layer, which penetrates into the channel region. This electric field attracts electrons in to the channel region right below the gate oxide layer. As the voltage in increased beyond a threshold $V_t$, a conductive channel is formed between the source and drain terminals, which can now conduct current between the source and the drain. The threshold voltage is typically between $0.3V-1.0V$. Any $v_{GS}$ applied beyond $V_t$ is called the \text{overdrive} votlage or \textit{effective} voltage $v_{OV}$.
 
@@ -235,7 +235,7 @@ The drain is always kept at then higher potential than then source. The connecti
     \label{fig:03-mosfet-gate-volt}
 \end{figure}
 
-In Figure~\ref{fig:03-mosfet-gate-volt} no current flows because both the source and drain are grouded. When a drain source voltage is applied, as shown in Figure~\ref{fig:03-mosfet-drainsource-volt}, the MOSFET can be turned on by applying a positive gate voltage $V_{GS}$ with respect to the source. The current flowing through the MOSFET is called the \textit{drain current} $I_D$. The relationship between the drain current $i_D$, the gate-source voltage $V_{GS}$, and the drain-source voltage $V_{DS}$ is given by,
+In Figure~\ref{fig:03-mosfet-gate-volt} no current flows because both the source and drain are grouded. When a drain source voltage is applied, as shown in Figure~\ref{fig:03-mosfet-gate-volt}, the MOSFET can be turned on by applying a positive gate voltage $V_{GS}$ with respect to the source. The current flowing through the MOSFET is called the \textit{drain current} $I_D$. The relationship between the drain current $i_D$, the gate-source voltage $V_{GS}$, and the drain-source voltage $V_{DS}$ is given by,
 \begin{equation}
     i_D = k_n\left(\left(v_{GS} - V_t\right)v_{DS} - \frac{1}{2}v_{DS}^2\right)
     \label{eq03-mosfet-id-vgs}
@@ -481,7 +481,7 @@ In this section we will present the following useful op-amp circuits: (a) invert
     \caption{Opamp inverting amplifier.}
     \label{fig:03-opamp-noninver-amp}
 \end{figure}
-The op-amp buffer is a special case of the non-inverting amplifier, where $R_1 = 0\Omega$ and $R_2 = \infty\Omega$. The output voltage is equal to the input voltage, i.e., $v_{out} = v_{in}$. 
+The op-amp buffer is a special case of the non-inverting amplifier, where $R_2 = 0\Omega$ and $R_1 = \infty\Omega$. The output voltage is equal to the input voltage, i.e., $v_{out} = v_{in}$. 
 
 \subsection{Summing amplifier}
 \begin{figure}[htbp]
