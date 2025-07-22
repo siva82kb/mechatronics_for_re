@@ -15,7 +15,7 @@ The interaction of electromagnetic fields with matters is the basis of all elect
 
 \noindent\textbf{Independent Voltage source.} An Ideal voltage source provides a fixed voltage $V$ between its two terminals, and can provide any amount of current. Notice that the voltage $V$ can be fixed or time varying. For example, for a DC voltage source with $V = 5V$, the voltage across the two terminals will be $5V$ for all time. But for a time varying AC source, $V = 5 \sin \left( 100\pi t \right)$, the voltage across its terminal will vary with time. We will often drop the adjective "independent" when we are sure that the context is clear. We will look at dependent sources later, and we will always use the adjective "dependent" to refer to them.
 
-\noindent \textbf{Independent Current source.} An ideal current source provides a fixed amount of current to flow throgh its terminals (out through one and in through the other), irrespective of the voltage across its terminals. Current sources can also be time-varying.
+\noindent \textbf{Independent Current source.} An ideal current source provides a fixed amount of current to flow through its terminals (out through one and in through the other), irrespective of the voltage across its terminals. Current sources can also be time-varying.
 
 \noindent \textbf{Resistor.} A passive element where the current $i_R$ flowing through the element is proportional to the voltage $v_R$ across its terminals.
 \[ v_R \propto i_R \]
@@ -40,7 +40,7 @@ We will later see non-linear resistors, where the resistance varies as a functio
     \label{eq:02-03}
 \end{equation}
 
-The current $i_C$ through the capacitor is proportional to the rate of change of voltage across its terminals $v_C$. The proportionality factor is called the capacitance $C$, and has units of $F$ (Farads) or $C \cdot V^{-1}$. The voltage across the capacitor at any given time is proportional to the integral of the current flowing through it or the charge stored in the capacitor. The voltage across the capacitor is given by
+The current $i_C$ through the capacitor is proportional to the rate of change of voltage across its terminals $v_C$. The proportionality factor is called the capacitance $C$, and has units of $F$ (Farads) or $C \cdot V^{-1}$. The voltage across the capacitor at any given time is proportional to the integral of the current flowing through it or the charge  $q$ stored in the capacitor. The voltage across the capacitor is given by
 \begin{equation}
     v_C = \frac{q}{C} = \frac{1}{C}\int i_C \, dt
     \label{eq:02-04}
@@ -87,7 +87,7 @@ The five elements alone are not that interesting. But interesting things can be 
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.5\textwidth]{figures/ch02/fig02-02.pdf}
-    \caption{A simple electrical circuit with a voltage sourse, a current source, and a bunch of resistors.}
+    \caption{A simple electrical circuit with a voltage source, a current source, and a bunch of resistors.}
     \label{fig:02-02}
 \end{figure}
 
@@ -182,7 +182,7 @@ result in an equivalent current source $I_{eq}$ given by
 Current sources should not be connected in series; series connections are allowed only when the two sources have the same current and polarity.
 
 \section{Superposition Principle}
-Linear approximations of circuits are often employed as first order approximations when analysing circuits. A linear ciruit is one that consists of linear passive elements, independent sources and linear dependent sources. Linear circuits follow the superposition principle, which states that the response of a linear circuit to a linear combination of inputs is equal to the corresponding linear comibnation of the responses to each input applied separately. Solving the following circuit (Figure~\ref{fig:02-03}) should make this concept clear.
+Linear approximations of circuits are often employed as first order approximations when analysing circuits. A linear circuit is one that consists of linear passive elements, independent sources and linear dependent sources. Linear circuits follow the superposition principle, which states that the response of a linear circuit to a linear combination of inputs is equal to the corresponding linear comibnation of the responses to each input applied separately. Solving the following circuit (Figure~\ref{fig:02-03}) should make this concept clear.
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.65\textwidth]{figures/ch02/fig02-03.pdf}
@@ -367,7 +367,7 @@ $V_C(s)$ and $V_s(s)$ are the Laplace transforms of $v_C(t)$ and $V_s(t)$. Repla
     \frac{L}{R} \frac{di_L}{dt} + i_L = \frac{1}{R}V_s \implies i_L(t) = e^{-tR/L} \left[ i_{L}(0) + \int_0^t \frac{1}{L} e^{\tau R/L} V_s(\tau)\, d\tau \right]
     \label{eq:02-30}
 \end{equation}
-The above euqation gives the general solution for the current through the inductor. The response to an impulse input, step input, sinusoidal input, or any arbitrary $V_s$ can be computed using the above equation. The response for a step input obtained using a fixed sources and a switch is given in Figure~\ref{fig:02-07a}. $\frac{L}{R}$ is the time constant of the circuit, and is a measure of how fast the current through the inductor can chamge; it has the units of time.
+The above euqation gives the general solution for the current through the inductor. The response to an impulse input, step input, sinusoidal input, or any arbitrary $V_s$ can be computed using the above equation. The response for a step input obtained using a fixed sources and a switch is given in Figure~\ref{fig:02-07a}. $\frac{L}{R}$ is the time constant of the circuit, and is a measure of how fast the current through the inductor can change; it has the units of time.
 
 Similarly, applying the Laplace transform, we have,
 \begin{equation}
@@ -383,7 +383,7 @@ Similarly, applying the Laplace transform, we have,
 \begin{figure}[t]
     \centering
     \includegraphics[width=\textwidth]{figures/ch02/fig02-08.pdf}
-    \caption{A simple RLC circuit and the different respones of the circuit when the switch $S$ is closed at time $t = 0$, with  zero initial capacitor voltage and inductor current whent .}
+    \caption{A simple RLC circuit and the different respones of the circuit when the switch $S$ is closed at time $t = 0$, with  zero initial capacitor voltage and inductor current.}
     \label{fig:02-08}
 \end{figure}
 The response of the circuit when the switch is closed at $t=0$ is qualitatively different depending on the values of $R$, $L$ and $C$. This is better understood in the Laplace domain. The Laplace transform of the response $v_c(t)$ is given by,
@@ -466,7 +466,7 @@ The amplitude of the sinusoidal voltage is $\vert Z \vert I_o$, and the phase of
         \label{fig:ex02-04}
     \end{figure}
     
-    \item Figure~\ref{fig:ex02-05} shows a voltage divider circuit with a sinusoidal voltage source $V_s\left(t\right) = 10 \sin\left(1000\pi t\right)$. The impedane $Z_1 = 3 + j4 \Omega$. What should the impedance $Z_2$ be if the the voltage across $Z_2$ has one-fourth the amplitude of $V_s$ and with a phase difference of $45\deg$?
+    \item Figure~\ref{fig:ex02-05} shows a voltage divider circuit with a sinusoidal voltage source $V_s\left(t\right) = 10 \sin\left(1000\pi t\right)$. The impedance $Z_1 = 3 + j4 \Omega$. What should the impedance $Z_2$ be if the the voltage across $Z_2$ has one-fourth the amplitude of $V_s$ and with a phase difference of $45\deg$?
     \begin{figure}[h]
         \centering
         \includegraphics[width=0.35\textwidth]{figures/ch02/ex02-05.pdf}
