@@ -143,7 +143,7 @@ The bipolar junction transistor (BJT) is the first of some of the three terminal
 
 A BJT can be operated in three different modes, depending on the biasing of the terminals. The three modes are: (a) \textbf{Cut-off mode}, (b) \textbf{Active mode}, and (c) \textbf{Saturation mode}. The difference between the three modes are summarized in Table~\ref{tab:03-bjt-modes}.
 \subsection{Cut-off mode}
-In this mode, the emitter-base (EB) and the collector-base (CB) junctions are reverse biased, and not current flows through the transistor.
+In this mode, the emitter-base (EB) and the collector-base (CB) junctions are reverse biased, and no current flows through the transistor.
 \begin{equation}
     I_E = 0 \quad I_B = 0 \quad I_C = 0
     \label{eq:03-bjt-cutoff}
@@ -335,7 +335,7 @@ A voltage regulator is a circuit that maintains a constant voltage across its ou
     \label{fig:03-diode-voltreg1}
 \end{figure}
 
-\noindent\textbf{Zener diode voltage regulator.} A Zener diode is a special type of diode that is designed to operate in the reverse breakdown region, with sufficient power dissipation capability. When a Zener diode is reverse biased, it allows current to flow in the reverse direction when the voltage across it exceeds a certain value, called the \textit{Zener voltage} $V_Z$. This makes it useful for voltage regulation applications. The Zener diode can be used to build a simple voltage regulator circuit as shown in Figure~\ref{fig:03-diode-voltreg2}. The Zener diode is connected in reverse bias in series with a resistor $R_1$ and the input voltage $V_{in}$ is slowly increased.  The current-voltage relationship of the Zener diode ($V_Z$ vs. $I_Z$) is shown in the figure. For now assume that the load resistance $R_L$ is not connected to the the circuit. In this case, the Zener breakdown voltage is $5.1V$, when $V_Z < 5.1V$, hardly any current flows through the Zener diode and $V_Z = V_{in}$. But once $V_{in}$ get closed to $5.1V$, the Zener diode starts to conduct and $V_Z$ clamps to $5.1V$.
+\noindent\textbf{Zener diode voltage regulator.} A Zener diode is a special type of diode that is designed to operate in the reverse breakdown region, with sufficient power dissipation capability. When a Zener diode is reverse biased, it allows current to flow in the reverse direction when the voltage across it exceeds a certain value, called the \textit{Zener voltage} $V_Z$. This makes it useful for voltage regulation applications. The Zener diode can be used to build a simple voltage regulator circuit as shown in Figure~\ref{fig:03-diode-voltreg2}. The Zener diode is connected in reverse bias in series with a resistor $R_1$ and the input voltage $V_{in}$ is slowly increased.  The current-voltage relationship of the Zener diode ($V_Z$ vs. $I_Z$) is shown in the figure. For now assume that the load resistance $R_L$ is not connected to the circuit. In this case, the Zener breakdown voltage is $5.1V$, when $V_Z < 5.1V$, hardly any current flows through the Zener diode and $V_Z = V_{in}$. But once $V_{in}$ get closed to $5.1V$, the Zener diode starts to conduct and $V_Z$ clamps to $5.1V$.
 
 \begin{figure}[htbp]
     \centering
@@ -396,7 +396,7 @@ For non-resistive loads, the analysis is similar, but we must consider the load'
 \end{figure}
 \begin{boxedstuff}
     \begin{example}[\textbf{Switch on/off a solenoid}]
-        Consider a tiny solenoid that switches on at $5V$ across it coil and a current of $0.8A$. We wish to use  a $npn$ BJT to switch the the solenoid ON and OFF by controlling the BJT's base voltage. The circuit for switching the solenoid ON and OFF is shown in Figure~\ref{fig:03-bjt-solenoid}. We will assume that the BJT has a current gain of $\beta = 500$. We need to choose $R_B$ for this circuit assuming that $V_{in}$ is $0V$ or $3.3V$.
+        Consider a tiny solenoid that switches on at $5V$ across it coil and a current of $0.8A$. We wish to use  a $npn$ BJT to switch the solenoid ON and OFF by controlling the BJT's base voltage. The circuit for switching the solenoid ON and OFF is shown in Figure~\ref{fig:03-bjt-solenoid}. We will assume that the BJT has a current gain of $\beta = 500$. We need to choose $R_B$ for this circuit assuming that $V_{in}$ is $0V$ or $3.3V$.
 
         The solenoid has a voltage drop of $5V$ and a current of $0.8A$. When the transistor is in saturation the voltage across the solenoid will be $4.8V$, i.e. close to $5V$ (the solenoid should still work as per the specification). To ensure $0.8A$ flows throught the solenoid, we need to ensure that the base current must be at least $i_B = \frac{i_C}{\beta} = \frac{0.8A}{500} = 1.6mA$. The base current is given by $i_B = \frac{V_{in} - 0.7}{R_B}$, where $V_{in} = 3.3V$. Thus, we have, $R_B = \frac{3.3V - 0.7V}{1.6mA} = 1.625k\Omega$.
 
